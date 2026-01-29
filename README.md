@@ -12,6 +12,8 @@
 
 **Next Step** is a comprehensive SaaS platform designed to streamline the job search process. Built with modern web technologies, it provides job seekers with powerful tools to manage applications, track companies, and organize career documents efficiently.
 
+[![Status](https://img.shields.io/badge/Status-Beta%20%7C%20Refactoring-orange)](https://github.com/B9R9/next-step-frontend)
+
 ### 🎯 Key Features
 
 #### 📊 Application Management
@@ -44,6 +46,36 @@
 - **Localized References** - Translated enums and static data
 - **Vue I18n Integration** - Professional translation management
 
+
+## 🚧 Development Status
+
+This project is **actively under development** and currently in a **refactoring phase**.
+
+### Current Focus Areas
+
+#### 🔄 Code Refactoring in Progress
+- **Component Optimization** - Improving reusability and reducing code duplication
+- **State Management** - Consolidating store patterns and reducing boilerplate
+- **API Service Layer** - Standardizing error handling and response transformation
+- **Code Quality** - Removing technical debt and improving maintainability
+
+#### ✅ Stable Features
+- ✔️ Authentication & session management
+- ✔️ Job application CRUD operations
+- ✔️ Company management
+- ✔️ Multi-language support (i18n)
+- ✔️ Dashboard analytics
+
+#### ⚠️ Known Issues
+- Some components need refactoring for better separation of concerns
+- Inconsistent error handling across some API calls
+- Performance optimization needed for large datasets
+
+### Next Steps
+1. Complete component architecture refactoring
+2. Implement comprehensive unit tests
+3. Optimize bundle size and loading performance
+4. Enhance accessibility (WCAG 2.1 AA compliance)
 ## 💻 Technical Architecture
 
 ### Frontend Stack
