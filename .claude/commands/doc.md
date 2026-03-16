@@ -15,8 +15,19 @@ Generate documentation for a file or module and push it to NextStep-Docs.
 1. Read the target file completely
 2. Identify the file type (page/view, component, store, service, composable, types)
 3. Generate a detailed markdown documentation page
-4. Write the doc to the correct path in `../NextStep-Docs/docs/front/`
+4. Write the doc to the correct path in `../NextStep-Docs/docs/front/` or `../NextStep-Docs/docs/back/` based on the file type
 5. Report what was written and what to review
+6. If the file is a page/view, also list all components, stores, services, and i18n keys it uses for further documentation
+7. If the file is a store, also list all API endpoints it calls for potential service documentation
+8. If the file is a component, also list all props, emits, and slots for potential usage documentation
+9. If the file is a service, also list all endpoints and their details for potential API documentation
+10. If the file is a composable, also list all parameters, return values, and side effects for potential usage documentation
+11. If the file is types, also list all types, interfaces, unions, and enums for potential usage documentation
+12. Ensure every detail is accurate and comes directly from the code — no assumptions or invented details
+13. Follow the provided documentation templates for each file type to ensure consistency and completeness
+14. Document should be written in a way that a new developer can understand the purpose, functionality, and usage of the file without needing to read the code itself, but with all information directly traceable to the code
+15. Document use english and be clear, concise, and specific — avoid vague statements and generalities
+
 
 ---
 
