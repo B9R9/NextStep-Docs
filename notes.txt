@@ -1,0 +1,31 @@
+DONE --> un scroll vers le dans les main views pas necessaeraire sitout tient sur une page
+DONE --> COMPANY MAIN VIEW -> Table availables jobs -> 0 on affiche 0
+DONE --> faire qu il bn est pas possible de scroller quand une dialog est ouverte
+
+DONE --> APPLICATION MAIN VIEW --> Table le status doit etre mieux definis
+DONE --> Create an event pour applications de la meme maniere que Jobs
+
+--> S assurere des notificatiopsn et rappel event defeinri suivant les settings
+
+DONE --> Autoremplissage mot de passe via gestionnaire
+--> COnfimation email pour registraction
+DONE --> Preview event quand on clik sur un event avec possibilite de modifie et supprimer
+
+DONE --> loading se fait via skeleton
+--> Voir si poussivle transition fade in et fade out plus smooth
+
+DONE --> supression acompte
+DONE --> rertart time zon option
+DONE --> se deconnecter apres un certain temps
+DONE --> retirer l colone type du table application
+DONE --> retirer type du form de creatation application
+DONE --> clean preview application
+--> saving du tableau change local puis pour eviter loading a cahque changement
+--> loading via skeleton
+--> reset ne s affiche que si filtre active
+--> Ajuster les filtres dependant des colones de tbales
+DONE --> retirer du form creation application Leave empty if not defined yet
+--> Setting: 
+    migration ??? 
+    Notification active ou pas
+    choix mutilple rappel : le jour meme, 1 jour avant, 2 jour avant, 5 jours avant, 1 semaine avant 

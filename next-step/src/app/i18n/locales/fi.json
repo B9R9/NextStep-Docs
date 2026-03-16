@@ -1,0 +1,635 @@
+{
+  "companies": {
+    "dialog": {
+      "createTitle": "Lisää yritys",
+      "createSubtitle": "Luo yritysprofiili työpaikkojen ja hakemusten seurantaan."
+    },
+    "addButton": "+ Lisää yritys",
+    "allSectors": "Kaikki toimialat",
+    "emptyState": {
+      "description": "Lisää yrityksiä listallesi löytääksesi mahdollisuuksia nopeasti.",
+      "title": "Ei vielä yrityksiä",
+      "button": "Luo yritys"
+    },
+    "aria": {
+      "close": "Sulje yrityksen esikatselu"
+    },
+    "noResults": "Ei tuloksia tälle haulle.",
+    "resetButton": "Tyhjennä",
+    "resultsCount": "{count} yritystä näkyvissä",
+    "searchPlaceholder": "Hae nimellä, toimialalla jne.",
+    "searchEmpty": {
+      "title": "Ei tuloksia tälle haulle.",
+      "subtitle": "Kokeile toista hakusanaa tai muuta suodattimia.",
+      "reset": "Nollaa suodattimet"
+    },
+    "subtitle": "Listasi mahdollisuuksien nopeaan vertailuun.",
+    "table": {
+      "name": "Nimi",
+      "sector": "Toimiala",
+      "size": "Koko",
+      "location": "Sijainti",
+      "actions": "Toiminnot",
+      "socialNetworks": "Sosiaaliset verkostot",
+      "careerPage": "Urasivu",
+      "notes": "Muistiinpanot",
+      "industry": "Toimiala",
+      "availableJobs": "Avoimet työpaikat"
+    },
+    "preview": {
+      "links": "Linkit",
+      "website": "Verkkosivusto",
+      "careerPage": "Urasivu",
+      "social": "Sosiaalinen",
+      "contact": "Yhteystiedot",
+      "contactName": "Nimi",
+      "contactEmail": "Sähköposti",
+      "contactPhone": "Puhelin",
+      "notes": "Muistiinpanot",
+      "profile": "Profiili",
+      "industry": "Toimiala",
+      "size": "Koko",
+      "location": "Sijainti",
+      "stats": "Tilastot",
+      "availableJobs": "Avoimet työpaikat",
+      "totalApplications": "Hakemuksia yhteensä"
+    },
+    "form": {
+      "identity": "Perustiedot",
+      "name": "Nimi",
+      "industry": "Toimiala",
+      "addIndustry": "+ Lisää uusi toimiala",
+      "addIndustryTitle": "Lisää uusi toimiala",
+      "addIndustryLabel": "Toimialan nimi",
+      "addIndustryPlaceholder": "Esim: Fintech",
+      "size": "Koko",
+      "location": "Sijainti",
+      "locationPlaceholder": "Kaupunki, maa",
+      "links": "Linkit",
+      "website": "Verkkosivusto",
+      "careerPage": "Urasivu",
+      "social": "Sosiaalinen media",
+      "contact": "Yhteystiedot",
+      "contactName": "Nimi",
+      "contactEmail": "Sähköposti",
+      "contactPhone": "Puhelin",
+      "notes": "Muistiinpanot"
+    },
+    "title": "Yritykset",
+    "feedback": {
+      "created": "Company created successfully.",
+      "updated": "Company updated successfully.",
+      "deleted": "Company deleted successfully.",
+      "error": "Action failed. Please try again."
+    }
+  },
+  "common": {
+    "cancel": "Peruuta",
+    "close": "Sulje",
+    "delete": "Poista",
+    "edit": "Muokkaa",
+    "save": "Tallenna",
+    "view": "Näytä",
+    "loading": "Ladataan...",
+    "noSelection": "Ei valintaa",
+    "loadError": "Tietojen lataaminen epäonnistui.",
+    "employees": "{count} työntekijä | {count} työntekijää",
+    "no": "Ei",
+    "yes": "Kyllä"
+  },
+  "applications": {
+    "dialog": {
+      "createTitle": "Lisää hakemus",
+      "createSubtitle": "Luo hakemus seurataksesi etenemistä."
+    },
+    "title": "Hakemukset",
+    "subtitle": "Seuraa tiloja, dokumentteja ja deadlineja.",
+    "addButton": "Uusi hakemus",
+    "searchPlaceholder": "Hae hakemuksia...",
+    "resetButton": "Tyhjennä",
+    "resultsCount": "{count} hakemusta näkyvissä",
+    "totalCount": "{count} yhteensä",
+    "yes": "✓",
+    "no": "—",
+    "columns": {
+      "order": "Järjestys",
+      "type": "Tyyppi",
+      "position": "Rooli",
+      "company": "Yritys",
+      "status": "Tila",
+      "applied": "Haettu",
+      "deadline": "Deadline",
+      "cv": "CV",
+      "cl": "CL",
+      "actions": "Toiminnot"
+    },
+    "filters": {
+      "allCompanies": "Kaikki yritykset",
+      "allTypes": "Kaikki tyypit",
+      "allStatus": "Kaikki tilat",
+      "allPeriods": "Kaikki ajanjaksot",
+      "thisMonth": "Tämä kuukausi",
+      "thisQuarter": "Tämä neljännes",
+      "thisYear": "Tämä vuosi"
+    },
+    "status": {
+      "saved": "Tallennettu",
+      "applied": "Haettu",
+      "screening": "Esivalinta",
+      "technical_assessment": "Tekninen arviointi",
+      "interview": "Haastattelu",
+      "final_round": "Loppukierros",
+      "offer_received": "Tarjous saatu",
+      "rejected": "Hylätty",
+      "no_response": "Ei vastausta",
+      "withdrawn": "Peruutettu",
+      "offer_declined": "Tarjous hylätty"
+    },
+    "searchEmpty": {
+      "title": "Ei tuloksia tälle haulle.",
+      "subtitle": "Kokeile toista hakusanaa tai muuta suodattimia."
+    },
+    "preview": {
+      "title": "Hakemuksen esikatselu",
+      "section": "Hakemus",
+      "company": "Yritys",
+      "position": "Rooli",
+      "type": "Tyyppi",
+      "status": "Tila",
+      "dates": "Päivät",
+      "applied": "Haettu",
+      "deadline": "Deadline",
+      "documents": "Dokumentit",
+      "cv": "CV",
+      "cl": "Saatekirje",
+      "yes": "Kyllä",
+      "no": "Ei",
+      "jobLinked": "Liitetty työpaikka",
+      "jobTitle": "Otsikko",
+      "jobMissing": "Työpaikkaa ei löytynyt",
+      "jobLocation": "Sijainti",
+      "jobMode": "Työtapa",
+      "jobContract": "Sopimus",
+      "jobIndustry": "Toimiala",
+      "jobLevel": "Taso"
+    },
+    "form": {
+      "section": "Hakemus",
+      "jobExisting": "Olemassa oleva työpaikka",
+      "jobPlaceholder": "Valitse työpaikka",
+      "jobHelp": "Työpaikan valinta esitäyttää yrityksen, tyypin ja päivämäärät.",
+      "position": "Rooli",
+      "company": "Yritys",
+      "companyPlaceholder": "Valitse yritys",
+      "addCompany": "Lisää uusi yritys",
+      "type": "Tyyppi",
+      "documentsQuestion": "Oletko tehnyt",
+      "cv": "CV",
+      "cl": "Saatekirje",
+      "statusSection": "Tila ja päivämäärät",
+      "status": "Tila",
+      "applied": "Haettu",
+      "deadline": "Deadline",
+      "appliedQuestion": "Oletko jo hakenut?",
+      "dateHint": "Jätä tyhjäksi, jos ei vielä määritelty"
+    },
+    "options": {
+      "type": {
+        "cdi": "Vakituinen",
+        "cdd": "Määräaikainen",
+        "internship": "Harjoittelu",
+        "apprenticeship": "Oppisopimus",
+        "freelance": "Freelance"
+      }
+    },
+    "emptyState": {
+      "title": "Ei vielä hakemuksia",
+      "subtitle": "Luo ensimmäinen hakemus aloittaaksesi seurannan.",
+      "button": "Luo hakemus"
+    },
+    "aria": {
+      "reorder": "Järjestä uudelleen"
+    }
+  },
+  "jobs": {
+    "dialog": {
+      "createTitle": "Lisää työpaikka",
+      "createSubtitle": "Luo työpaikka seurataksesi hakemuksia."
+    },
+    "form": {
+      "identity": "Perustiedot",
+      "position": "Rooli",
+      "company": "Yritys",
+      "companyPlaceholder": "Valitse yritys",
+      "addCompany": "Lisää uusi yritys",
+      "industry": "Toimiala",
+      "languages": "Kielet",
+      "languagesPlaceholder": "Valitse kielet",
+      "addIndustry": "+ Lisää uusi toimiala",
+      "link": "Linkki",
+      "contractSection": "Sopimus",
+      "workMode": "Työtapa",
+      "contract": "Sopimus",
+      "level": "Taso",
+      "location": "Sijainti",
+      "dates": "Päivät",
+      "publishedAt": "Julkaistu",
+      "deadlineAt": "Deadline",
+      "addToCalendar": "Synkronoi kalenteriin",
+      "calendarSyncYes": "Kyllä",
+      "calendarSyncNo": "Ei",
+      "description": "Kuvaus",
+      "requirements": "Vaatimukset",
+      "addIndustryTitle": "Lisää uusi toimiala",
+      "addIndustryLabel": "Toimialan nimi",
+      "addIndustryPlaceholder": "Esim: Fintech",
+      "addIndustryConfirm": "Lisää"
+    },
+    "preview": {
+      "title": "Työpaikan esikatselu",
+      "meta": "Meta",
+      "details": "Tiedot",
+      "company": "Yritys",
+      "contract": "Sopimus",
+      "level": "Taso",
+      "industry": "Toimiala",
+      "workMode": "Työtapa",
+      "location": "Sijainti",
+      "languages": "Kielet",
+      "description": "Kuvaus",
+      "requirements": "Vaatimukset",
+      "dates": "Päivät",
+      "publishedAt": "Julkaistu",
+      "deadlineAt": "Deadline",
+      "link": "Linkki"
+    },
+    "options": {
+      "contract": {
+        "full_time": "Kokoaikainen",
+        "part_time": "Osa-aikainen",
+        "internship": "Harjoittelu",
+        "freelance": "Freelance"
+      },
+      "workMode": {
+        "onsite": "Paikan päällä",
+        "remote": "Etä",
+        "hybrid": "Hybridi"
+      },
+      "level": {
+        "junior": "Junior",
+        "mid": "Mid",
+        "senior": "Senior",
+        "lead": "Lead"
+      },
+      "industry": {
+        "tech": "Teknologia",
+        "finance": "Rahoitus",
+        "saas": "SaaS",
+        "health": "Terveys"
+      }
+    },
+    "searchEmpty": {
+      "title": "Ei tuloksia tälle haulle.",
+      "subtitle": "Kokeile toista hakusanaa tai muuta suodattimia."
+    },
+    "resultsCount": "{count} työpaikkaa näkyvissä",
+    "totalCount": "{count} yhteensä",
+    "title": "Työpaikat",
+    "subtitle": "Seuraa työpaikkoja, tiloja ja deadlineja.",
+    "addButton": "+ Lisää työpaikka",
+    "searchPlaceholder": "Hae työpaikkoja...",
+    "resetButton": "Tyhjennä",
+    "position": "Rooli",
+    "industry": "Toimiala",
+    "location": "Sijainti",
+    "contract": "Sopimus",
+    "published_at": "Julkaistu",
+    "deadline_at": "Deadline",
+    "company": "Yritys",
+    "languages": "Kielet",
+    "link": "Linkki",
+    "actions": "Toiminnot",
+    "actionsMenu": {
+      "createApplication": "Luo hakemus"
+    },
+    "emptyState": {
+      "title": "Ei vielä työpaikkoja",
+      "subtitle": "Lisää ensimmäinen työpaikka aloittaaksesi seurannan.",
+      "button": "Luo työpaikka"
+    }
+  },
+  "languageSelector": {
+    "aria": "Kielivalitsin"
+  },
+  "nav": {
+    "calendar": {
+      "title": "Kalenteri"
+    }
+  },
+  "notifications": {
+    "title": "Ilmoitukset",
+    "count": "{count} yhteensä",
+    "empty": "Ei ilmoituksia vielä.",
+    "loading": "Ladataan ilmoituksia…",
+    "dismiss": "Hylkää"
+  },
+  "settings": {
+    "title": "Asetukset",
+    "subtitle": "Hallitse tiliäsi, asetuksia ja ilmoituksia.",
+    "save": "Tallenna muutokset",
+    "account": {
+      "title": "Tilin hallinta",
+      "subtitle": "Päivitä profiilitiedot ja aikavyöhyke.",
+      "editProfile": "Muokkaa profiilia",
+      "name": "Koko nimi",
+      "email": "Sähköposti",
+      "timezone": "Aikavyöhyke",
+      "changePassword": "Vaihda salasana",
+      "currentPassword": "Nykyinen salasana",
+      "newPassword": "Uusi salasana",
+      "confirmPassword": "Vahvista uusi salasana",
+      "updatePassword": "Päivitä salasana",
+      "deleteAccount": "Poista tili",
+      "deleteDialog": {
+        "title": "Poista tili",
+        "warning": "Tämä toiminto on pysyvä eikä sitä voi peruuttaa. Kaikki tietosi (työpaikat, hakemukset, yritykset, kalenteritapahtumat) poistetaan.",
+        "passwordLabel": "Vahvista salasanasi jatkaaksesi",
+        "confirm": "Poista tilini",
+        "wrongPassword": "Väärä salasana. Yritä uudelleen.",
+        "error": "Tilin poistaminen epäonnistui. Yritä uudelleen."
+      }
+    },
+    "ux": {
+      "title": "UX-personalointi",
+      "subtitle": "Mukauta käyttöliittymä työnkulkuusi."
+    },
+    "notifications": {
+      "title": "Ilmoitusten hallinta",
+      "subtitle": "Valitse, miten haluat saada ilmoituksia."
+    }
+  },
+  "home": {
+    "badges": {
+      "new": "Uusi",
+      "brand": "NextStep"
+    },
+    "heroTitle": "Alusta, joka auttaa jäsentämään hakua.",
+    "heroSubtitle": "Keskitä hakemukset, työpaikat ja tulevat deadlinet rauhalliseen, visuaaliseen tilaan.",
+    "ctaPrimary": "Aloita",
+    "ctaSecondary": "Lue lisää",
+    "cards": {
+      "applications": {
+        "title": "Hakemukset",
+        "body": "Selkeä seuranta"
+      },
+      "jobs": {
+        "title": "Työpaikat",
+        "body": "Järjestetty pipeline"
+      },
+      "calendar": {
+        "title": "Kalenteri",
+        "body": "Näkyvät deadlinet"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Tervetuloa takaisin",
+      "subtitle": "Kirjaudu jatkaaksesi seurantaasi.",
+      "submit": "Kirjaudu",
+      "forgot": "Unohditko salasanan?",
+      "create": "Luo tili"
+    },
+    "create": {
+      "title": "Luo tilisi",
+      "subtitle": "Aloita työpaikkojen ja hakemusten seuranta.",
+      "submit": "Luo tili",
+      "back": "Takaisin kirjautumiseen"
+    },
+    "forgot": {
+      "title": "Nollaa salasanasi",
+      "subtitle": "Lähetämme sinulle palautuslinkin.",
+      "submit": "Lähetä palautuslinkki",
+      "back": "Takaisin kirjautumiseen"
+    },
+    "fields": {
+      "name": "Koko nimi",
+      "email": "Sähköposti",
+      "password": "Salasana",
+      "confirmPassword": "Vahvista salasana"
+    },
+    "side": {
+      "title": "Kasvun työtilasi",
+      "subtitle": "Pidä momentum rauhallisessa, rakenteellisessa tilassa.",
+      "cards": {
+        "track": {
+          "title": "Seuranta",
+          "body": "Seuraa jokaista hakemusta yhdellä silmäyksellä."
+        },
+        "calendar": {
+          "title": "Kalenteri",
+          "body": "Älä missaa deadlineja."
+        },
+        "progress": {
+          "title": "Edistyminen",
+          "body": "Pysy keskittyneenä seuraavaan askeleeseen."
+        }
+      }
+    },
+    "passwordVisibility": {
+      "show": "Näytä salasana",
+      "hide": "Piilota salasana"
+    }
+  },
+  "calendar": {
+    "title": "Kalenteri",
+    "subtitle": "Tuleva aikataulusi yhdellä silmäyksellä.",
+    "prev": "Edellinen kuukausi",
+    "next": "Seuraava kuukausi",
+    "rangeLabel": "Seuraavat {days} päivää",
+    "month": "Kuukausi",
+    "year": "Vuosi",
+    "event": {
+      "deadline": "Deadline · {position} @ {company}",
+      "published": "Julkaistu · {position} @ {company}",
+      "generic": "Kalenteritapahtuma",
+      "applied": "Haettu · {position} @ {company}"
+    },
+    "action": {
+      "add": "Lisää kalenteriin",
+      "remove": "Poista kalenterista"
+    },
+    "form": {
+      "title": "Luo tapahtuma",
+      "add": "Lisää tapahtuma",
+      "name": "Otsikko",
+      "type": "Tyyppi",
+      "description": "Kuvaus",
+      "date": "Päivä",
+      "edit": "Muokkaa tapahtumaa",
+      "create": "Lisää tapahtuma",
+      "openCalendar": "Avaa kalenteri",
+      "types": {
+        "deadline": "Deadline",
+        "event": "Tapahtuma",
+        "published": "Julkaistu"
+      }
+    },
+    "preview": {
+      "viewJob": "Näytä työtarjous",
+      "viewApplication": "Näytä hakemus"
+    },
+    "feedback": {
+      "created": "Tapahtuma luotu onnistuneesti.",
+      "updated": "Tapahtuma päivitetty onnistuneesti.",
+      "deleted": "Tapahtuma poistettu onnistuneesti.",
+      "error": "Kalenteritoiminto epäonnistui. Yritä uudelleen."
+    }
+  },
+  "references": {
+    "industry": {
+      "tech": "Teknologia",
+      "finance": "Rahoitus",
+      "saas": "SaaS",
+      "health": "Terveys",
+      "Technology": "Teknologia",
+      "Finance": "Rahoitus",
+      "SaaS": "SaaS",
+      "Health": "Terveys",
+      "Retail": "Vähittäiskauppa",
+      "Education": "Koulutus",
+      "Energy": "Energia",
+      "Marketing": "Markkinointi",
+      "technology": "Teknologia",
+      "retail": "Vähittäiskauppa",
+      "education": "Koulutus",
+      "energy": "Energia",
+      "marketing": "Markkinointi",
+      "software": "Ohjelmisto",
+      "it-services": "IT-palvelut",
+      "ai": "AI",
+      "data": "Data",
+      "cybersecurity": "Kyberturvallisuus",
+      "cloud": "Cloud",
+      "gaming": "Gaming",
+      "banking": "Banking",
+      "fintech": "Fintech",
+      "insurance": "Insurance",
+      "accounting": "Accounting",
+      "consulting": "Consulting",
+      "ecommerce": "E-commerce",
+      "marketplace": "Marketplace",
+      "consumer-goods": "Consumer Goods",
+      "luxury": "Luxury",
+      "healthcare": "Terveydenhuolto",
+      "biotech": "Biotech",
+      "pharma": "Pharma",
+      "medtech": "MedTech",
+      "life-sciences": "Elämäntieteet",
+      "manufacturing": "Manufacturing",
+      "industrial": "Industrial",
+      "automotive": "Automotive",
+      "aerospace": "Aerospace",
+      "robotics": "Robotics",
+      "electronics": "Electronics",
+      "hardware": "Hardware",
+      "renewable-energy": "Uusiutuva energia",
+      "cleantech": "CleanTech",
+      "utilities": "Utilities",
+      "environment": "Environment",
+      "transport": "Transport",
+      "logistics": "Logistics",
+      "supply-chain": "Toimitusketju",
+      "mobility": "Mobility",
+      "aviation": "Aviation",
+      "maritime": "Maritime",
+      "media": "Media",
+      "advertising": "Advertising",
+      "communication": "Communication",
+      "publishing": "Publishing",
+      "entertainment": "Entertainment",
+      "edtech": "EdTech",
+      "research": "Research",
+      "public-sector": "Julkinen sektori",
+      "government": "Government",
+      "non-profit": "Voittoa tavoittelematon",
+      "real-estate": "Kiinteistöt",
+      "construction": "Construction",
+      "proptech": "PropTech",
+      "architecture": "Architecture",
+      "urban-planning": "Kaupunkisuunnittelu",
+      "hr": "HR",
+      "recruitment": "Recruitment",
+      "staffing": "Staffing",
+      "legal": "Legal",
+      "law": "Law",
+      "professional-services": "Asiantuntijapalvelut",
+      "food": "Food",
+      "foodtech": "FoodTech",
+      "agriculture": "Agriculture",
+      "agritech": "AgriTech",
+      "hospitality": "Hospitality",
+      "tourism": "Tourism"
+    },
+    "contract": {
+      "full_time": "Kokoaikainen",
+      "part_time": "Osa-aikainen",
+      "internship": "Harjoittelu",
+      "freelance": "Freelance"
+    },
+    "workMode": {
+      "onsite": "Paikan päällä",
+      "remote": "Etätyö",
+      "hybrid": "Hybridi"
+    },
+    "level": {
+      "junior": "Junior",
+      "mid": "Keskitaso",
+      "senior": "Senior",
+      "lead": "Lead"
+    },
+    "language": {
+      "en": "Englanti",
+      "fr": "Ranska",
+      "fi": "Suomi",
+      "sv": "Ruotsi"
+    },
+    "size": {
+      "1-10": "1-10",
+      "11-50": "11-50",
+      "50-200": "50-200",
+      "51-200": "51-200",
+      "200-500": "200-500",
+      "201-500": "201-500",
+      "501-1000": "501-1000",
+      "1000-5000": "1000-5000",
+      "1001-5000": "1001-5000",
+      "5001+": "5001+"
+    },
+    "location": {
+      "ny": "New York, NY",
+      "sf": "San Francisco, CA",
+      "la": "Los Angeles, CA",
+      "sea": "Seattle, WA",
+      "aus": "Austin, TX",
+      "bos": "Boston, MA",
+      "chi": "Chicago, IL",
+      "mia": "Miami, FL",
+      "yul": "Montreal, CA",
+      "yyz": "Toronto, CA",
+      "par": "Pariisi, FR",
+      "lys": "Lyon, FR",
+      "bdx": "Bordeaux, FR",
+      "ber": "Berliini, DE",
+      "hel": "Helsinki, FI",
+      "sto": "Tukholma, SE",
+      "lon": "Lontoo, UK",
+      "dub": "Dublin, IE",
+      "ams": "Amsterdam, NL",
+      "lis": "Lissabon, PT",
+      "mad": "Madrid, ES",
+      "mil": "Milano, IT",
+      "remote": "Etätyö"
+    }
+  }
+}

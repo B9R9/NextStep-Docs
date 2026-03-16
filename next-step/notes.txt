@@ -1,0 +1,85 @@
+Debug v1.1.0
+Companies View:
+    mainView:
+    OK    retirer colones: taille
+    OK    retirer drag and drop
+    OK    revoir titre table
+    OK    revoir position total compaanie afficher
+    OK    mettre un filtre par secteur
+    OK    ajouter le sorting des colones
+    OK    revoir backgroundcolor
+    OK    mise en place localisation
+    OK    Changer `nouvelle entreprise` pour `+ nouvelle entreprise`
+    OK    taille d icon pour sorting impact globale
+    emptyState:
+    OK    Besoins d un empty state different quand ce le result d une recherche
+    OK    Flash empty state global. faire comme dans hyperin promise quand fetch on display que quand la promises est resolvue
+    Preview:
+    OK    titre de la modal a revoir
+    OK    ajouter emplyee pour mieux comprendre la taille des entreprises
+    OK    retirer la decon sur le numero
+        ajouter un bouton pour voir les jobs available de cette company
+    Edit:
+    OK    Ajouter un sectuer fait apparaite une petite modal avec un input pour ajouter
+    OK    Taille ne se preselect pas 
+Jobs View:
+    mainView:
+    OK    titre table
+    OK    Ajuster les arrows sorting
+    OK    remove drag and drop
+    OK    localisations
+    OK    plus filtres
+    OK    empty state search
+    OK    loading state
+    OK    retirer les colones Order, Mode, niveau
+    OK    Reorder columns: compagnie en 2 eme
+    OK    Bouger la places du nombres de positions
+    OK    label boutons add jobs
+    OK    actions cree une application doit etre sur une ligne
+    OK    formatge date dans tableau
+    Preview:
+    OK    revoir titre
+    OK    retirer la decoration des lien
+    OK    revoir la structure pour meilleur visibility
+            -> Description et prerequis plsu de place car cela riste d etre long avec un voir plus
+            -> meta sur la droite
+            -> date plus visible dans le header ?
+            -> Code couleur orange quand 2 jours(settings a dfinir) avant fin rouge quand depassé
+        revoir le form pour matcher
+Agenda
+OK
+Notification
+    OK Load from back end list of notification
+settings:
+    KO Gestion de notification:
+        quand active or notification
+    KO Gection des couleurs:
+        definission des coulerus pur persilnnlaisation user
+    OK Gestion du comptes:
+        deconnection, delete account
+Logging
+    OK Logging page
+    OK PAswors reset
+    OK create account
+NavBAr
+    OK connection
+
+-> Autoriser le pre remplie dans les champs
+-> Afficher vers le bas menuAction si 1 ligne
+-> Rule pour proteger champs et DB
+-> quand je chercher a coopier le text dans le table cela declanche la preview
+-> Applications: On definit une date APllied ou dead lien
+    le form et preview doit etre adapte
+    a revoir le table pour meilleur pertinacne
+    quand on change le status
+    quand on cree une application on afficher dans le calendar
+    on fait le message different suivant apllied ou deadline
+-> Mesage dans notificatoons plus adapter
+-> Status rejected pour applications
+-> Preview Application 2* dates
+    encours: reunir ou pas la date avec les dates du jobs ?
+    une fois front fait on regarde le back.
+    Kan j cre´ou edit 1 application -> je save ---< mette a jour le calendar si les dates doit etre ajoute>
+    on suit le status via une variable pour les differente date
+-> Preview Applications Linked job missing link to job evitez info redondant avec application
+-> Pas besoin de data type dans applications
