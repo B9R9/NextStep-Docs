@@ -28,4 +28,5 @@ DONE --> retirer du form creation application Leave empty if not defined yet
 --> Setting: 
     migration ??? 
     Notification active ou pas
-    choix mutilple rappel : le jour meme, 1 jour avant, 2 jour avant, 5 jours avant, 1 semaine avant 
+    choix mutilple rappel : le jour meme, 1 jour avant, 2 jour avant, 5 jours avant, 1 semaine avant
+--> Si mobile faire une page pour dire que la  web n est pas optimiser pour mobile 
