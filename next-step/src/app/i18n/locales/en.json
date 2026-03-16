@@ -1,0 +1,635 @@
+{
+  "companies": {
+    "dialog": {
+      "createTitle": "Add a Company",
+      "createSubtitle": "Create a company profile to track jobs and applications."
+    },
+    "addButton": "+ Add a company",
+    "allSectors": "All sectors",
+    "emptyState": {
+      "description": "Add companies to your shortlist to quickly explore opportunities.",
+      "title": "No companies yet",
+      "button": "Create a company"
+    },
+    "aria": {
+      "close": "Close company preview dialog"
+    },
+    "noResults": "No results for this search.",
+    "resetButton": "Reset",
+    "resultsCount": "{count} companies displayed",
+    "searchPlaceholder": "Search by name, sector, etc.",
+    "searchEmpty": {
+      "title": "No results for this search.",
+      "subtitle": "Try another keyword or adjust the filters.",
+      "reset": "Reset filters"
+    },
+    "subtitle": "Your shortlist to quickly explore opportunities.",
+    "table": {
+      "name": "Name",
+      "sector": "Sector",
+      "size": "Size",
+      "location": "Location",
+      "actions": "Actions",
+      "socialNetworks": "Social networks",
+      "careerPage": "Career page",
+      "notes": "Notes",
+      "industry": "Industry",
+      "availableJobs": "Available jobs"
+    },
+    "preview": {
+      "links": "Links",
+      "website": "Website",
+      "careerPage": "Career page",
+      "social": "Social",
+      "contact": "Contact",
+      "contactName": "Name",
+      "contactEmail": "Email",
+      "contactPhone": "Phone",
+      "notes": "Notes",
+      "profile": "Profile",
+      "industry": "Industry",
+      "size": "Size",
+      "location": "Location",
+      "stats": "Stats",
+      "availableJobs": "Available jobs",
+      "totalApplications": "Total applications"
+    },
+    "form": {
+      "identity": "Identity",
+      "name": "Name",
+      "industry": "Industry",
+      "addIndustry": "+ Add a new industry",
+      "addIndustryTitle": "Add a new industry",
+      "addIndustryLabel": "Industry name",
+      "addIndustryPlaceholder": "Ex: Fintech",
+      "size": "Size",
+      "location": "Location",
+      "locationPlaceholder": "City, country",
+      "links": "Links",
+      "website": "Website",
+      "careerPage": "Career page",
+      "social": "Social networks",
+      "contact": "Contact",
+      "contactName": "Name",
+      "contactEmail": "Email",
+      "contactPhone": "Phone",
+      "notes": "Notes"
+    },
+    "title": "Companies",
+    "feedback": {
+      "created": "Company created successfully.",
+      "updated": "Company updated successfully.",
+      "deleted": "Company deleted successfully.",
+      "error": "Action failed. Please try again."
+    }
+  },
+  "common": {
+    "cancel": "Cancel",
+    "close": "Close",
+    "delete": "Delete",
+    "edit": "Edit",
+    "save": "Save",
+    "view": "View",
+    "loading": "Loading...",
+    "noSelection": "No selection",
+    "loadError": "Failed to load data.",
+    "employees": "{count} employee | {count} employees",
+    "no": "No",
+    "yes": "Yes"
+  },
+  "applications": {
+    "dialog": {
+      "createTitle": "Add an application",
+      "createSubtitle": "Create an application to track its progress."
+    },
+    "title": "Applications",
+    "subtitle": "Track statuses, documents, and deadlines.",
+    "addButton": "New application",
+    "searchPlaceholder": "Search applications...",
+    "resetButton": "Reset",
+    "resultsCount": "{count} applications displayed",
+    "totalCount": "{count} total",
+    "yes": "✓",
+    "no": "—",
+    "columns": {
+      "order": "Order",
+      "type": "Type",
+      "position": "Position",
+      "company": "Company",
+      "status": "Status",
+      "applied": "Applied",
+      "deadline": "Deadline",
+      "cv": "CV",
+      "cl": "CL",
+      "actions": "Actions"
+    },
+    "filters": {
+      "allCompanies": "All companies",
+      "allTypes": "All types",
+      "allStatus": "All statuses",
+      "allPeriods": "All periods",
+      "thisMonth": "This month",
+      "thisQuarter": "This quarter",
+      "thisYear": "This year"
+    },
+    "status": {
+      "saved": "Saved",
+      "applied": "Applied",
+      "screening": "Screening",
+      "technical_assessment": "Technical assessment",
+      "interview": "Interview",
+      "final_round": "Final round",
+      "offer_received": "Offer received",
+      "rejected": "Rejected",
+      "no_response": "No response",
+      "withdrawn": "Withdrawn",
+      "offer_declined": "Offer declined"
+    },
+    "searchEmpty": {
+      "title": "No results for this search.",
+      "subtitle": "Try another keyword or adjust the filters."
+    },
+    "preview": {
+      "title": "Application preview",
+      "section": "Application",
+      "company": "Company",
+      "position": "Position",
+      "type": "Type",
+      "status": "Status",
+      "dates": "Dates",
+      "applied": "Applied date",
+      "deadline": "Deadline to do the application",
+      "documents": "Documents",
+      "cv": "CV",
+      "cl": "CL",
+      "yes": "Yes",
+      "no": "No",
+      "jobLinked": "Linked job",
+      "jobTitle": "Title",
+      "jobMissing": "Job not found",
+      "jobLocation": "Location",
+      "jobMode": "Mode",
+      "jobContract": "Contract",
+      "jobIndustry": "Industry",
+      "jobLevel": "Level"
+    },
+    "form": {
+      "section": "Application",
+      "jobExisting": "Existing job",
+      "jobPlaceholder": "Select a job",
+      "jobHelp": "Selecting a job pre-fills company, type, and dates.",
+      "position": "Position",
+      "company": "Company",
+      "companyPlaceholder": "Select a company",
+      "addCompany": "Add a new company",
+      "type": "Type",
+      "documentsQuestion": "Have you made",
+      "cv": "CV",
+      "cl": "CL",
+      "statusSection": "Status & dates",
+      "status": "Status",
+      "applied": "Applied date",
+      "deadline": "Deadline to do the application",
+      "appliedQuestion": "Have you applied already?",
+      "dateHint": "Leave empty if not defined yet"
+    },
+    "options": {
+      "type": {
+        "cdi": "CDI",
+        "cdd": "CDD",
+        "internship": "Internship",
+        "apprenticeship": "Apprenticeship",
+        "freelance": "Freelance"
+      }
+    },
+    "emptyState": {
+      "title": "No applications yet",
+      "subtitle": "Create your first application to start tracking.",
+      "button": "Create an application"
+    },
+    "aria": {
+      "reorder": "Reorder"
+    }
+  },
+  "jobs": {
+    "dialog": {
+      "createTitle": "Add a Job",
+      "createSubtitle": "Create a job to track its applications."
+    },
+    "form": {
+      "identity": "Identity",
+      "position": "Position",
+      "company": "Company",
+      "companyPlaceholder": "Select a company",
+      "addCompany": "Add a new company",
+      "industry": "Industry",
+      "languages": "Languages",
+      "languagesPlaceholder": "Select languages",
+      "addIndustry": "+ Add a new industry",
+      "link": "Link",
+      "contractSection": "Contract",
+      "workMode": "Work mode",
+      "contract": "Contract",
+      "level": "Level",
+      "location": "Location",
+      "dates": "Dates",
+      "publishedAt": "Published",
+      "deadlineAt": "Deadline",
+      "addToCalendar": "Sync with calendar",
+      "calendarSyncYes": "Yes",
+      "calendarSyncNo": "No",
+      "description": "Description",
+      "requirements": "Requirements",
+      "addIndustryTitle": "Add a new industry",
+      "addIndustryLabel": "Industry name",
+      "addIndustryPlaceholder": "Ex: Fintech",
+      "addIndustryConfirm": "Add"
+    },
+    "preview": {
+      "title": "Job preview",
+      "meta": "Meta",
+      "details": "Details",
+      "company": "Company",
+      "contract": "Contract",
+      "level": "Level",
+      "industry": "Industry",
+      "workMode": "Work mode",
+      "location": "Location",
+      "languages": "Languages",
+      "description": "Description",
+      "requirements": "Requirements",
+      "dates": "Dates",
+      "publishedAt": "Published",
+      "deadlineAt": "Deadline",
+      "link": "Link"
+    },
+    "options": {
+      "contract": {
+        "full_time": "Full time",
+        "part_time": "Part time",
+        "internship": "Internship",
+        "freelance": "Freelance"
+      },
+      "workMode": {
+        "onsite": "Onsite",
+        "remote": "Remote",
+        "hybrid": "Hybrid"
+      },
+      "level": {
+        "junior": "Junior",
+        "mid": "Mid",
+        "senior": "Senior",
+        "lead": "Lead"
+      },
+      "industry": {
+        "tech": "Tech",
+        "finance": "Finance",
+        "saas": "SaaS",
+        "health": "Health"
+      }
+    },
+    "searchEmpty": {
+      "title": "No results for this search.",
+      "subtitle": "Try another keyword or adjust the filters."
+    },
+    "resultsCount": "{count} jobs displayed",
+    "totalCount": "{count} total",
+    "title": "Jobs",
+    "subtitle": "Track job offers, statuses, and deadlines.",
+    "addButton": "+ Add a job",
+    "searchPlaceholder": "Search jobs...",
+    "resetButton": "Reset",
+    "position": "Position",
+    "industry": "Industry",
+    "location": "Location",
+    "contract": "Contract",
+    "published_at": "Published",
+    "deadline_at": "Deadline",
+    "company": "Company",
+    "languages": "Languages",
+    "link": "Link",
+    "actions": "Actions",
+    "actionsMenu": {
+      "createApplication": "Create application"
+    },
+    "emptyState": {
+      "title": "No jobs yet",
+      "subtitle": "Add your first job to start tracking.",
+      "button": "Create a job"
+    }
+  },
+  "languageSelector": {
+    "aria": "Language selector"
+  },
+  "nav": {
+    "calendar": {
+      "title": "Calendar"
+    }
+  },
+  "notifications": {
+    "title": "Notifications",
+    "count": "{count} total",
+    "empty": "No notifications yet.",
+    "loading": "Loading notifications…",
+    "dismiss": "Dismiss"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Manage your account, preferences, and notifications.",
+    "save": "Save changes",
+    "account": {
+      "title": "Account management",
+      "subtitle": "Update your profile details and timezone.",
+      "editProfile": "Edit profile",
+      "name": "Full name",
+      "email": "Email",
+      "timezone": "Timezone",
+      "changePassword": "Change password",
+      "currentPassword": "Current password",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm new password",
+      "updatePassword": "Update password",
+      "deleteAccount": "Delete account",
+      "deleteDialog": {
+        "title": "Delete account",
+        "warning": "This action is permanent and cannot be undone. All your data (jobs, applications, companies, calendar events) will be deleted.",
+        "passwordLabel": "Confirm your password to continue",
+        "confirm": "Delete my account",
+        "wrongPassword": "Incorrect password. Please try again.",
+        "error": "Failed to delete account. Please try again."
+      }
+    },
+    "ux": {
+      "title": "UX personalization",
+      "subtitle": "Tune the interface to your workflow."
+    },
+    "notifications": {
+      "title": "Notification management",
+      "subtitle": "Choose how you want to be notified."
+    }
+  },
+  "home": {
+    "badges": {
+      "new": "New",
+      "brand": "NextStep"
+    },
+    "heroTitle": "The platform to structure your search.",
+    "heroSubtitle": "Centralize applications, jobs, and upcoming deadlines in a calm, visual space.",
+    "ctaPrimary": "Get started",
+    "ctaSecondary": "Learn more",
+    "cards": {
+      "applications": {
+        "title": "Applications",
+        "body": "Clear tracking"
+      },
+      "jobs": {
+        "title": "Jobs",
+        "body": "Organized pipeline"
+      },
+      "calendar": {
+        "title": "Calendar",
+        "body": "Visible deadlines"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome back",
+      "subtitle": "Sign in to keep tracking your growth.",
+      "submit": "Sign in",
+      "forgot": "Forgot password?",
+      "create": "Create account"
+    },
+    "create": {
+      "title": "Create your account",
+      "subtitle": "Start tracking jobs and applications today.",
+      "submit": "Create account",
+      "back": "Back to login"
+    },
+    "forgot": {
+      "title": "Reset your password",
+      "subtitle": "We will send you a reset link.",
+      "submit": "Send reset link",
+      "back": "Back to login"
+    },
+    "fields": {
+      "name": "Full name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm password"
+    },
+    "side": {
+      "title": "Your growth workspace",
+      "subtitle": "Keep the momentum with a calm, structured space.",
+      "cards": {
+        "track": {
+          "title": "Track",
+          "body": "Follow every application at a glance."
+        },
+        "calendar": {
+          "title": "Calendar",
+          "body": "Never miss a deadline."
+        },
+        "progress": {
+          "title": "Progress",
+          "body": "Stay focused on the next step."
+        }
+      }
+    },
+    "passwordVisibility": {
+      "show": "Show password",
+      "hide": "Hide password"
+    }
+  },
+  "calendar": {
+    "title": "Calendar",
+    "subtitle": "Your upcoming schedule at a glance.",
+    "prev": "Previous month",
+    "next": "Next month",
+    "rangeLabel": "Next {days} days",
+    "month": "Month",
+    "year": "Year",
+    "event": {
+      "deadline": "Deadline · {position} at {company}",
+      "published": "Published · {position} at {company}",
+      "generic": "Calendar event",
+      "applied": "Applied · {position} at {company}"
+    },
+    "action": {
+      "add": "Add to calendar",
+      "remove": "Remove from calendar"
+    },
+    "form": {
+      "title": "Create an event",
+      "add": "Add an event",
+      "name": "Title",
+      "type": "Type",
+      "description": "Description",
+      "date": "Date",
+      "edit": "Edit event",
+      "create": "Add event",
+      "openCalendar": "Open calendar",
+      "types": {
+        "deadline": "Deadline",
+        "event": "Event",
+        "published": "Published"
+      }
+    },
+    "preview": {
+      "viewJob": "View job",
+      "viewApplication": "View application"
+    },
+    "feedback": {
+      "created": "Event created successfully.",
+      "updated": "Event updated successfully.",
+      "deleted": "Event deleted successfully.",
+      "error": "Calendar action failed. Please try again."
+    }
+  },
+  "references": {
+    "industry": {
+      "tech": "Tech",
+      "finance": "Finance",
+      "saas": "SaaS",
+      "health": "Health",
+      "Technology": "Technology",
+      "Finance": "Finance",
+      "SaaS": "SaaS",
+      "Health": "Health",
+      "Retail": "Retail",
+      "Education": "Education",
+      "Energy": "Energy",
+      "Marketing": "Marketing",
+      "technology": "Technology",
+      "retail": "Retail",
+      "education": "Education",
+      "energy": "Energy",
+      "marketing": "Marketing",
+      "software": "Software",
+      "it-services": "IT Services",
+      "ai": "AI",
+      "data": "Data",
+      "cybersecurity": "Cybersecurity",
+      "cloud": "Cloud",
+      "gaming": "Gaming",
+      "banking": "Banking",
+      "fintech": "Fintech",
+      "insurance": "Insurance",
+      "accounting": "Accounting",
+      "consulting": "Consulting",
+      "ecommerce": "E-commerce",
+      "marketplace": "Marketplace",
+      "consumer-goods": "Consumer Goods",
+      "luxury": "Luxury",
+      "healthcare": "Healthcare",
+      "biotech": "Biotech",
+      "pharma": "Pharma",
+      "medtech": "MedTech",
+      "life-sciences": "Life Sciences",
+      "manufacturing": "Manufacturing",
+      "industrial": "Industrial",
+      "automotive": "Automotive",
+      "aerospace": "Aerospace",
+      "robotics": "Robotics",
+      "electronics": "Electronics",
+      "hardware": "Hardware",
+      "renewable-energy": "Renewable Energy",
+      "cleantech": "CleanTech",
+      "utilities": "Utilities",
+      "environment": "Environment",
+      "transport": "Transport",
+      "logistics": "Logistics",
+      "supply-chain": "Supply Chain",
+      "mobility": "Mobility",
+      "aviation": "Aviation",
+      "maritime": "Maritime",
+      "media": "Media",
+      "advertising": "Advertising",
+      "communication": "Communication",
+      "publishing": "Publishing",
+      "entertainment": "Entertainment",
+      "edtech": "EdTech",
+      "research": "Research",
+      "public-sector": "Public Sector",
+      "government": "Government",
+      "non-profit": "Non-profit",
+      "real-estate": "Real Estate",
+      "construction": "Construction",
+      "proptech": "PropTech",
+      "architecture": "Architecture",
+      "urban-planning": "Urban Planning",
+      "hr": "HR",
+      "recruitment": "Recruitment",
+      "staffing": "Staffing",
+      "legal": "Legal",
+      "law": "Law",
+      "professional-services": "Professional Services",
+      "food": "Food",
+      "foodtech": "FoodTech",
+      "agriculture": "Agriculture",
+      "agritech": "AgriTech",
+      "hospitality": "Hospitality",
+      "tourism": "Tourism"
+    },
+    "contract": {
+      "full_time": "Full time",
+      "part_time": "Part time",
+      "internship": "Internship",
+      "freelance": "Freelance"
+    },
+    "workMode": {
+      "onsite": "Onsite",
+      "remote": "Remote",
+      "hybrid": "Hybrid"
+    },
+    "level": {
+      "junior": "Junior",
+      "mid": "Mid",
+      "senior": "Senior",
+      "lead": "Lead"
+    },
+    "language": {
+      "en": "English",
+      "fr": "French",
+      "fi": "Finnish",
+      "sv": "Swedish"
+    },
+    "size": {
+      "1-10": "1-10",
+      "11-50": "11-50",
+      "50-200": "50-200",
+      "51-200": "51-200",
+      "200-500": "200-500",
+      "201-500": "201-500",
+      "501-1000": "501-1000",
+      "1000-5000": "1000-5000",
+      "1001-5000": "1001-5000",
+      "5001+": "5001+"
+    },
+    "location": {
+      "ny": "New York, NY",
+      "sf": "San Francisco, CA",
+      "la": "Los Angeles, CA",
+      "sea": "Seattle, WA",
+      "aus": "Austin, TX",
+      "bos": "Boston, MA",
+      "chi": "Chicago, IL",
+      "mia": "Miami, FL",
+      "yul": "Montreal, CA",
+      "yyz": "Toronto, CA",
+      "par": "Paris, FR",
+      "lys": "Lyon, FR",
+      "bdx": "Bordeaux, FR",
+      "ber": "Berlin, DE",
+      "hel": "Helsinki, FI",
+      "sto": "Stockholm, SE",
+      "lon": "London, UK",
+      "dub": "Dublin, IE",
+      "ams": "Amsterdam, NL",
+      "lis": "Lisbon, PT",
+      "mad": "Madrid, ES",
+      "mil": "Milan, IT",
+      "remote": "Remote"
+    }
+  }
+}

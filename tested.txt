@@ -1,0 +1,15 @@
+Settings:
+    Save
+    update
+    delete account
+login:
+    create account
+    sign in
+nav:
+    log out
+Company:
+    creation quand pas de company
+    creation depuis +add
+    delete company
+    
+

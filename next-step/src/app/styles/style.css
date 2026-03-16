@@ -1,0 +1,479 @@
+/* =========================================================
+   NextStep – Human Growth / Maker Energy (Organic)
+   Tailwind v4 (CSS-first)
+   - Warm paper background, ink text, clay + sage accents
+   - Minimal gradients, more "material" feel
+   - Mobile-first, calm but energetic
+   ========================================================= */
+
+@import "tailwindcss";
+
+/* -----------------------------
+   1) THEME TOKENS
+   ----------------------------- */
+@theme {
+  /* Fonts: feel more human than Inter-only */
+  --font-sans: "Fraunces", "Manrope", Inter, ui-sans-serif, system-ui;
+  --font-ui: "Manrope", Inter, ui-sans-serif, system-ui;
+
+  /* Radius */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+
+  /* Motion (soft, organic) */
+  --ease-organic: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 120ms;
+  --duration-base: 180ms;
+  --duration-slow: 260ms;
+
+  /* Shadows (grounded, not floaty) */
+  --shadow-paper: 0 1px 0 rgba(25, 15, 10, 0.06), 0 10px 20px rgba(25, 15, 10, 0.06);
+  --shadow-press: 0 0px 0 rgba(25, 15, 10, 0.00), 0 6px 14px rgba(25, 15, 10, 0.07);
+
+  /* Base surfaces (warm, organic) */
+  --color-bg: #fbf7f0;        /* warm paper */
+  --color-surface: #ffffff;   /* clean card */
+  --color-surface-2: #fffaf2; /* subtle warm panel */
+  --color-text: #1f2a2e;      /* ink */
+  --color-muted: #6b7280;     /* calm secondary */
+  --color-border: #e7dccd;    /* warm border */
+
+  /* Organic accents */
+  --color-clay: #d46a4c;      /* clay/terracotta */
+  --color-sage: #3b8f7a;      /* sage / growth */
+  --color-ink: #234e70;       /* deep ink (links, focus alternative) */
+  --color-sun: #e7b84b;       /* warm highlight */
+  --color-rose: #b84a3a;      /* calm error */
+
+  /* Primary semantic mapping */
+  --color-primary: var(--color-clay);
+  --color-success: var(--color-sage);
+  --color-focus: var(--color-ink);
+  --color-warning: var(--color-sun);
+  --color-danger: var(--color-rose);
+
+  /* Soft tints */
+  --color-primary-soft: #fff0ea;
+  --color-success-soft: #eaf6f1;
+  --color-warning-soft: #fff7df;
+  --color-danger-soft: #fdeceb;
+
+  /* Lines & highlights */
+  --ring: 0 0 0 4px rgba(35, 78, 112, 0.18); /* ink ring */
+}
+
+/* -----------------------------
+   2) BASE
+   ----------------------------- */
+@layer base {
+  html {
+    font-family: var(--font-ui);
+    background: var(--color-bg);
+    color: var(--color-text);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    min-height: 100dvh;
+  }
+
+  /* Titles feel more "crafted" */
+  h1, h2, h3 {
+    font-family: var(--font-sans);
+    letter-spacing: -0.01em;
+  }
+
+  /* Warm dark mode (charcoal, not pure black) */
+  .dark {
+    --color-bg: #141211;
+    --color-surface: #1b1816;
+    --color-surface-2: #201c19;
+    --color-text: #f2eee9;
+    --color-muted: #b3aaa2;
+    --color-border: rgba(255, 255, 255, 0.10);
+
+    --color-primary-soft: rgba(212, 106, 76, 0.16);
+    --color-success-soft: rgba(59, 143, 122, 0.16);
+    --color-warning-soft: rgba(231, 184, 75, 0.16);
+    --color-danger-soft: rgba(184, 74, 58, 0.16);
+
+    --ring: 0 0 0 4px rgba(231, 184, 75, 0.18); /* sun ring in dark */
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 3px;
+    border-radius: 12px;
+  }
+
+  ::selection {
+    background: rgba(212, 106, 76, 0.22);
+  }
+}
+
+/* -----------------------------
+   3) COMPONENTS
+   ----------------------------- */
+@layer components {
+  /* Container */
+  .ns-container {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+  }
+
+  /* Organic page background pattern (optional)
+     Add class "ns-grain" on a wrapper if you want texture. */
+  .ns-grain {
+    position: relative;
+  }
+  .ns-grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06; /* subtle */
+    mix-blend-mode: multiply;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.30) 0.5px, transparent 0.6px),
+      radial-gradient(circle at 80% 30%, rgba(0,0,0,0.25) 0.5px, transparent 0.6px),
+      radial-gradient(circle at 40% 80%, rgba(0,0,0,0.22) 0.5px, transparent 0.6px);
+    background-size: 22px 22px;
+  }
+  .dark .ns-grain::before {
+    opacity: 0.08;
+    mix-blend-mode: screen;
+  }
+
+  /* Card: paper feel, not glossy */
+  .ns-card {
+    padding: 1.25rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-paper);
+    transition:
+      transform var(--duration-base) var(--ease-organic),
+      box-shadow var(--duration-base) var(--ease-organic),
+      border-color var(--duration-base) var(--ease-organic);
+  }
+
+  .ns-card:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-press);
+    border-color: color-mix(in oklab, var(--color-border) 70%, var(--color-text) 30%);
+  }
+
+  .ns-card-body { @apply p-5 sm:p-6; }
+
+  .ns-card-title { @apply text-lg font-semibold; }
+
+  .ns-card-subtitle {
+    @apply text-sm mt-1;
+    color: var(--color-muted);
+  }
+
+  /* Section banner (a nice organic top block) */
+  .ns-banner {
+    @apply p-4 sm:p-5 border;
+    background: var(--color-surface-2);
+    border-color: var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .ns-card-sub {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.ns-kv {
+  display: grid;
+  gap: .6rem;
+}
+
+.ns-kv-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: .75rem;
+  align-items: center;
+}
+
+.ns-k {
+  font-size: .75rem;
+  color: var(--color-muted);
+}
+
+.ns-v {
+  font-size: .875rem;
+}
+
+
+  /* Buttons: clay + ink, with “pressed” feel */
+  .ns-btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-semibold;
+    border-radius: var(--radius-md);
+    transition:
+      transform var(--duration-fast) var(--ease-organic),
+      background var(--duration-base) var(--ease-organic),
+      border-color var(--duration-base) var(--ease-organic),
+      box-shadow var(--duration-base) var(--ease-organic),
+      color var(--duration-base) var(--ease-organic);
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .ns-btn:active { transform: translateY(1px); }
+
+  .ns-btn-primary {
+    background: var(--color-primary);
+    color: #fff;
+    box-shadow: 0 10px 18px rgba(212, 106, 76, 0.22);
+  }
+  .ns-btn-primary:hover {
+    background: color-mix(in oklab, var(--color-primary) 88%, #000 12%);
+    box-shadow: 0 12px 22px rgba(212, 106, 76, 0.26);
+  }
+
+  .ns-btn-secondary {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+  }
+  .ns-btn-secondary:hover {
+    background: color-mix(in oklab, var(--color-surface) 92%, var(--color-text) 8%);
+    border-color: color-mix(in oklab, var(--color-border) 70%, var(--color-text) 30%);
+  }
+
+  .ns-btn-ghost {
+    background: transparent;
+    color: var(--color-text);
+  }
+  .ns-btn-ghost:hover {
+    background: color-mix(in oklab, var(--color-surface) 88%, var(--color-text) 12%);
+  }
+
+  .ns-btn:disabled,
+  .ns-btn[aria-disabled="true"] {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Inputs: warm, friendly focus */
+  .ns-input {
+    @apply w-full px-3 py-2 text-sm;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    transition:
+      border-color var(--duration-base) var(--ease-organic),
+      box-shadow var(--duration-base) var(--ease-organic),
+      background var(--duration-base) var(--ease-organic);
+  }
+
+  .ns-input::placeholder { color: color-mix(in oklab, var(--color-muted) 85%, #fff 15%); }
+
+  .ns-input:focus {
+    outline: none;
+    border-color: color-mix(in oklab, var(--color-focus) 60%, var(--color-border) 40%);
+    box-shadow: var(--ring);
+  }
+
+  .ns-textarea {
+    @apply w-full px-3 py-2 text-sm border min-h-28 resize-y;
+    background: var(--color-surface-2);
+    border-color: var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    transition:
+      border-color var(--duration-base) var(--ease-organic),
+      box-shadow var(--duration-base) var(--ease-organic),
+      background var(--duration-base) var(--ease-organic);
+  }
+
+  .ns-textarea::placeholder { color: color-mix(in oklab, var(--color-muted) 85%, #fff 15%); }
+
+  .ns-textarea:focus {
+    outline: none;
+    border-color: color-mix(in oklab, var(--color-focus) 60%, var(--color-border) 40%);
+    box-shadow: var(--ring);
+  }
+
+  /* Badges: earthy pills */
+  .ns-badge {
+    @apply inline-flex items-center gap-1 px-3 py-1 text-xs font-semibold border;
+    border-radius: 999px;
+    background: var(--color-surface-2);
+    border-color: var(--color-border);
+    color: var(--color-text);
+  }
+
+  .ns-badge-primary {
+    background: var(--color-primary-soft);
+    border-color: color-mix(in oklab, var(--color-primary) 28%, var(--color-border) 72%);
+    color: color-mix(in oklab, var(--color-primary) 70%, var(--color-text) 30%);
+  }
+  .ns-badge-success {
+    background: var(--color-success-soft);
+    border-color: color-mix(in oklab, var(--color-success) 28%, var(--color-border) 72%);
+    color: color-mix(in oklab, var(--color-success) 70%, var(--color-text) 30%);
+  }
+  .ns-badge-warning {
+    background: var(--color-warning-soft);
+    border-color: color-mix(in oklab, var(--color-warning) 28%, var(--color-border) 72%);
+    color: color-mix(in oklab, var(--color-warning) 70%, var(--color-text) 30%);
+  }
+  .ns-badge-danger {
+    background: var(--color-danger-soft);
+    border-color: color-mix(in oklab, var(--color-danger) 28%, var(--color-border) 72%);
+    color: color-mix(in oklab, var(--color-danger) 70%, var(--color-text) 30%);
+  }
+
+  /* Links */
+  .ns-link {
+    color: var(--color-focus);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    text-decoration-color: color-mix(in oklab, var(--color-focus) 35%, transparent 65%);
+    transition: text-decoration-color var(--duration-base) var(--ease-organic),
+      color var(--duration-base) var(--ease-organic);
+  }
+  .ns-link:hover {
+    text-decoration-color: color-mix(in oklab, var(--color-focus) 65%, transparent 35%);
+  }
+
+  /* Progress: growth vibe (sage → clay) */
+  .ns-progress {
+    @apply h-2 w-full overflow-hidden border;
+    border-radius: 999px;
+    background: color-mix(in oklab, var(--color-surface) 75%, var(--color-border) 25%);
+    border-color: var(--color-border);
+  }
+  .ns-progress > span {
+    @apply block h-full;
+    background: linear-gradient(90deg, var(--color-success), var(--color-primary));
+    transition: width var(--duration-slow) var(--ease-organic);
+  }
+
+  /* Mobile bottom action bar (warm glass) */
+  .ns-bottom-bar {
+    @apply fixed bottom-0 left-0 right-0 z-50 border-t sm:hidden;
+    background: rgba(255, 250, 242, 0.86);
+    border-color: var(--color-border);
+    backdrop-filter: blur(14px);
+  }
+  .dark .ns-bottom-bar {
+    background: rgba(32, 28, 25, 0.82);
+  }
+  .ns-bottom-bar-inner {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+    @apply flex items-center justify-between gap-2 py-3;
+  }
+}
+
+/* -----------------------------
+   4) UTILITIES
+   ----------------------------- */
+@layer utilities {
+  .bg-bg { background: var(--color-bg); }
+  .bg-surface { background: var(--color-surface); }
+  .bg-surface-2 { background: var(--color-surface-2); }
+
+  .text-text { color: var(--color-text); }
+  .text-muted { color: var(--color-muted); }
+
+  .border-border { border-color: var(--color-border); }
+
+  .shadow-paper { box-shadow: var(--shadow-paper); }
+
+  .radius-sm { border-radius: var(--radius-sm); }
+  .radius-md { border-radius: var(--radius-md); }
+  .radius-lg { border-radius: var(--radius-lg); }
+}
+
+/* -----------------------------
+   NAVBAR – Human / Maker Energy
+   ----------------------------- */
+.ns-nav {
+  background: color-mix(in oklab, var(--color-surface) 92%, var(--color-bg) 8%);
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(12px);
+}
+
+/* Logo block */
+.ns-logo {
+  height: 40px;
+  width: 40px;
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-warning)
+  );
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 18px rgba(212, 106, 76, 0.35);
+}
+
+/* Navigation links */
+.ns-nav-link {
+  position: relative;
+  color: var(--color-text);
+  padding: 4px 0;
+  transition: color var(--duration-fast) var(--ease-organic);
+}
+
+.ns-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-success)
+  );
+  border-radius: 999px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-base) var(--ease-organic);
+}
+
+.ns-nav-link:hover {
+  color: var(--color-primary);
+}
+
+.ns-nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Active state */
+.ns-nav-link.active {
+  color: var(--color-primary);
+}
+
+.ns-nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* Dark mode adjustments */
+.dark .ns-nav {
+  background: color-mix(in oklab, var(--color-surface) 90%, #000 10%);
+}
+
+.dark .ns-logo {
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.45);
+}
+

@@ -1,0 +1,38 @@
+PHASE 1:
+    Sync wiht Google
+    Encouragement
+        message pour encourager les candidats
+        REQUIREMENT: CHOIX LLM
+
+PHASE 2: Agent job tracker
+    a partir des site web rensigner dans compagnies on va aller chercher les postes
+    de maniere periodique et les ajouter dans la db
+    l user est notifie a chaque ajout ou retrait 
+    REQUIREMENT: CHOIX LLM
+
+    SOUS-PHASE:
+        2.1 = agent pour creer les applications quand un job est ajoutee
+        REQUIREMENT: usage LLM pour creer CV et CL
+
+PHASE 3: Creation de CV - CL
+    l user peut creer et defini les parametre de creation pour ces CV et CL
+    il peut choisir entre differente templates
+
+    SOUS-PHASE: 
+        3.1 = Incorporation LLM pour ecriture et correction
+            L user cree sa cover avec des questions (plus personnel) ou pas
+
+PHASE 4: Profilage User - profilage Job - Matching
+
+PHASE 5: Recruiter interface + gestion des candidatures
+    SOUS-PHASE:
+        5.1 = Creation des tests pour valider, etre certifie favoriser la confiance
+
+PHASE 6: Development personnel
+    CHATBOT:    comprendre et ameliorer ses candidatures
+                definir plan de progression vers un goal
+    PORTAIL FO: les users on acces a des formations pour leur permettre de se developper
+                leur projets
+
+PHASE 7: Conection et communiquation
+    Creation d un systeme de communication entre applicant et recruiter

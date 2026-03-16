@@ -1,0 +1,635 @@
+{
+  "companies": {
+    "dialog": {
+      "createTitle": "Lägg till ett företag",
+      "createSubtitle": "Skapa en företagsprofil för att följa jobb och ansökningar."
+    },
+    "addButton": "+ Lägg till ett företag",
+    "allSectors": "Alla branscher",
+    "emptyState": {
+      "description": "Lägg till företag i din lista för att snabbt utforska möjligheter.",
+      "title": "Inga företag ännu",
+      "button": "Skapa ett företag"
+    },
+    "aria": {
+      "close": "Stäng företagets förhandsgranskning"
+    },
+    "noResults": "Inga resultat för denna sökning.",
+    "resetButton": "Återställ",
+    "resultsCount": "{count} företag visas",
+    "searchPlaceholder": "Sök efter namn, bransch osv.",
+    "searchEmpty": {
+      "title": "Inga resultat för denna sökning.",
+      "subtitle": "Prova ett annat sökord eller justera filtren.",
+      "reset": "Återställ filter"
+    },
+    "subtitle": "Din shortlist för att snabbt utforska möjligheter.",
+    "table": {
+      "name": "Namn",
+      "sector": "Bransch",
+      "size": "Storlek",
+      "location": "Plats",
+      "actions": "Åtgärder",
+      "socialNetworks": "Sociala nätverk",
+      "careerPage": "Karriärsida",
+      "notes": "Anteckningar",
+      "industry": "Bransch",
+      "availableJobs": "Lediga jobb"
+    },
+    "preview": {
+      "links": "Länkar",
+      "website": "Webbplats",
+      "careerPage": "Karriärsida",
+      "social": "Socialt",
+      "contact": "Kontakt",
+      "contactName": "Namn",
+      "contactEmail": "E-post",
+      "contactPhone": "Telefon",
+      "notes": "Anteckningar",
+      "profile": "Profil",
+      "industry": "Bransch",
+      "size": "Storlek",
+      "location": "Plats",
+      "stats": "Statistik",
+      "availableJobs": "Lediga jobb",
+      "totalApplications": "Totalt antal ansökningar"
+    },
+    "form": {
+      "identity": "Identitet",
+      "name": "Namn",
+      "industry": "Bransch",
+      "addIndustry": "+ Lägg till ny bransch",
+      "addIndustryTitle": "Lägg till ny bransch",
+      "addIndustryLabel": "Branschens namn",
+      "addIndustryPlaceholder": "Ex: Fintech",
+      "size": "Storlek",
+      "location": "Plats",
+      "locationPlaceholder": "Stad, land",
+      "links": "Länkar",
+      "website": "Webbplats",
+      "careerPage": "Karriärsida",
+      "social": "Sociala nätverk",
+      "contact": "Kontakt",
+      "contactName": "Namn",
+      "contactEmail": "E-post",
+      "contactPhone": "Telefon",
+      "notes": "Anteckningar"
+    },
+    "title": "Företag",
+    "feedback": {
+      "created": "Company created successfully.",
+      "updated": "Company updated successfully.",
+      "deleted": "Company deleted successfully.",
+      "error": "Action failed. Please try again."
+    }
+  },
+  "common": {
+    "cancel": "Avbryt",
+    "close": "Stäng",
+    "delete": "Ta bort",
+    "edit": "Redigera",
+    "save": "Spara",
+    "view": "Visa",
+    "loading": "Laddar...",
+    "noSelection": "Ingen markering",
+    "loadError": "Det gick inte att ladda data.",
+    "employees": "{count} anställd | {count} anställda",
+    "no": "Nej",
+    "yes": "Ja"
+  },
+  "applications": {
+    "dialog": {
+      "createTitle": "Lägg till en ansökan",
+      "createSubtitle": "Skapa en ansökan för att följa dess framsteg."
+    },
+    "title": "Ansökningar",
+    "subtitle": "Följ status, dokument och deadlines.",
+    "addButton": "Ny ansökan",
+    "searchPlaceholder": "Sök ansökningar...",
+    "resetButton": "Återställ",
+    "resultsCount": "{count} ansökningar visas",
+    "totalCount": "{count} totalt",
+    "yes": "✓",
+    "no": "—",
+    "columns": {
+      "order": "Ordning",
+      "type": "Typ",
+      "position": "Tjänst",
+      "company": "Företag",
+      "status": "Status",
+      "applied": "Skickad",
+      "deadline": "Deadline",
+      "cv": "CV",
+      "cl": "CL",
+      "actions": "Åtgärder"
+    },
+    "filters": {
+      "allCompanies": "Alla företag",
+      "allTypes": "Alla typer",
+      "allStatus": "Alla statusar",
+      "allPeriods": "Alla perioder",
+      "thisMonth": "Denna månad",
+      "thisQuarter": "Detta kvartal",
+      "thisYear": "Detta år"
+    },
+    "status": {
+      "saved": "Sparad",
+      "applied": "Ansökt",
+      "screening": "Urval",
+      "technical_assessment": "Teknisk bedömning",
+      "interview": "Intervju",
+      "final_round": "Slutomgång",
+      "offer_received": "Erbjudande mottaget",
+      "rejected": "Avvisad",
+      "no_response": "Inget svar",
+      "withdrawn": "Återkallad",
+      "offer_declined": "Erbjudande avböjt"
+    },
+    "searchEmpty": {
+      "title": "Inga resultat för denna sökning.",
+      "subtitle": "Prova ett annat sökord eller justera filtren."
+    },
+    "preview": {
+      "title": "Förhandsgranskning av ansökan",
+      "section": "Ansökan",
+      "company": "Företag",
+      "position": "Tjänst",
+      "type": "Typ",
+      "status": "Status",
+      "dates": "Datum",
+      "applied": "Skickad",
+      "deadline": "Deadline",
+      "documents": "Dokument",
+      "cv": "CV",
+      "cl": "Personligt brev",
+      "yes": "Ja",
+      "no": "Nej",
+      "jobLinked": "Kopplat jobb",
+      "jobTitle": "Titel",
+      "jobMissing": "Jobb hittades inte",
+      "jobLocation": "Plats",
+      "jobMode": "Arbetsform",
+      "jobContract": "Avtal",
+      "jobIndustry": "Bransch",
+      "jobLevel": "Nivå"
+    },
+    "form": {
+      "section": "Ansökan",
+      "jobExisting": "Befintligt jobb",
+      "jobPlaceholder": "Välj ett jobb",
+      "jobHelp": "Om du väljer ett jobb fylls företag, typ och datum i.",
+      "position": "Tjänst",
+      "company": "Företag",
+      "companyPlaceholder": "Välj ett företag",
+      "addCompany": "Lägg till nytt företag",
+      "type": "Typ",
+      "documentsQuestion": "Har du gjort",
+      "cv": "CV",
+      "cl": "Personligt brev",
+      "statusSection": "Status och datum",
+      "status": "Status",
+      "applied": "Skickad",
+      "deadline": "Deadline",
+      "appliedQuestion": "Har du redan sökt?",
+      "dateHint": "Lämna tomt om det inte är definierat ännu"
+    },
+    "options": {
+      "type": {
+        "cdi": "Tillsvidare",
+        "cdd": "Visstid",
+        "internship": "Praktik",
+        "apprenticeship": "Lärlingsplats",
+        "freelance": "Frilans"
+      }
+    },
+    "emptyState": {
+      "title": "Inga ansökningar ännu",
+      "subtitle": "Skapa din första ansökan för att börja följa den.",
+      "button": "Skapa en ansökan"
+    },
+    "aria": {
+      "reorder": "Ändra ordning"
+    }
+  },
+  "jobs": {
+    "dialog": {
+      "createTitle": "Lägg till ett jobb",
+      "createSubtitle": "Skapa ett jobb för att följa dess ansökningar."
+    },
+    "form": {
+      "identity": "Identitet",
+      "position": "Tjänst",
+      "company": "Företag",
+      "companyPlaceholder": "Välj ett företag",
+      "addCompany": "Lägg till nytt företag",
+      "industry": "Bransch",
+      "languages": "Språk",
+      "languagesPlaceholder": "Välj språk",
+      "addIndustry": "+ Lägg till ny bransch",
+      "link": "Länk",
+      "contractSection": "Avtal",
+      "workMode": "Arbetsform",
+      "contract": "Avtal",
+      "level": "Nivå",
+      "location": "Plats",
+      "dates": "Datum",
+      "publishedAt": "Publicerad",
+      "deadlineAt": "Deadline",
+      "addToCalendar": "Synka med kalender",
+      "calendarSyncYes": "Ja",
+      "calendarSyncNo": "Nej",
+      "description": "Beskrivning",
+      "requirements": "Krav",
+      "addIndustryTitle": "Lägg till ny bransch",
+      "addIndustryLabel": "Branschens namn",
+      "addIndustryPlaceholder": "Ex: Fintech",
+      "addIndustryConfirm": "Lägg till"
+    },
+    "preview": {
+      "title": "Förhandsgranskning av jobb",
+      "meta": "Meta",
+      "details": "Detaljer",
+      "company": "Företag",
+      "contract": "Avtal",
+      "level": "Nivå",
+      "industry": "Bransch",
+      "workMode": "Arbetsform",
+      "location": "Plats",
+      "languages": "Språk",
+      "description": "Beskrivning",
+      "requirements": "Krav",
+      "dates": "Datum",
+      "publishedAt": "Publicerad",
+      "deadlineAt": "Deadline",
+      "link": "Länk"
+    },
+    "options": {
+      "contract": {
+        "full_time": "Heltid",
+        "part_time": "Deltid",
+        "internship": "Praktik",
+        "freelance": "Frilans"
+      },
+      "workMode": {
+        "onsite": "På plats",
+        "remote": "Distans",
+        "hybrid": "Hybrid"
+      },
+      "level": {
+        "junior": "Junior",
+        "mid": "Mellan",
+        "senior": "Senior",
+        "lead": "Lead"
+      },
+      "industry": {
+        "tech": "Tech",
+        "finance": "Finans",
+        "saas": "SaaS",
+        "health": "Hälsa"
+      }
+    },
+    "searchEmpty": {
+      "title": "Inga resultat för denna sökning.",
+      "subtitle": "Prova ett annat sökord eller justera filtren."
+    },
+    "resultsCount": "{count} jobb visas",
+    "totalCount": "{count} totalt",
+    "title": "Jobb",
+    "subtitle": "Följ jobberbjudanden, statusar och deadlines.",
+    "addButton": "+ Lägg till ett jobb",
+    "searchPlaceholder": "Sök jobb...",
+    "resetButton": "Återställ",
+    "position": "Tjänst",
+    "industry": "Bransch",
+    "location": "Plats",
+    "contract": "Avtal",
+    "published_at": "Publicerad",
+    "deadline_at": "Deadline",
+    "company": "Företag",
+    "languages": "Språk",
+    "link": "Länk",
+    "actions": "Åtgärder",
+    "actionsMenu": {
+      "createApplication": "Skapa ansökan"
+    },
+    "emptyState": {
+      "title": "Inga jobb ännu",
+      "subtitle": "Lägg till ditt första jobb för att börja följa.",
+      "button": "Skapa ett jobb"
+    }
+  },
+  "languageSelector": {
+    "aria": "Språkväljare"
+  },
+  "nav": {
+    "calendar": {
+      "title": "Kalender"
+    }
+  },
+  "notifications": {
+    "title": "Notifieringar",
+    "count": "{count} totalt",
+    "empty": "Inga notifieringar ännu.",
+    "loading": "Laddar notifieringar…",
+    "dismiss": "Avfärda"
+  },
+  "settings": {
+    "title": "Inställningar",
+    "subtitle": "Hantera ditt konto, inställningar och notifieringar.",
+    "save": "Spara ändringar",
+    "account": {
+      "title": "Kontohantering",
+      "subtitle": "Uppdatera din profil och tidszon.",
+      "editProfile": "Redigera profil",
+      "name": "Fullständigt namn",
+      "email": "E-post",
+      "timezone": "Tidszon",
+      "changePassword": "Ändra lösenord",
+      "currentPassword": "Nuvarande lösenord",
+      "newPassword": "Nytt lösenord",
+      "confirmPassword": "Bekräfta nytt lösenord",
+      "updatePassword": "Uppdatera lösenord",
+      "deleteAccount": "Ta bort konto",
+      "deleteDialog": {
+        "title": "Ta bort konto",
+        "warning": "Den här åtgärden är permanent och kan inte ångras. All din data (jobb, ansökningar, företag, kalenderhändelser) kommer att raderas.",
+        "passwordLabel": "Bekräfta ditt lösenord för att fortsätta",
+        "confirm": "Ta bort mitt konto",
+        "wrongPassword": "Fel lösenord. Försök igen.",
+        "error": "Det gick inte att ta bort kontot. Försök igen."
+      }
+    },
+    "ux": {
+      "title": "UX-anpassning",
+      "subtitle": "Anpassa gränssnittet efter ditt arbetsflöde."
+    },
+    "notifications": {
+      "title": "Notifieringshantering",
+      "subtitle": "Välj hur du vill bli notifierad."
+    }
+  },
+  "home": {
+    "badges": {
+      "new": "Nytt",
+      "brand": "NextStep"
+    },
+    "heroTitle": "Plattformen som strukturerar din sökning.",
+    "heroSubtitle": "Samla ansökningar, jobb och kommande deadlines i en lugn, visuell yta.",
+    "ctaPrimary": "Kom igång",
+    "ctaSecondary": "Läs mer",
+    "cards": {
+      "applications": {
+        "title": "Ansökningar",
+        "body": "Tydlig uppföljning"
+      },
+      "jobs": {
+        "title": "Jobb",
+        "body": "Organiserad pipeline"
+      },
+      "calendar": {
+        "title": "Kalender",
+        "body": "Synliga deadlines"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Välkommen tillbaka",
+      "subtitle": "Logga in för att fortsätta följa din utveckling.",
+      "submit": "Logga in",
+      "forgot": "Glömt lösenord?",
+      "create": "Skapa konto"
+    },
+    "create": {
+      "title": "Skapa ditt konto",
+      "subtitle": "Börja följa jobb och ansökningar idag.",
+      "submit": "Skapa konto",
+      "back": "Tillbaka till inloggning"
+    },
+    "forgot": {
+      "title": "Återställ ditt lösenord",
+      "subtitle": "Vi skickar en återställningslänk.",
+      "submit": "Skicka återställningslänk",
+      "back": "Tillbaka till inloggning"
+    },
+    "fields": {
+      "name": "Fullständigt namn",
+      "email": "E-post",
+      "password": "Lösenord",
+      "confirmPassword": "Bekräfta lösenord"
+    },
+    "side": {
+      "title": "Din arbetsyta",
+      "subtitle": "Behåll momentum i en lugn och strukturerad miljö.",
+      "cards": {
+        "track": {
+          "title": "Följ",
+          "body": "Följ varje ansökan med en överblick."
+        },
+        "calendar": {
+          "title": "Kalender",
+          "body": "Missa aldrig en deadline."
+        },
+        "progress": {
+          "title": "Framsteg",
+          "body": "Fokusera på nästa steg."
+        }
+      }
+    },
+    "passwordVisibility": {
+      "show": "Visa lösenord",
+      "hide": "Dölj lösenord"
+    }
+  },
+  "calendar": {
+    "title": "Kalender",
+    "subtitle": "Din kommande planering i en överblick.",
+    "prev": "Föregående månad",
+    "next": "Nästa månad",
+    "rangeLabel": "Nästa {days} dagar",
+    "month": "Månad",
+    "year": "År",
+    "event": {
+      "deadline": "Deadline · {position} på {company}",
+      "published": "Publicerad · {position} på {company}",
+      "generic": "Kalenderhändelse",
+      "applied": "Skickad · {position} på {company}"
+    },
+    "action": {
+      "add": "Lägg till i kalender",
+      "remove": "Ta bort från kalender"
+    },
+    "form": {
+      "title": "Skapa en händelse",
+      "add": "Lägg till en händelse",
+      "name": "Titel",
+      "type": "Typ",
+      "description": "Beskrivning",
+      "date": "Datum",
+      "edit": "Redigera händelse",
+      "create": "Lägg till händelse",
+      "openCalendar": "Öppna kalender",
+      "types": {
+        "deadline": "Deadline",
+        "event": "Händelse",
+        "published": "Publicerad"
+      }
+    },
+    "preview": {
+      "viewJob": "Visa jobberbjudande",
+      "viewApplication": "Visa ansökan"
+    },
+    "feedback": {
+      "created": "Händelse skapad.",
+      "updated": "Händelse uppdaterad.",
+      "deleted": "Händelse borttagen.",
+      "error": "Kalenderåtgärd misslyckades. Försök igen."
+    }
+  },
+  "references": {
+    "industry": {
+      "tech": "Tech",
+      "finance": "Finans",
+      "saas": "SaaS",
+      "health": "Hälsa",
+      "Technology": "Teknik",
+      "Finance": "Finans",
+      "SaaS": "SaaS",
+      "Health": "Hälsa",
+      "Retail": "Detaljhandel",
+      "Education": "Utbildning",
+      "Energy": "Energi",
+      "Marketing": "Marknadsföring",
+      "technology": "Teknik",
+      "retail": "Detaljhandel",
+      "education": "Utbildning",
+      "energy": "Energi",
+      "marketing": "Marknadsföring",
+      "software": "Mjukvara",
+      "it-services": "IT-tjänster",
+      "ai": "AI",
+      "data": "Data",
+      "cybersecurity": "Cybersäkerhet",
+      "cloud": "Cloud",
+      "gaming": "Gaming",
+      "banking": "Banking",
+      "fintech": "Fintech",
+      "insurance": "Insurance",
+      "accounting": "Accounting",
+      "consulting": "Consulting",
+      "ecommerce": "E-commerce",
+      "marketplace": "Marketplace",
+      "consumer-goods": "Consumer Goods",
+      "luxury": "Luxury",
+      "healthcare": "Hälso- och sjukvård",
+      "biotech": "Biotech",
+      "pharma": "Pharma",
+      "medtech": "MedTech",
+      "life-sciences": "Life science",
+      "manufacturing": "Manufacturing",
+      "industrial": "Industrial",
+      "automotive": "Automotive",
+      "aerospace": "Aerospace",
+      "robotics": "Robotics",
+      "electronics": "Electronics",
+      "hardware": "Hardware",
+      "renewable-energy": "Förnybar energi",
+      "cleantech": "CleanTech",
+      "utilities": "Utilities",
+      "environment": "Environment",
+      "transport": "Transport",
+      "logistics": "Logistics",
+      "supply-chain": "Leveranskedja",
+      "mobility": "Mobility",
+      "aviation": "Aviation",
+      "maritime": "Maritime",
+      "media": "Media",
+      "advertising": "Advertising",
+      "communication": "Communication",
+      "publishing": "Publishing",
+      "entertainment": "Entertainment",
+      "edtech": "EdTech",
+      "research": "Research",
+      "public-sector": "Offentlig sektor",
+      "government": "Government",
+      "non-profit": "Ideell",
+      "real-estate": "Fastigheter",
+      "construction": "Construction",
+      "proptech": "PropTech",
+      "architecture": "Architecture",
+      "urban-planning": "Stadsplanering",
+      "hr": "HR",
+      "recruitment": "Recruitment",
+      "staffing": "Staffing",
+      "legal": "Legal",
+      "law": "Law",
+      "professional-services": "Professionella tjänster",
+      "food": "Food",
+      "foodtech": "FoodTech",
+      "agriculture": "Agriculture",
+      "agritech": "AgriTech",
+      "hospitality": "Hospitality",
+      "tourism": "Tourism"
+    },
+    "contract": {
+      "full_time": "Heltid",
+      "part_time": "Deltid",
+      "internship": "Praktik",
+      "freelance": "Frilans"
+    },
+    "workMode": {
+      "onsite": "På plats",
+      "remote": "Distans",
+      "hybrid": "Hybrid"
+    },
+    "level": {
+      "junior": "Junior",
+      "mid": "Mellan",
+      "senior": "Senior",
+      "lead": "Lead"
+    },
+    "language": {
+      "en": "Engelska",
+      "fr": "Franska",
+      "fi": "Finska",
+      "sv": "Svenska"
+    },
+    "size": {
+      "1-10": "1-10",
+      "11-50": "11-50",
+      "50-200": "50-200",
+      "51-200": "51-200",
+      "200-500": "200-500",
+      "201-500": "201-500",
+      "501-1000": "501-1000",
+      "1000-5000": "1000-5000",
+      "1001-5000": "1001-5000",
+      "5001+": "5001+"
+    },
+    "location": {
+      "ny": "New York, NY",
+      "sf": "San Francisco, CA",
+      "la": "Los Angeles, CA",
+      "sea": "Seattle, WA",
+      "aus": "Austin, TX",
+      "bos": "Boston, MA",
+      "chi": "Chicago, IL",
+      "mia": "Miami, FL",
+      "yul": "Montreal, CA",
+      "yyz": "Toronto, CA",
+      "par": "Paris, FR",
+      "lys": "Lyon, FR",
+      "bdx": "Bordeaux, FR",
+      "ber": "Berlin, DE",
+      "hel": "Helsingfors, FI",
+      "sto": "Stockholm, SE",
+      "lon": "London, UK",
+      "dub": "Dublin, IE",
+      "ams": "Amsterdam, NL",
+      "lis": "Lissabon, PT",
+      "mad": "Madrid, ES",
+      "mil": "Milano, IT",
+      "remote": "Distans"
+    }
+  }
+}
