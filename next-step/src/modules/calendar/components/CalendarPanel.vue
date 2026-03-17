@@ -148,7 +148,7 @@ const onEventClick = (event: CalendarEvent) => {
             <template v-if="cell">
               <span class="font-semibold">{{ cell.getDate() }}</span>
               <span v-if="cell.getDate() === 1" class="ml-1 text-[10px] text-muted">
-                {{ cell.toLocaleString(locale.value, { month: 'short' }) }}
+                {{ cell.toLocaleString(locale, { month: 'short' }) }}
               </span>
               <div class="mt-1 grid gap-1">
                 <button

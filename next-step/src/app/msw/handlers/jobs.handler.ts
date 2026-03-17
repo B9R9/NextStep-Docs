@@ -13,8 +13,6 @@ let jobsDb: Job[] = [
     level: 'mid',
     published_at: '2024-06-15',
     deadline_at: '2024-07-15',
-    published_in_calendar: false,
-    deadline_in_calendar: false,
     link: 'https://techcorp.com/careers/12345',
     languages: ['en'],
     description:
@@ -33,8 +31,6 @@ let jobsDb: Job[] = [
     level: 'mid',
     published_at: '2024-05-10',
     deadline_at: '2024-06-10',
-    published_in_calendar: false,
-    deadline_in_calendar: false,
     link: '',
     languages: ['fr', 'en'],
     description:
@@ -53,8 +49,6 @@ let jobsDb: Job[] = [
     level: 'junior',
     published_at: '2024-04-02',
     deadline_at: '2024-05-02',
-    published_in_calendar: false,
-    deadline_in_calendar: false,
     link: 'https://example.com/job/3',
     languages: ['en'],
     description: 'Analyze metrics and build dashboards.',
@@ -71,8 +65,6 @@ let jobsDb: Job[] = [
     level: 'mid',
     published_at: '2024-03-12',
     deadline_at: '2024-04-12',
-    published_in_calendar: false,
-    deadline_in_calendar: false,
     link: '',
     languages: ['de', 'en'],
     description: 'Own marketing operations and tooling.',
@@ -89,8 +81,6 @@ let jobsDb: Job[] = [
     level: 'senior',
     published_at: '2024-06-01',
     deadline_at: '2024-07-01',
-    published_in_calendar: false,
-    deadline_in_calendar: false,
     link: 'https://example.com/job/5',
     languages: ['fr'],
     description: 'Craft UX copy for key journeys.',
@@ -153,8 +143,6 @@ export const jobsHandlers = [
       level: data.level ?? 'mid',
       published_at: data.published_at ?? '',
       deadline_at: data.deadline_at ?? '',
-      published_in_calendar: data.published_in_calendar ?? false,
-      deadline_in_calendar: data.deadline_in_calendar ?? false,
       link: data.link ?? '',
       languages: data.languages ?? [],
       description: data.description ?? '',
@@ -171,28 +159,7 @@ export const jobsHandlers = [
     if (index === -1) {
       return HttpResponse.json({ message: 'Job not found' }, { status: 404 })
     }
-    const updated = { ...jobsDb[index], ...data, id }
-    jobsDb = jobsDb.map((row, idx) => (idx === index ? updated : row))
-    return HttpResponse.json(updated)
-  }),
-
-  http.put('/api/jobs/:id/calendar-sync', async ({ params, request }) => {
-    const id = Number(params.id)
-    const data = (await request.json()) as Partial<Job>
-    const index = jobsDb.findIndex((row) => row.id === id)
-    if (index === -1) {
-      return HttpResponse.json({ message: 'Job not found' }, { status: 404 })
-    }
-    const updated = {
-      ...jobsDb[index],
-      ...(typeof data.published_in_calendar === 'boolean'
-        ? { published_in_calendar: data.published_in_calendar }
-        : {}),
-      ...(typeof data.deadline_in_calendar === 'boolean'
-        ? { deadline_in_calendar: data.deadline_in_calendar }
-        : {}),
-      id,
-    }
+    const updated: Job = { ...jobsDb[index]!, ...data, id }
     jobsDb = jobsDb.map((row, idx) => (idx === index ? updated : row))
     return HttpResponse.json(updated)
   }),

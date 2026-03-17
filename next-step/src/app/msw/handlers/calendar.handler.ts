@@ -124,7 +124,7 @@ export const calendarHandlers = [
     if (index === -1) {
       return HttpResponse.json({ message: 'Not found' }, { status: 404 })
     }
-    const updated = { ...calendarDb[index], ...data, id }
+    const updated: CalendarEvent = { ...calendarDb[index]!, ...data, id } as CalendarEvent
     calendarDb = calendarDb.map((row, idx) => (idx === index ? updated : row))
     return HttpResponse.json(updated)
   }),

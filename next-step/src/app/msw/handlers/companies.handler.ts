@@ -138,7 +138,7 @@ export const companiesHandlers = [
     if (index === -1) {
       return HttpResponse.json({ message: 'Company not found' }, { status: 404 })
     }
-    const updated = { ...companiesDb[index], ...data, id }
+    const updated: Company = { ...companiesDb[index]!, ...data, id } as Company
     companiesDb = companiesDb.map((row, idx) => (idx === index ? updated : row))
     return HttpResponse.json(updated)
   }),

@@ -75,7 +75,7 @@ const currentDateLabel = computed(() =>
 const toInputDate = (date: string): string => {
   if (!date) return ''
   const iso = date.match(/^(\d{4}-\d{2}-\d{2})/)
-  return iso ? iso[1] : ''
+  return iso?.[1] ?? ''
 }
 
 const selectedDate = computed<string>({

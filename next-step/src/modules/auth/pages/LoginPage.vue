@@ -6,7 +6,7 @@ import CreateAccountForm from '../components/CreateAccountForm.vue'
 import ForgotPasswordForm from '../components/ForgotPasswordForm.vue'
 import LoginForm from '../components/LoginForm.vue'
 
-const { t } = useI18n()
+useI18n()
 const panel = ref<'create' | 'login' | 'forgot'>('login')
 
 const transformValue = computed(() => {
