@@ -28,7 +28,6 @@ Generate documentation for a file or module and push it to NextStep-Docs.
 14. Document should be written in a way that a new developer can understand the purpose, functionality, and usage of the file without needing to read the code itself, but with all information directly traceable to the code
 15. Document use english and be clear, concise, and specific — avoid vague statements and generalities
 
-
 ---
 
 ## Instructions
