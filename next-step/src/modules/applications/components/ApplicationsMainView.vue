@@ -248,6 +248,7 @@ const selectedRow = ref<(typeof rows.value)[number] | null>(null)
 const isPreviewOpen = ref(false)
 const isFormOpen = ref(false)
 const isFormCreating = ref(false)
+const isFormFromPreview = ref(false)
 const openMenuId = ref<number | null>(null)
 const feedback = ref<{ kind: 'success' | 'error'; message: string } | null>(null)
 let feedbackTimer: ReturnType<typeof setTimeout> | undefined
@@ -270,6 +271,7 @@ const openPreview = (rowId: number, editMode = false) => {
   if (!selectedRow.value) return
   if (editMode) {
     isFormCreating.value = false
+    isFormFromPreview.value = false
     isFormOpen.value = true
   } else {
     isPreviewOpen.value = true
@@ -316,6 +318,7 @@ const closeForm = () => {
 const onPreviewEdit = () => {
   isPreviewOpen.value = false
   isFormCreating.value = false
+  isFormFromPreview.value = true
   isFormOpen.value = true
 }
 
@@ -332,8 +335,10 @@ const saveForm = async (updated: Application) => {
       await applicationsStore.loadApplications()
       await calendarStore.loadEvents()
       closeForm()
-      selectedRow.value = saved
-      isPreviewOpen.value = true
+      if (isFormFromPreview.value) {
+        selectedRow.value = saved
+        isPreviewOpen.value = true
+      }
       showFeedback('success', 'Application updated successfully.')
     }
   } catch {
@@ -646,7 +651,7 @@ const rowClass = (rowId: number) => {
     <Transition name="feedback-toast">
       <div
         v-if="feedback"
-        class="fixed bottom-5 left-1/2 z-[70] w-[min(92vw,30rem)] -translate-x-1/2 rounded-xl border px-4 py-3 shadow-paper backdrop-blur-sm"
+        class="feedback-toast fixed z-[70] w-[min(92vw,30rem)] rounded-xl border px-4 py-3 shadow-paper backdrop-blur-sm"
         :class="feedbackClass"
         role="status"
         aria-live="polite"
@@ -658,6 +663,13 @@ const rowClass = (rowId: number) => {
 </template>
 
 <style scoped>
+.feedback-toast {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .feedback-toast-enter-active,
 .feedback-toast-leave-active {
   transition:
@@ -668,7 +680,13 @@ const rowClass = (rowId: number) => {
 .feedback-toast-enter-from,
 .feedback-toast-leave-to {
   opacity: 0;
-  transform: translate(-50%, 24px);
+  transform: translateX(-50%) translateY(24px);
+}
+
+.feedback-toast-enter-to,
+.feedback-toast-leave-from {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 .feedback-success {

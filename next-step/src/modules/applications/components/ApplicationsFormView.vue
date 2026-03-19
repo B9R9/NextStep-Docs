@@ -113,9 +113,11 @@ watch(isYesSelected, (value) => {
   if (value === 'true') {
     props.draft.applied = selectedDate.value
     props.draft.deadline = ''
+    if (props.draft.status === 'saved') props.draft.status = 'applied'
   } else {
     props.draft.applied = ''
     props.draft.deadline = selectedDate.value
+    if (props.draft.status === 'applied') props.draft.status = 'saved'
   }
 })
 </script>

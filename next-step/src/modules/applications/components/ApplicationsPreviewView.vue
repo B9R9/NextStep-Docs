@@ -56,13 +56,13 @@ const props = defineProps<{
           <p class="text-sm font-semibold">{{ t('applications.preview.dates') }}</p>
         </header>
         <div class="grid gap-2 sm:grid-cols-2">
-          <div class="ns-banner">
+          <div v-if="row?.applied" class="ns-banner">
             <p class="text-xs text-muted">{{ t('applications.preview.applied') }}</p>
-            <p class="text-sm font-semibold">{{ formatDateShort(row?.applied || '') }}</p>
+            <p class="text-sm font-semibold">{{ formatDateShort(row.applied) }}</p>
           </div>
-          <div class="ns-banner">
+          <div v-if="row?.deadline" class="ns-banner">
             <p class="text-xs text-muted">{{ t('applications.preview.deadline') }}</p>
-            <p class="text-sm font-semibold">{{ formatDateShort(row?.deadline || '') }}</p>
+            <p class="text-sm font-semibold">{{ formatDateShort(row.deadline) }}</p>
           </div>
         </div>
       </section>
