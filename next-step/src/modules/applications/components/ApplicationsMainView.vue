@@ -498,7 +498,7 @@ const rowClass = (rowId: number) => {
                 :label="t('applications.columns.deadline')"
                 class="sm:w-44 w-full"
               />
-              <button class="ns-btn ns-btn-ghost" @click="resetFilters">
+              <button v-if="hasActiveFilters" class="ns-btn ns-btn-ghost" @click="resetFilters">
                 {{ t('applications.resetButton') }}
               </button>
             </div>
