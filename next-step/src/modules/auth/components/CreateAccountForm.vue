@@ -119,6 +119,16 @@ const handleCreateAccount = async () => {
       {{ t('auth.create.submit') }}
     </button>
 
+    <p class="text-center text-xs text-muted">
+      <i18n-t keypath="auth.create.terms" tag="span">
+        <template #privacyLink>
+          <RouterLink to="/privacy" class="text-primary hover:text-primary-hover">
+            {{ t('legal.footer.privacy') }}
+          </RouterLink>
+        </template>
+      </i18n-t>
+    </p>
+
     <div class="text-center text-xs text-muted">
       <button class="text-primary hover:text-primary-hover" type="button" @click="emit('back')">
         {{ t('auth.create.back') }}

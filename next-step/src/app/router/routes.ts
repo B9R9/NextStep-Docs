@@ -41,6 +41,12 @@ export const routes: RouteRecordRaw[] = [
 //     ],
 //   },
 
+  {
+    path: '/privacy',
+    name: 'privacy',
+    component: () => import('@/pages/PrivacyPage.vue'),
+  },
+
   // 404 (avec ou sans navbar selon ton choix)
   {
     path: '/:pathMatch(.*)*',
