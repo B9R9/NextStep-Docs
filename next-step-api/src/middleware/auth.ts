@@ -1,5 +1,5 @@
 import type { NextFunction, Request, Response } from 'express'
-import { verifyToken } from '../utils/jwt'
+import { verifyAccessToken } from '../utils/jwt'
 
 export const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
   const header = req.headers.authorization
@@ -9,7 +9,7 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction) 
 
   const token = header.slice(7)
   try {
-    const payload = verifyToken(token)
+    const payload = verifyAccessToken(token)
     ;(req as any).user = payload
     return next()
   } catch {

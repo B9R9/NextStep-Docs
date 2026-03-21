@@ -8,31 +8,26 @@ export type AuthUser = {
 
 type AuthResponse = {
   user: AuthUser
-  token: string
+  accessToken: string
 }
-
-const AUTH_TOKEN_KEY = 'auth_token'
-
-export const setAuthToken = (token: string) => {
-  localStorage.setItem(AUTH_TOKEN_KEY, token)
-}
-
-export const clearAuthToken = () => {
-  localStorage.removeItem(AUTH_TOKEN_KEY)
-}
-
-export const getAuthToken = () => localStorage.getItem(AUTH_TOKEN_KEY)
 
 export const login = async (payload: { email: string; password: string }) => {
   const { data } = await http.post<AuthResponse>('/auth/login', payload)
-  setAuthToken(data.token)
   return data
 }
 
 export const register = async (payload: { name: string; email: string; password: string }) => {
   const { data } = await http.post<AuthResponse>('/auth/register', payload)
-  setAuthToken(data.token)
   return data
+}
+
+export const refresh = async () => {
+  const { data } = await http.post<{ accessToken: string }>('/auth/refresh')
+  return data.accessToken
+}
+
+export const logout = async () => {
+  await http.post('/auth/logout')
 }
 
 export const me = async () => {
@@ -52,6 +47,5 @@ export const updatePassword = async (payload: { currentPassword: string; newPass
 
 export const deleteMe = async (password: string) => {
   const { data } = await http.delete<{ success: boolean }>('/auth/me', { data: { password } })
-  clearAuthToken()
   return data
 }

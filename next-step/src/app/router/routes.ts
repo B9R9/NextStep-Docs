@@ -5,6 +5,7 @@ import { companiesRoutes } from '@/modules/companies/routes'
 import { calendarRoutes } from '@/modules/calendar/routes'
 import { settingsRoutes } from '@/modules/settings/routes'
 import { authRoutes } from '@/modules/auth/routes'
+import { adminRoutes } from '@/modules/admin/routes'
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -26,6 +27,7 @@ export const routes: RouteRecordRaw[] = [
   },
 
   ...authRoutes,
+  ...adminRoutes,
 
   // routes sans navbar
 //   {

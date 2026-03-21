@@ -3,9 +3,12 @@ import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { register } from '../services/auth.service'
+import { useAuthStore } from '../store/useAuthStore'
+import { checkAdminAccess } from '@/modules/admin/services/admin.service'
 
 const { t } = useI18n()
 const router = useRouter()
+const authStore = useAuthStore()
 const name = ref('')
 const email = ref('')
 const password = ref('')
@@ -27,7 +30,9 @@ const handleCreateAccount = async () => {
   errorMessage.value = ''
   isSubmitting.value = true
   try {
-    await register({ name: name.value, email: email.value, password: password.value })
+    const { user, accessToken } = await register({ name: name.value, email: email.value, password: password.value })
+    authStore.setSession(accessToken, user)
+    try { await checkAdminAccess(); authStore.setAdmin(true) } catch { authStore.setAdmin(false) }
     router.push('/applications')
   } catch {
     errorMessage.value = 'Failed to create account'

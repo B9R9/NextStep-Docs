@@ -3,9 +3,12 @@ import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { login } from '../services/auth.service'
+import { useAuthStore } from '../store/useAuthStore'
+import { checkAdminAccess } from '@/modules/admin/services/admin.service'
 
 const { t } = useI18n()
 const router = useRouter()
+const authStore = useAuthStore()
 const email = ref('')
 const password = ref('')
 const showPassword = ref(false)
@@ -21,7 +24,9 @@ const handleLogin = async () => {
   errorMessage.value = ''
   isSubmitting.value = true
   try {
-    await login({ email: email.value, password: password.value })
+    const { user, accessToken } = await login({ email: email.value, password: password.value })
+    authStore.setSession(accessToken, user)
+    try { await checkAdminAccess(); authStore.setAdmin(true) } catch { authStore.setAdmin(false) }
     router.push('/applications')
   } catch {
     errorMessage.value = 'Invalid credentials'
