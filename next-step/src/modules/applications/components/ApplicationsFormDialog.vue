@@ -215,6 +215,7 @@ const saveCompany = async (company: Company) => {
         </div>
       </div>
     </div>
+    </div>
     <CompaniesFormDialog
       :open="isCompanyDialogOpen"
       :row="companyDraft"
