@@ -6,7 +6,7 @@ import Navbar from '../shared/components/NavBar.vue'
   <div class="min-h-screen flex flex-col">
     <Navbar />
 
-    <main class="flex-1">
+    <main class="flex-1 ns-fade-in">
       <RouterView v-slot="{ Component }">
         <Transition name="page-fade" mode="out-in">
           <component :is="Component" :key="$route.path" />
