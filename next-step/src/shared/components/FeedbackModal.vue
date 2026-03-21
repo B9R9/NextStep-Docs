@@ -77,6 +77,7 @@ const handleSubmit = async () => {
               <span class="material-symbols-rounded text-[15px]">rocket_launch</span>
               Roadmap
             </button>
+            <button class="text-muted hover:text-text" @click="close">
               <span class="material-symbols-rounded text-[20px]">close</span>
             </button>
           </div>
