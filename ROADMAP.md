@@ -7,7 +7,7 @@
 ## Version 0.1.0 — MVP Fonctionnel
 **Status:** In progress
 
-Next Step est une plateforme de gestion de candidatures pour chercheurs d'emploi. La version 0.1.0 couvre le cycle complet de suivi des candidatures : découverte d'offres → postulation → suivi du pipeline → gestion des entretiens. L'interface est disponible en 4 langues (FR, EN, FI, SV), responsive desktop, avec authentification JWT et déploiement sur Vercel.
+Next Step est une plateforme de gestion de candidatures pour chercheurs d'emploi. La version 0.1.0 couvre le cycle complet de suivi des candidatures : découverte d'offres → postulation → suivi du pipeline → gestion des entretiens. L'interface est disponible en 4 langues (FR, EN, FI, SV), responsive desktop, avec authentification JWT sécurisée et déploiement sur Vercel.
 
 Progress:
 - ✅ Applications — CRUD complet, 11 statuts, filtres, tri, preview, skeleton loading
@@ -17,7 +17,11 @@ Progress:
 - ✅ Auth — register / login JWT, guards de route, support gestionnaire de mots de passe
 - ✅ Settings — profil, suppression de compte, auto-logout
 - ✅ Notifications — store/service/UI fonctionnels, dismiss all
-- ✅ Token sécurisé — access token mémoire + refresh token cookie httpOnly, rotation, révocation DB
+- ✅ Token sécurisé — access token mémoire Pinia + refresh token cookie httpOnly, rotation, révocation DB, silent refresh
+- ✅ User event tracking — table user_events, trackEvent fire-and-forget, X-Session-Id header
+- ✅ API metrics in-memory — latence, taux d'erreur par route
+- ✅ Admin dashboard — KPI users/applications/jobs, funnel, feature adoption, API health, churn, feedback
+- ✅ User feedback — formulaire NavBar (6 sujets, anonymous par défaut), panel admin
 - 🔄 Notifications — rappels selon préférences (timing configurable)
 - 📋 Confirmation email à l'inscription
 
@@ -26,14 +30,13 @@ Progress:
 ## Phase 1 — Core Functionality (0.2.0)
 **Status:** In progress
 
-Finalisation et polish de la version MVP : solidifier les fonctionnalités existantes, combler les manques côté Settings (toggle notifications, choix des rappels, option migration), améliorer l'expérience mobile (page "non supporté"), et assurer la fiabilité des notifications et rappels. Inclut également les fondations de sécurité (token HTTPS) et les premières statistiques utilisateur.
+Finalisation et polish de la version MVP : solidifier les fonctionnalités existantes, combler les manques côté Settings (toggle notifications, choix des rappels, option migration), améliorer l'expérience mobile (page "non supporté"), et assurer la fiabilité des notifications et rappels. Inclut les premières statistiques utilisateur visibles sur la page d'accueil.
 
 Progress:
 - 🔄 Notifications et rappels selon les settings
 - 📋 Confirmation email à l'inscription
 - 📋 Settings : toggle notifications, choix des rappels, option migration
-- 📋 Statistiques globales à la page d'accueil
-- 📋 Feedback form dans NavBar
+- 📋 Statistiques globales à la page d'accueil (user-facing)
 - 📋 Onglet Roadmap dans Settings
 - 📋 Transitions et polish UI
 - 📋 Page mobile non supporté

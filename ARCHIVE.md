@@ -6,6 +6,9 @@
 
 ## March 2026
 
+- ✅ User feedback feature (FeedbackModal NavBar, anonymous toggle, admin panel) — completed 2026-03-21
+- ✅ Admin analytics dashboard (KPI cards, funnel, feature adoption, API health, churn, feedback) — completed 2026-03-21
+- ✅ User event tracking + in-memory API metrics (user_events table, trackEvent, X-Session-Id) — completed 2026-03-21
 - ✅ Token sécurisé: access token en mémoire Pinia + refresh token httpOnly cookie, rotation, révocation DB, silent refresh Axios — completed 2026-03-21
 - ✅ Auth: fix login ne redirige pas (store non alimenté après login) — completed 2026-03-21
 - ✅ Auth: fix refresh page déconnecte (accessToken non set avant /auth/me) — completed 2026-03-21

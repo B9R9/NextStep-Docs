@@ -1,6 +1,6 @@
 # Next Step — Tasks
 
-> Last updated: 2026-03-21 (session 2)
+> Last updated: 2026-03-21
 
 ---
 
@@ -40,7 +40,7 @@
   - 📋 Frontend: détecter viewport < 768px
   - 📋 Frontend: afficher une page dédiée "Application non disponible sur mobile"
 
-- **Statistiques globales à la page d'accueil**
+- **Statistiques globales à la page d'accueil (user)**
   - 📋 Frontend: calculer et afficher les stats globales (candidatures en cours, entretiens à venir, taux de réponse…)
   - 📋 Backend: route GET `/api/stats` agrégée par user
 
@@ -53,10 +53,6 @@
 
 - **Filtres adaptés aux colonnes visibles**
   - 📋 Frontend: masquer les options de filtre des colonnes cachées
-
-- **Feedback form dans NavBar**
-  - 📋 Frontend: icône dans la NavBar ouvrant un formulaire (feedback, bug report, demande de fonctionnalité)
-  - 📋 Backend: route POST `/api/feedback` pour stocker ou transférer le message
 
 ### 🟢 Low priority
 
@@ -129,19 +125,18 @@
 1. **Settings: toggle notifications** — quick win, débloque les rappels (Settings DB déjà en place)
 2. **Settings: choix rappels** — complète le système de notifications en cours
 3. **Page mobile non supporté** — quick win, évite les bugs d'affichage sur mobile
-4. **Statistiques globales à la page d'accueil** — améliore la valeur perçue dès l'accueil
-5. **Feedback form dans NavBar** — atomic, collecte des retours utilisateurs tôt
-6. **Filtres adaptés aux colonnes visibles** — atomic, cohérent avec les filtres existants
-7. **Sauvegarde locale des changements de statut** — améliore la fluidité perçue, pas de dépendances
-8. **Confirmation email à l'inscription** — fondation Auth manquante, débloque la confiance utilisateur
-9. **Settings: option migration** — RGPD, low risk, pas de dépendances
-10. **Onglet Roadmap dans Settings** — quick win, aucune dépendance
-11. **Transitions fade in/out** — polish final, aucune dépendance
-12. **Documents: DB schema & migrations** — fondation Phase 2, débloque tout le reste
-13. **Documents: Backend CRUD routes** — dépend du schéma DB
-14. **Documents: AI service integration** — dépend des routes backend, cœur de la Phase 2
-15. **CV creation wizard** — dépend du service IA
-16. **CV edit / preview / PDF export** — complète le workflow CV
-18. **Cover letter generation wizard** — dépend du service IA, parallélisable avec CV
-19. **Cover letter edit / preview / PDF export** — complète le workflow lettres
-20. **AI chatbot** — feature complémentaire, pas de dépendances critiques, risque le plus élevé
+4. **Statistiques globales à la page d'accueil (user)** — améliore la valeur perçue dès l'accueil
+5. **Filtres adaptés aux colonnes visibles** — atomic, cohérent avec les filtres existants
+6. **Sauvegarde locale des changements de statut** — améliore la fluidité perçue, pas de dépendances
+7. **Confirmation email à l'inscription** — fondation Auth manquante, débloque la confiance utilisateur
+8. **Settings: option migration** — RGPD, low risk, pas de dépendances
+9. **Onglet Roadmap dans Settings** — quick win, aucune dépendance
+10. **Transitions fade in/out** — polish final, aucune dépendance
+11. **Documents: DB schema & migrations** — fondation Phase 2, débloque tout le reste
+12. **Documents: Backend CRUD routes** — dépend du schéma DB
+13. **Documents: AI service integration** — dépend des routes backend, cœur de la Phase 2
+14. **CV creation wizard** — dépend du service IA
+15. **CV edit / preview / PDF export** — complète le workflow CV
+16. **Cover letter generation wizard** — dépend du service IA, parallélisable avec CV
+17. **Cover letter edit / preview / PDF export** — complète le workflow lettres
+18. **AI chatbot** — feature complémentaire, pas de dépendances critiques, risque le plus élevé

@@ -7,14 +7,14 @@
 - Confirmation email à l'inscription
 - Transitions fade in/out plus smooth
 - Sauvegarde locale des changements de statut (éviter reload)
-- Bouton reset visible seulement si filtre actif
 - Filtres adaptés aux colonnes visibles
 - Settings: option migration
 - Settings: toggle notifications
 - Settings: choix rappels (même jour / 1j / 2j / 5j / 1 semaine avant)
 - Page mobile non supporté
 - Creer un onglert road map dans settigs pour montrer les futures fonctionnalités
-- Ajouter dans la nav bar un icon pour ouvrir un form et envoyer un message à l'équipe (feedback, bug report, demande de fonctionnalité)
+- Ajouter statistiques global de l app à la page d'accueil pour user de niveau 1
+
 ## Done
 - Scroll fixé dans les main views
 - Company view — affiche 0 jobs disponibles
@@ -37,12 +37,7 @@
 - Application: Quand je clike sur Edit depuis le menu, le form s ouvre correctemnt. Quand je clicke sur save, le form se ferme et la prevew est visible. On ne devrait pas voir la preview que si elle a etait ouverte par luser
 - notificcations: de succes ou de chjec en bas de lecrat appariasent eet se deplace de maniere diagonale
 - ajout dismiss all dans les notifications
-- preview message format:
-    - titre
-    - label (job/application/event, published/deadline)
-    - date(format dd.mm.yyyy)
-    - description
-    - button (voir job/application, edit, delete)
+- preview message format
 - calendar: Ajuster les messages et couleurs suivant le contexte
 - calendar: certains events ne peuvent pas etre preview
 - calendar: changer une date via edit event chnage aussi la date de l application event ou job event associé
@@ -50,4 +45,6 @@
 - Auth: fix login ne redirige pas (store non alimenté après login)
 - Auth: fix refresh page déconnecte (accessToken non set avant appel /auth/me)
 - Auth: cookie secure/sameSite conditionnel dev/prod
-- Ajouter statistiques global de l app à la page d'accueil pour user de niveau 1
+- User event tracking + API metrics in-memory (user_events table, trackEvent, apiMetrics)
+- Admin analytics dashboard (KPI cards, funnel, feature adoption, API health, churn, feedback)
+- Ajouter dans la nav bar un icon pour ouvrir un form et envoyer un message à l'équipe (feedback, bug report, demande de fonctionnalité)
