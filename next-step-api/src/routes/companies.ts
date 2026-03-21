@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { db } from '../db/knex'
 import { trackEvent, getSessionId } from '../utils/track'
+import { createNotification } from '../utils/routeHelpers'
 
 export const companiesRoutes = Router()
 
@@ -30,24 +31,6 @@ const pickCompanyPayload = (payload: Record<string, unknown>) => ({
     typeof payload.total_applications === 'number' ? payload.total_applications : 0,
 })
 
-const createNotification = async (
-  userId: number,
-  title: string,
-  description: string,
-  type: 'system' | 'event' = 'system'
-) => {
-  try {
-    await db('notifications').insert({
-      user_id: userId,
-      title,
-      description,
-      createdAt: new Date().toISOString().slice(0, 10),
-      type,
-    })
-  } catch (error) {
-    console.warn('Notification insert skipped:', error)
-  }
-}
 
 companiesRoutes.get('/', async (req, res) => {
   const { q, industry, sortKey, sortDir } = req.query as {

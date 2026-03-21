@@ -1,5 +1,6 @@
 import type { Company } from '../types'
 import { http } from '@/shared/api/http'
+import { buildQuery } from '@/shared/utils/serviceHelpers'
 
 type SortDir = 'asc' | 'desc'
 
@@ -8,16 +9,6 @@ type FetchParams = {
   industry?: string
   sortKey?: keyof Company
   sortDir?: SortDir
-}
-
-const buildQuery = (params: FetchParams = {}) => {
-  const search = new URLSearchParams()
-  if (params.q) search.set('q', params.q)
-  if (params.industry) search.set('industry', params.industry)
-  if (params.sortKey) search.set('sortKey', params.sortKey)
-  if (params.sortDir) search.set('sortDir', params.sortDir)
-  const query = search.toString()
-  return query ? `?${query}` : ''
 }
 
 export const fetchCompanies = async (params: FetchParams = {}) => {

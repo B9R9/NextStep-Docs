@@ -19,6 +19,3 @@ export const verifyRefreshToken = (token: string) =>
 export const hashToken = (token: string) =>
   crypto.createHash('sha256').update(token).digest('hex')
 
-// Keep legacy alias used nowhere else but avoids breaking imports if any
-export const signToken = signAccessToken
-export const verifyToken = verifyAccessToken

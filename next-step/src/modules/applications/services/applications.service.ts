@@ -1,5 +1,6 @@
 import type { Application } from '../types'
 import { http } from '@/shared/api/http'
+import { buildQuery, toNullableNumber } from '@/shared/utils/serviceHelpers'
 
 type SortDir = 'asc' | 'desc'
 
@@ -7,21 +8,6 @@ type FetchParams = {
   q?: string
   sortKey?: keyof Application
   sortDir?: SortDir
-}
-
-const buildQuery = (params: FetchParams = {}) => {
-  const search = new URLSearchParams()
-  if (params.q) search.set('q', params.q)
-  if (params.sortKey) search.set('sortKey', params.sortKey)
-  if (params.sortDir) search.set('sortDir', params.sortDir)
-  const query = search.toString()
-  return query ? `?${query}` : ''
-}
-
-const toNullableNumber = (value: unknown): number | null => {
-  if (value === null || value === undefined || value === '') return null
-  const numeric = Number(value)
-  return Number.isFinite(numeric) ? numeric : null
 }
 
 const normalizeApplication = (row: Application): Application => ({

@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { db } from '../db/knex'
 import { trackEvent, getSessionId } from '../utils/track'
+import { normalizeDate, normalizeNumericId, getCompanyName, createNotification } from '../utils/routeHelpers'
 
 export const applicationsRoutes = Router()
 
@@ -30,17 +31,6 @@ type ApplicationRow = {
   hasCL: boolean
 }
 
-const normalizeDate = (value: unknown): string | null => {
-  if (typeof value !== 'string') return null
-  const trimmed = value.trim()
-  return trimmed ? trimmed : null
-}
-
-const normalizeNumericId = (value: unknown): number | null => {
-  if (value === null || value === undefined || value === '') return null
-  const numeric = typeof value === 'number' ? value : Number(value)
-  return Number.isFinite(numeric) && numeric >= 0 ? numeric : null
-}
 
 const normalizeCompanyIdForUser = async (userId: number, companyId: number | null) => {
   if (companyId === null) return null
@@ -71,30 +61,6 @@ const pickApplicationPayload = async (userId: number, payload: Record<string, un
   }
 }
 
-const createNotification = async (
-  userId: number,
-  title: string,
-  description: string,
-  type: 'system' | 'event' = 'system'
-) => {
-  try {
-    await db('notifications').insert({
-      user_id: userId,
-      title,
-      description,
-      createdAt: new Date().toISOString().slice(0, 10),
-      type,
-    })
-  } catch (error) {
-    console.warn('Notification insert skipped:', error)
-  }
-}
-
-const getCompanyName = async (companyId: number | null) => {
-  if (companyId == null) return ''
-  const company = await db('companies').where({ id: companyId }).first()
-  return company?.name || ''
-}
 
 const syncApplicationCalendarEvent = async ({
   userId,

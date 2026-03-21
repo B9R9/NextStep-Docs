@@ -2,6 +2,7 @@ import { Router } from 'express'
 import { db } from '../db/knex'
 import { createCalendarEvent } from './calendar'
 import { trackEvent, getSessionId } from '../utils/track'
+import { normalizeDate, normalizeNumericId, getCompanyName, createNotification } from '../utils/routeHelpers'
 
 export const jobsRoutes = Router()
 const useFakeJobs = process.env.FAKE_JOBS === 'true'
@@ -67,20 +68,9 @@ const fetchJobWithCompany = async (userId: number, id: number) => {
     .first()
 }
 
-const normalizeDate = (value: unknown): string | null => {
-  if (typeof value !== 'string') return null
-  const trimmed = value.trim()
-  return trimmed ? trimmed : null
-}
-
-const normalizeCompanyId = (value: unknown): number | null => {
-  if (value === null || value === undefined || value === '') return null
-  const numeric = typeof value === 'number' ? value : Number(value)
-  return Number.isFinite(numeric) && numeric >= 0 ? numeric : null
-}
 
 const pickJobPayload = (payload: Record<string, unknown>) => ({
-  company_id: normalizeCompanyId(payload.company_id),
+  company_id: normalizeNumericId(payload.company_id),
   position: typeof payload.position === 'string' ? payload.position : '',
   industry: typeof payload.industry === 'string' ? payload.industry : '',
   work_mode: typeof payload.work_mode === 'string' ? payload.work_mode : '',
@@ -95,11 +85,6 @@ const pickJobPayload = (payload: Record<string, unknown>) => ({
   requirements: typeof payload.requirements === 'string' ? payload.requirements : '',
 })
 
-const getCompanyName = async (companyId: number | null) => {
-  if (companyId == null) return ''
-  const company = await db('companies').where({ id: companyId }).first()
-  return company?.name || ''
-}
 
 const withCompanyName = async (row: JobRow) => ({
   ...row,
@@ -124,7 +109,6 @@ const syncJobCalendarEvent = async ({
     .orderBy('id', 'asc')
 
   const shouldExist = Boolean(date)
-  console.log('[syncJobCalendarEvent]', { type, date, jobId: job.id, shouldExist, existing: existingEvents.length })
 
   if (!shouldExist) {
     if (existingEvents.length) {
@@ -202,24 +186,6 @@ const refreshCompaniesAvailableJobs = async (userId: number, companyIds: Array<n
   await Promise.all(unique.map((companyId) => refreshCompanyAvailableJobs(userId, companyId)))
 }
 
-const createNotification = async (
-  userId: number,
-  title: string,
-  description: string,
-  type: 'system' | 'event' = 'system'
-) => {
-  try {
-    await db('notifications').insert({
-      user_id: userId,
-      title,
-      description,
-      createdAt: new Date().toISOString().slice(0, 10),
-      type,
-    })
-  } catch (error) {
-    console.warn('Notification insert skipped:', error)
-  }
-}
 
 jobsRoutes.get('/', async (req, res) => {
   const { q, sortKey, sortDir } = req.query as {
@@ -375,13 +341,6 @@ jobsRoutes.put('/:id', async (req, res) => {
   }
 
   const payload = pickJobPayload(req.body as Record<string, unknown>)
-  if (process.env.NODE_ENV !== 'production') {
-    console.log('[jobs.put] company_id input/normalized', {
-      id,
-      input: (req.body as Record<string, unknown>)?.company_id,
-      normalized: payload.company_id,
-    })
-  }
   const [updated] = await db('jobs')
     .where({ id, user_id: userId })
     .update(payload)
