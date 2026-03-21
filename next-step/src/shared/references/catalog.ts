@@ -119,28 +119,3 @@ export const CONTRACT_VALUES = ['full_time', 'part_time', 'internship', 'freelan
 
 export const LEVEL_VALUES = ['junior', 'mid', 'senior', 'lead'] as const
 
-export const LOCATION_VALUES = [
-  'New York, NY',
-  'San Francisco, CA',
-  'Los Angeles, CA',
-  'Seattle, WA',
-  'Austin, TX',
-  'Boston, MA',
-  'Chicago, IL',
-  'Miami, FL',
-  'Montreal, CA',
-  'Toronto, CA',
-  'Paris, FR',
-  'Lyon, FR',
-  'Bordeaux, FR',
-  'Berlin, DE',
-  'Helsinki, FI',
-  'Stockholm, SE',
-  'London, UK',
-  'Dublin, IE',
-  'Amsterdam, NL',
-  'Lisbon, PT',
-  'Madrid, ES',
-  'Milan, IT',
-  'Remote',
-] as const

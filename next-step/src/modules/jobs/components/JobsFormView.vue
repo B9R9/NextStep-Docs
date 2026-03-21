@@ -15,11 +15,23 @@ import {
 const props = defineProps<{
   draft: Job | null
   companyOptions: SharedSelectOption[]
+  locationQuery: string
+  locationResults: string[]
+  isLocationOpen: boolean
 }>()
 
 const emit = defineEmits<{
   (e: 'addCompany'): void
+  (e: 'update:locationQuery', value: string): void
+  (e: 'selectLocation', value: string): void
+  (e: 'focusLocation'): void
+  (e: 'blurLocation'): void
 }>()
+
+const locationInput = computed({
+  get: () => props.locationQuery,
+  set: (value: string) => emit('update:locationQuery', value),
+})
 
 const { t } = useI18n()
 
@@ -221,10 +233,32 @@ const languageModel = computed<SharedMultiSelectOption[] | null>({
               :clear-label="t('common.noSelection')"
             />
           </div>
-          <label class="grid gap-1 text-sm">
+          <div class="grid gap-1 text-sm">
             <span class="text-xs text-muted">{{ t('jobs.form.location') }}</span>
-            <input v-model="props.draft!.location" class="ns-input h-9 text-xs" />
-          </label>
+            <div class="relative">
+              <input
+                v-model="locationInput"
+                class="ns-input h-9 text-xs"
+                :placeholder="t('jobs.form.locationPlaceholder')"
+                @focus="emit('focusLocation')"
+                @blur="emit('blurLocation')"
+              />
+              <div
+                v-if="props.isLocationOpen"
+                class="absolute z-10 mt-2 w-full rounded-xl border border-border bg-surface shadow-paper"
+              >
+                <button
+                  v-for="city in props.locationResults"
+                  :key="city"
+                  type="button"
+                  class="flex w-full items-center px-3 py-2 text-sm hover:bg-surface-2"
+                  @click="emit('selectLocation', city)"
+                >
+                  {{ city }}
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

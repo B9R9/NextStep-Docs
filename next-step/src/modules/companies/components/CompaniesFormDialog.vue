@@ -5,7 +5,6 @@ import type { Company } from '../types'
 import { useSectorsStore } from '../store/useSectorsStore'
 import { useI18n } from 'vue-i18n'
 import CompaniesFormView from './CompaniesFormView.vue'
-import { LOCATION_VALUES } from '@/shared/references/catalog'
 import { http } from '@/shared/api/http'
 
 const { t } = useI18n()
@@ -69,9 +68,8 @@ watch(locationQuery, (value) => {
       locationResults.value = data.results || []
       isLocationOpen.value = isLocationFocused.value && locationResults.value.length > 0
     } catch {
-      const q = query.toLowerCase()
-      locationResults.value = LOCATION_VALUES.filter((city) => city.toLowerCase().includes(q)).slice(0, 8)
-      isLocationOpen.value = isLocationFocused.value && locationResults.value.length > 0
+      locationResults.value = []
+      isLocationOpen.value = false
     }
   }, 500)
 })

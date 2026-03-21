@@ -8,6 +8,7 @@ import type { Company } from '@/modules/companies/types'
 import { useCompaniesStore } from '@/modules/companies/store/useCompaniesStore'
 import { useI18n } from 'vue-i18n'
 import type { SharedSelectOption } from '@/shared/components/SharedSelect.vue'
+import { http } from '@/shared/api/http'
 
 const props = defineProps<{
   open: boolean
@@ -27,6 +28,50 @@ const { t } = useI18n()
 const draft = ref<Job | null>(null)
 const isCompanyDialogOpen = ref(false)
 const companyDraft = ref<Company | null>(null)
+
+const locationQuery = ref('')
+const locationResults = ref<string[]>([])
+const isLocationOpen = ref(false)
+const isLocationFocused = ref(false)
+const isSelectingLocation = ref(false)
+let locationTimer: ReturnType<typeof setTimeout> | undefined
+
+type LocationsResponse = { results?: string[] }
+
+watch(locationQuery, (value) => {
+  if (isSelectingLocation.value) return
+  if (locationTimer) clearTimeout(locationTimer)
+  locationTimer = setTimeout(async () => {
+    const query = value.trim()
+    if (!query) {
+      locationResults.value = []
+      isLocationOpen.value = false
+      return
+    }
+    try {
+      const { data } = await http.get<LocationsResponse>('/locations', { params: { query } })
+      locationResults.value = data.results || []
+      isLocationOpen.value = isLocationFocused.value && locationResults.value.length > 0
+    } catch {
+      locationResults.value = []
+      isLocationOpen.value = false
+    }
+  }, 500)
+})
+
+const selectLocation = (value: string) => {
+  isSelectingLocation.value = true
+  if (draft.value) draft.value.location = value
+  locationQuery.value = value
+  isLocationOpen.value = false
+  locationResults.value = []
+  setTimeout(() => { isSelectingLocation.value = false }, 0)
+}
+
+const onBlurLocation = () => {
+  isLocationFocused.value = false
+  setTimeout(() => { isLocationOpen.value = false }, 100)
+}
 
 const companiesStore = useCompaniesStore()
 
@@ -64,6 +109,7 @@ watch(
     draft.value = value
       ? { ...value, published_at: toInputDate(value.published_at), deadline_at: toInputDate(value.deadline_at) }
       : null
+    locationQuery.value = value?.location || ''
   },
 )
 
@@ -74,6 +120,7 @@ watch(
       draft.value = props.row
         ? { ...props.row, published_at: toInputDate(props.row.published_at), deadline_at: toInputDate(props.row.deadline_at) }
         : null
+      locationQuery.value = props.row?.location || ''
       return
     }
     await companiesStore.loadCompanies()
@@ -156,7 +203,14 @@ const saveCompany = async (company: Company) => {
           <JobsFormView
             :draft="draft"
             :company-options="companyOptions"
+            :location-query="locationQuery"
+            :location-results="locationResults"
+            :is-location-open="isLocationOpen"
             @addCompany="openCompanyCreate"
+            @update:locationQuery="locationQuery = $event"
+            @selectLocation="selectLocation"
+            @focusLocation="isLocationFocused = true; isLocationOpen = locationResults.length > 0"
+            @blurLocation="onBlurLocation"
           />
 
           <div class="mt-auto flex justify-end gap-2">
