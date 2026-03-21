@@ -6,6 +6,7 @@
 
 ## March 2026
 
+- ✅ Feedback status system (new/in_progress/archived, ticket number, tabs de filtrage, actions inline) — completed 2026-03-21
 - ✅ User feedback feature (FeedbackModal NavBar, anonymous toggle, admin panel) — completed 2026-03-21
 - ✅ Admin analytics dashboard (KPI cards, funnel, feature adoption, API health, churn, feedback) — completed 2026-03-21
 - ✅ User event tracking + in-memory API metrics (user_events table, trackEvent, X-Session-Id) — completed 2026-03-21
