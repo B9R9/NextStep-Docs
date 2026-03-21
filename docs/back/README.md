@@ -22,7 +22,8 @@ src/
 ├── utils/
 │   ├── jwt.ts                # signAccessToken, signRefreshToken, hashToken
 │   ├── track.ts              # trackEvent() fire-and-forget + getSessionId()
-│   └── apiMetrics.ts         # In-memory route metrics (recordRequest, getMetrics)
+│   ├── apiMetrics.ts         # In-memory route metrics (recordRequest, getMetrics)
+│   └── routeHelpers.ts       # normalizeDate, normalizeNumericId, getCompanyName, createNotification
 └── routes/
     ├── auth.ts               # /auth (public)
     ├── jobs.ts               # /jobs
@@ -130,7 +131,7 @@ Types d'événement : `published` · `deadline` · `event` · `interview` · `re
 | GET | `/notifications` | Liste toutes les notifications. |
 | PUT | `/notifications/:id/dismiss` | Marque comme lue. |
 
-Notifications créées automatiquement par `createNotification()` lors des mutations jobs/companies/calendar.
+Notifications créées automatiquement par `createNotification()` depuis `routeHelpers.ts` lors des mutations jobs/companies/calendar.
 
 ---
 

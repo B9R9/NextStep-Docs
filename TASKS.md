@@ -1,6 +1,6 @@
 # Next Step — Tasks
 
-> Last updated: 2026-03-21
+> Last updated: 2026-03-21 (clean code session)
 
 ---
 
@@ -55,9 +55,6 @@
   - 📋 Frontend: masquer les options de filtre des colonnes cachées
 
 ### 🟢 Low priority
-
-- **Onglet Roadmap dans Settings**
-  - 📋 Frontend: page ou onglet dans Settings listant les futures fonctionnalités par phase
 
 - **Transitions fade in/out plus smooth**
   - 📋 Frontend: ajouter transitions CSS sur les changements de vue et dialog open/close
