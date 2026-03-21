@@ -6,6 +6,10 @@
 
 ## March 2026
 
+- ✅ Filtres adaptés aux colonnes visibles — location filter (multiselect Jobs, text input Companies, server-side backend) — completed 2026-03-21
+- ✅ Modal redimensionnement — tous les modals contraints entre navbar (top-16) et footer (bottom-[3.25rem]), correction fragment Vue — completed 2026-03-21
+- ✅ Locations autocomplete — remplacement des villes hardcodées par Photon OSM API (backend + MSW handler + Jobs/Companies forms) — completed 2026-03-21
+- ✅ GDPR / Privacy — page `/privacy` (7 sections), lien footer MainLayout, consentement GDPR au register, i18n 4 langues — completed 2026-03-21
 - ✅ Notifications et rappels: per-event reminders for manual calendar events, ReminderDaysPicker shared component, split auto/manual reminder logic in GET /reminders/today — completed 2026-03-21
 - ✅ Notifications et rappels: Settings toggle + global reminder days, ReminderPopup on login, acknowledge per-event checkboxes — completed 2026-03-21
 - ✅ Transitions fade in/out — page-fade route transition, ns-fade-in content, CalendarPanelSkeleton, F5 fade — completed 2026-03-21

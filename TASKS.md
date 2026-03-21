@@ -6,6 +6,8 @@
 
 ## 🔄 In progress
 
+_(aucune tâche en cours)_
+
 ---
 
 ## 📋 Todo
@@ -13,11 +15,11 @@
 ### 🔴 High priority
 
 - **Confirmation email à l'inscription**
-  - 📋 Backend: générer et stocker un token de confirmation (migration DB)
+  - 📋 DB: table `email_confirmations` — token, user_id, expires_at, confirmed_at (migration Knex)
   - 📋 Backend: route POST `/api/auth/confirm/:token`
-  - 📋 Backend: envoi email (nodemailer ou service tiers)
-  - 📋 Frontend: page de confirmation avec feedback visuel
-  - 📋 Frontend: resend email si expiré
+  - 📋 Backend: envoi email au register (nodemailer ou service tiers)
+  - 📋 Frontend: page `/confirm/:token` avec feedback visuel (succès / expiré / invalide)
+  - 📋 Frontend: bouton "Renvoyer l'email" si token expiré
 
 ### 🟡 Normal
 
@@ -26,21 +28,17 @@
   - 📋 Frontend: afficher une page dédiée "Application non disponible sur mobile"
 
 - **Statistiques globales à la page d'accueil (user)**
-  - 📋 Frontend: calculer et afficher les stats globales (candidatures en cours, entretiens à venir, taux de réponse…)
-  - 📋 Backend: route GET `/api/stats` agrégée par user
+  - 📋 Backend: route GET `/api/stats` — agrégats par user (candidatures en cours, entretiens à venir, taux de réponse)
+  - 📋 Frontend: section stats sur la page d'accueil (cards KPI)
 
 - **Settings: option migration**
-  - 📋 Backend: export des données utilisateur (JSON ou CSV)
+  - 📋 Backend: route GET `/api/export` — export JSON ou CSV de toutes les données user
   - 📋 Frontend: bouton "Exporter mes données" dans Settings > Compte
 
 - **Sauvegarde locale des changements de statut**
-  - 📋 Frontend: persister les changements de statut en localStorage avant sync API (éviter reload visuel)
-
-- **Filtres adaptés aux colonnes visibles**
-  - 📋 Frontend: masquer les options de filtre des colonnes cachées
+  - 📋 Frontend: persister les changements de statut en localStorage avant sync API (évite reload visuel)
 
 ### 🟢 Low priority
-
 
 ---
 
@@ -102,17 +100,16 @@
 
 ## 🗂 Suggested order
 
-1. **Page mobile non supporté** — quick win, évite les bugs d'affichage sur mobile
-2. **Statistiques globales à la page d'accueil (user)** — améliore la valeur perçue dès l'accueil
-3. **Filtres adaptés aux colonnes visibles** — atomic, cohérent avec les filtres existants
-4. **Sauvegarde locale des changements de statut** — améliore la fluidité perçue, pas de dépendances
-5. **Confirmation email à l'inscription** — fondation Auth manquante, débloque la confiance utilisateur
-6. **Settings: option migration** — RGPD, low risk, pas de dépendances
-7. **Documents: DB schema & migrations** — fondation Phase 2, débloque tout le reste
-8. **Documents: Backend CRUD routes** — dépend du schéma DB
-9. **Documents: AI service integration** — dépend des routes backend, cœur de la Phase 2
-10. **CV creation wizard** — dépend du service IA
-11. **CV edit / preview / PDF export** — complète le workflow CV
-12. **Cover letter generation wizard** — dépend du service IA, parallélisable avec CV
-13. **Cover letter edit / preview / PDF export** — complète le workflow lettres
-14. **AI chatbot** — feature complémentaire, pas de dépendances critiques, risque le plus élevé
+1. **Page mobile non supporté** — quick win, une seule page, évite les bugs d'affichage sur mobile
+2. **Statistiques globales à la page d'accueil** — améliore la valeur perçue dès l'accueil, pas de dépendances
+3. **Sauvegarde locale des changements de statut** — améliore la fluidité perçue, atomic, pas de dépendances
+4. **Confirmation email à l'inscription** — fondation Auth manquante, débloque confiance utilisateur, DB + backend + frontend
+5. **Settings: option migration** — RGPD, low risk, pas de dépendances
+6. **Documents: DB schema & migrations** — fondation Phase 2, débloque tout le reste
+7. **Documents: Backend CRUD routes** — dépend du schéma DB
+8. **Documents: AI service integration** — dépend des routes backend, cœur de la Phase 2
+9. **CV creation wizard** — dépend du service IA
+10. **CV edit / preview / PDF export** — complète le workflow CV
+11. **Cover letter generation wizard** — dépend du service IA, parallélisable avec CV
+12. **Cover letter edit / preview / PDF export** — complète le workflow lettres
+13. **AI chatbot** — feature complémentaire, risque le plus élevé, pas de dépendances critiques
