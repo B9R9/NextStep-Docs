@@ -17,6 +17,7 @@ export const useCompaniesStore = defineStore('companies', {
     async loadCompanies(params?: {
       q?: string
       industry?: string
+      location?: string
       sortKey?: keyof Company
       sortDir?: 'asc' | 'desc'
     }) {

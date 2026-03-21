@@ -33,9 +33,10 @@ const pickCompanyPayload = (payload: Record<string, unknown>) => ({
 
 
 companiesRoutes.get('/', async (req, res) => {
-  const { q, industry, sortKey, sortDir } = req.query as {
+  const { q, industry, location, sortKey, sortDir } = req.query as {
     q?: string
     industry?: string
+    location?: string
     sortKey?: string
     sortDir?: 'asc' | 'desc'
   }
@@ -64,6 +65,10 @@ companiesRoutes.get('/', async (req, res) => {
 
   if (industry) {
     query.andWhere('companies.industry', industry)
+  }
+
+  if (location) {
+    query.andWhereILike('companies.location', `%${location}%`)
   }
 
   if (sortKey && allowedSortKeys.has(sortKey)) {

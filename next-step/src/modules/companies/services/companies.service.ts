@@ -7,6 +7,7 @@ type SortDir = 'asc' | 'desc'
 type FetchParams = {
   q?: string
   industry?: string
+  location?: string
   sortKey?: keyof Company
   sortDir?: SortDir
 }

@@ -152,7 +152,13 @@ const languageOptions = computed<SharedMultiSelectOption[]>(() => {
   }))
 })
 
+const locationOptions = computed<SharedMultiSelectOption[]>(() => {
+  const values = Array.from(new Set(rows.value.map((row) => row.location).filter(Boolean)))
+  return values.map((value) => ({ value, label: value }))
+})
+
 const companyFilter = ref<SharedMultiSelectOption[] | null>(null)
+const locationFilter = ref<SharedMultiSelectOption[] | null>(null)
 const contractFilter = ref<SharedMultiSelectOption[] | null>(null)
 const languageFilter = ref<SharedMultiSelectOption[] | null>(null)
 const publishedFilter = ref<DateFilterValue>({ operator: null, date: '' })
@@ -163,6 +169,7 @@ const sortedRows = computed(() => {
   let filtered = filteredRows.value
   const selectedIndustry = industryFilter.value ?? []
   const selectedCompanies = companyFilter.value ?? []
+  const selectedLocations = locationFilter.value ?? []
   const selectedContracts = contractFilter.value ?? []
   const selectedLanguages = languageFilter.value ?? []
   if (selectedIndustry.length) {
@@ -173,6 +180,11 @@ const sortedRows = computed(() => {
   if (selectedCompanies.length) {
     filtered = filtered.filter((row) =>
       selectedCompanies.some((option) => Number(option.value) === toCompanyId(row.company_id)),
+    )
+  }
+  if (selectedLocations.length) {
+    filtered = filtered.filter((row) =>
+      selectedLocations.some((option) => option.value === row.location),
     )
   }
   if (selectedContracts.length) {
@@ -239,6 +251,7 @@ const hasActiveFilters = computed(() => {
   if (searchQuery.value.length) return true
   if ((industryFilter.value?.length ?? 0) > 0) return true
   if ((companyFilter.value?.length ?? 0) > 0) return true
+  if ((locationFilter.value?.length ?? 0) > 0) return true
   if ((contractFilter.value?.length ?? 0) > 0) return true
   if ((languageFilter.value?.length ?? 0) > 0) return true
   if (publishedFilter.value.operator && publishedFilter.value.date) return true
@@ -459,6 +472,7 @@ const resetFilters = () => {
   searchQuery.value = ''
   industryFilter.value = null
   companyFilter.value = null
+  locationFilter.value = null
   contractFilter.value = null
   languageFilter.value = null
   publishedFilter.value = { operator: null, date: '' }
@@ -529,6 +543,12 @@ watch(
                 v-model="companyFilter"
                 :options="companyOptions"
                 :placeholder="t('jobs.company')"
+                class="w-36"
+              />
+              <SharedMultiSelect
+                v-model="locationFilter"
+                :options="locationOptions"
+                :placeholder="t('jobs.location')"
                 class="w-36"
               />
               <SharedMultiSelect

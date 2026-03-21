@@ -47,6 +47,16 @@ type SortKey =
 const sortKey = ref<SortKey>('name')
 const sortDir = ref<'asc' | 'desc'>('asc')
 const industryFilter = ref<SharedSelectOption | null>(null)
+const locationInput = ref('')
+const locationQuery = ref('')
+let locationTimer: ReturnType<typeof setTimeout> | undefined
+
+watch(locationInput, (value) => {
+  if (locationTimer) clearTimeout(locationTimer)
+  locationTimer = setTimeout(() => {
+    locationQuery.value = value.trim()
+  }, 500)
+})
 
 const sectorsStore = useSectorsStore()
 const sectorOptions = computed<SharedSelectOption[]>(() => {
@@ -74,7 +84,8 @@ const hasRows = computed(() => rows.value.length > 0)
 const hasActiveFilters = computed(() => {
   const hasSearch = searchQuery.value.length > 0
   const hasIndustry = industryFilter.value?.value && industryFilter.value.value !== 'all'
-  return hasSearch || hasIndustry
+  const hasLocation = locationQuery.value.length > 0
+  return hasSearch || hasIndustry || hasLocation
 })
 
 const isLinkedIn = (value: string) => value.toLowerCase().includes('linkedin.com')
@@ -245,12 +256,13 @@ const refreshCompanies = async () => {
       industryFilter.value && industryFilter.value.value !== 'all'
         ? String(industryFilter.value.value)
         : undefined,
+    location: locationQuery.value || undefined,
     sortKey: sortKey.value,
     sortDir: sortDir.value,
   })
 }
 
-watch([searchQuery, sortKey, sortDir, industryFilter], () => {
+watch([searchQuery, sortKey, sortDir, industryFilter, locationQuery], () => {
   refreshCompanies()
 })
 
@@ -262,6 +274,8 @@ onMounted(() => {
 const resetFilters = () => {
   searchInput.value = ''
   searchQuery.value = ''
+  locationInput.value = ''
+  locationQuery.value = ''
   sortKey.value = 'name'
   sortDir.value = 'asc'
   industryFilter.value = sectorOptions.value[0] ?? null
@@ -305,6 +319,11 @@ const resetFilters = () => {
                 v-model="industryFilter"
                 :options="sectorOptions"
                 class="sm:w-48 w-auto"
+              />
+              <input
+                v-model="locationInput"
+                class="ns-input w-40"
+                :placeholder="t('companies.table.location')"
               />
               <button v-if="hasActiveFilters" class="ns-btn ns-btn-ghost" @click="resetFilters">
                 {{ t('companies.resetButton') }}
