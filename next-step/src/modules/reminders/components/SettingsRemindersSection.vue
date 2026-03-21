@@ -2,11 +2,12 @@
 import { computed, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRemindersStore } from '../store/useRemindersStore'
+import SharedModal from '@/shared/components/SharedModal.vue'
 
 const { t } = useI18n()
 const store = useRemindersStore()
 
-const isOpen = ref(false)
+const isModalOpen = ref(false)
 const newDayInput = ref<number | ''>('')
 const isSaving = ref(false)
 const saveMsg = ref('')
@@ -61,15 +62,15 @@ const dayLabel = (day: number) => {
     <button
       class="flex w-full items-center justify-between text-sm font-semibold"
       type="button"
-      @click="isOpen = !isOpen"
+      @click="isModalOpen = true"
     >
       {{ t('settings.reminders.title') }}
-      <span class="material-symbols-rounded text-[18px] leading-none">
-        {{ isOpen ? 'expand_less' : 'expand_more' }}
-      </span>
+      <span class="material-symbols-rounded text-[18px] leading-none">chevron_right</span>
     </button>
+  </div>
 
-    <div v-if="isOpen" class="mt-3 space-y-4">
+  <SharedModal :open="isModalOpen" :title="t('settings.reminders.title')" @close="isModalOpen = false">
+    <div class="space-y-4">
       <p class="text-xs text-muted">{{ t('settings.reminders.subtitle') }}</p>
 
       <!-- Enable toggle -->
@@ -139,5 +140,5 @@ const dayLabel = (day: number) => {
 
       <p v-if="saveMsg" class="text-xs text-success">{{ saveMsg }}</p>
     </div>
-  </div>
+  </SharedModal>
 </template>
