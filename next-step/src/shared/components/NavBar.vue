@@ -36,6 +36,8 @@
       <!-- Actions -->
       <div class="flex items-center gap-2">
         <LanguageSelector />
+        <IconButton v-if="authStore.isAdmin" label="Admin" icon="admin_panel_settings" @click="router.push('/admin')" />
+        <IconButton label="Feedback" icon="feedback" @click="isFeedbackOpen = true" />
         <IconButton label="Agenda" icon="calendar_today" @click="toggleCalendar" />
         <div class="relative" data-notifications-trigger>
           <IconButton label="Notifications" icon="notifications" @click.stop="toggleNotifications" />
@@ -65,6 +67,7 @@
     @close="closeCalendar"
     @open-calendar="openCalendarView"
   />
+  <FeedbackModal :open="isFeedbackOpen" @close="isFeedbackOpen = false" />
 </template>
 
 <script setup lang="ts">
@@ -73,14 +76,17 @@ import LanguageSelector from './LanguageSelector.vue'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import CalendarModal from '@/modules/calendar/components/CalendarModal.vue'
+import FeedbackModal from './FeedbackModal.vue'
 import NotificationsPanel from '@/modules/notifications/components/NotificationsPanel.vue'
-import { clearAuthToken } from '@/modules/auth/services/auth.service'
+import { logout as authLogout } from '@/modules/auth/services/auth.service'
+import { useAuthStore } from '@/modules/auth/store/useAuthStore'
 import { useNotificationsStore } from '@/modules/notifications/store/useNotificationsStore'
 
 const router = useRouter()
 const route = useRoute()
 const isCalendarOpen = ref(false)
 const isNotificationsOpen = ref(false)
+const isFeedbackOpen = ref(false)
 const notificationsStore = useNotificationsStore()
 
 const toggleCalendar = () => {
@@ -119,10 +125,12 @@ const goTo = (path: string) => {
   router.push(path)
 }
 
-const isLoggedIn = computed(() => !!localStorage.getItem('auth_token'))
+const authStore = useAuthStore()
+const isLoggedIn = computed(() => authStore.isLoggedIn)
 
-const logout = () => {
-  clearAuthToken()
+const logout = async () => {
+  await authLogout()
+  authStore.clearSession()
   router.push('/login')
 }
 

@@ -1,6 +1,7 @@
 import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
+import cookieParser from 'cookie-parser'
 import { readFileSync } from 'node:fs'
 import path from 'node:path'
 import { authRoutes } from './routes/auth'
@@ -10,7 +11,11 @@ import { applicationsRoutes } from './routes/applications'
 import { calendarRoutes } from './routes/calendar'
 import { notificationsRoutes } from './routes/notifications'
 import { locationsRoutes } from './routes/locations'
+import { adminRoutes } from './routes/admin'
+import { feedbackRoutes } from './routes/feedback'
 import { authMiddleware } from './middleware/auth'
+import { adminMiddleware } from './middleware/admin'
+import { recordRequest } from './utils/apiMetrics'
 
 const app = express()
 const startedAt = new Date()
@@ -29,7 +34,11 @@ function getApiVersion(): string {
 
 const apiVersion = getApiVersion()
 
-app.use(cors({ origin: process.env.CORS_ORIGIN || '*' }))
+app.use(cors({
+  origin: process.env.CORS_ORIGIN || '*',
+  credentials: true,
+}))
+app.use(cookieParser())
 app.use(express.json())
 
 app.use((req, res, next) => {
@@ -53,6 +62,8 @@ app.use((req, res, next) => {
     } else {
       console.info(line)
     }
+
+    recordRequest(method, originalUrl, status, durationMs)
   })
 
   next()
@@ -83,6 +94,8 @@ app.use('/applications', authMiddleware, applicationsRoutes)
 app.use('/calendar', authMiddleware, calendarRoutes)
 app.use('/notifications', authMiddleware, notificationsRoutes)
 app.use('/locations', locationsRoutes)
+app.use('/feedback', authMiddleware, feedbackRoutes)
+app.use('/admin', authMiddleware, adminMiddleware, adminRoutes)
 
 const port = Number(process.env.PORT || 3001)
 app.listen(port, '0.0.0.0', () => {
