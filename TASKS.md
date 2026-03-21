@@ -1,14 +1,10 @@
 # Next Step — Tasks
 
-> Last updated: 2026-03-21 (clean code session)
+> Last updated: 2026-03-21
 
 ---
 
 ## 🔄 In progress
-
-- **Notifications et rappels selon les settings**
-  - 🔄 Déclencher les rappels selon le timing choisi dans Settings (même jour / 1j / 2j / 5j / 1 semaine avant)
-  - 🔄 Lier les rappels aux deadlines et entretiens du calendrier
 
 ---
 
@@ -22,17 +18,6 @@
   - 📋 Backend: envoi email (nodemailer ou service tiers)
   - 📋 Frontend: page de confirmation avec feedback visuel
   - 📋 Frontend: resend email si expiré
-
-- **Settings: toggle notifications**
-  - 📋 DB: champ `notifications_enabled` dans `users`
-  - 📋 Backend: GET/PUT `/api/settings/notifications`
-  - 📋 Frontend: toggle dans Settings > Notifications
-
-- **Settings: choix rappels**
-  - 📋 DB: champ `reminder_timing` (enum ou JSON) dans `users`
-  - 📋 Backend: GET/PUT `/api/settings/reminders`
-  - 📋 Frontend: multi-select dans Settings (même jour / 1j / 2j / 5j / 1 semaine)
-  - 📋 Scheduler: lire le timing et déclencher les rappels
 
 ### 🟡 Normal
 
@@ -117,21 +102,17 @@
 
 ## 🗂 Suggested order
 
-1. **Settings: toggle notifications** — quick win, débloque les rappels (Settings DB déjà en place)
-2. **Settings: choix rappels** — complète le système de notifications en cours
-3. **Page mobile non supporté** — quick win, évite les bugs d'affichage sur mobile
-4. **Statistiques globales à la page d'accueil (user)** — améliore la valeur perçue dès l'accueil
-5. **Filtres adaptés aux colonnes visibles** — atomic, cohérent avec les filtres existants
-6. **Sauvegarde locale des changements de statut** — améliore la fluidité perçue, pas de dépendances
-7. **Confirmation email à l'inscription** — fondation Auth manquante, débloque la confiance utilisateur
-8. **Settings: option migration** — RGPD, low risk, pas de dépendances
-9. **Onglet Roadmap dans Settings** — quick win, aucune dépendance
-10. **Transitions fade in/out** — polish final, aucune dépendance
-11. **Documents: DB schema & migrations** — fondation Phase 2, débloque tout le reste
-12. **Documents: Backend CRUD routes** — dépend du schéma DB
-13. **Documents: AI service integration** — dépend des routes backend, cœur de la Phase 2
-14. **CV creation wizard** — dépend du service IA
-15. **CV edit / preview / PDF export** — complète le workflow CV
-16. **Cover letter generation wizard** — dépend du service IA, parallélisable avec CV
-17. **Cover letter edit / preview / PDF export** — complète le workflow lettres
-18. **AI chatbot** — feature complémentaire, pas de dépendances critiques, risque le plus élevé
+1. **Page mobile non supporté** — quick win, évite les bugs d'affichage sur mobile
+2. **Statistiques globales à la page d'accueil (user)** — améliore la valeur perçue dès l'accueil
+3. **Filtres adaptés aux colonnes visibles** — atomic, cohérent avec les filtres existants
+4. **Sauvegarde locale des changements de statut** — améliore la fluidité perçue, pas de dépendances
+5. **Confirmation email à l'inscription** — fondation Auth manquante, débloque la confiance utilisateur
+6. **Settings: option migration** — RGPD, low risk, pas de dépendances
+7. **Documents: DB schema & migrations** — fondation Phase 2, débloque tout le reste
+8. **Documents: Backend CRUD routes** — dépend du schéma DB
+9. **Documents: AI service integration** — dépend des routes backend, cœur de la Phase 2
+10. **CV creation wizard** — dépend du service IA
+11. **CV edit / preview / PDF export** — complète le workflow CV
+12. **Cover letter generation wizard** — dépend du service IA, parallélisable avec CV
+13. **Cover letter edit / preview / PDF export** — complète le workflow lettres
+14. **AI chatbot** — feature complémentaire, pas de dépendances critiques, risque le plus élevé

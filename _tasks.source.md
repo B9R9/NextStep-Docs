@@ -12,6 +12,7 @@
 - Settings: toggle notifications
 - Settings: choix rappels (même jour / 1j / 2j / 5j / 1 semaine avant)
 - Page mobile non supporté
+- trouver un moyen pour les villes et premplie
 
 
 ## Done

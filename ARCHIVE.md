@@ -6,6 +6,8 @@
 
 ## March 2026
 
+- ✅ Notifications et rappels: per-event reminders for manual calendar events, ReminderDaysPicker shared component, split auto/manual reminder logic in GET /reminders/today — completed 2026-03-21
+- ✅ Notifications et rappels: Settings toggle + global reminder days, ReminderPopup on login, acknowledge per-event checkboxes — completed 2026-03-21
 - ✅ Transitions fade in/out — page-fade route transition, ns-fade-in content, CalendarPanelSkeleton, F5 fade — completed 2026-03-21
 - ✅ Refactor: extract shared helpers — routeHelpers.ts (backend), serviceHelpers.ts (frontend), remove dead code and debug logs — completed 2026-03-21
 - ✅ Roadmap section in Settings — product timeline (5 phases, done/in progress/planned) — completed 2026-03-21
