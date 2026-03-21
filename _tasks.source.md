@@ -5,14 +5,10 @@
 
 ## Todo
 - Confirmation email à l'inscription
-- Transitions fade in/out plus smooth
-- Sauvegarde locale des changements de statut (éviter reload)
 - Filtres adaptés aux colonnes visibles
-- Settings: option migration
-- Settings: toggle notifications
-- Settings: choix rappels (même jour / 1j / 2j / 5j / 1 semaine avant)
 - Page mobile non supporté
-- trouver un moyen pour les villes et premplie
+
+
 
 
 ## Done
@@ -50,3 +46,9 @@
 - Ajouter dans la nav bar un icon pour ouvrir un form et envoyer un message à l'équipe (feedback, bug report, demande de fonctionnalité)
 - Ajouter statistiques global de l app à la page d'accueil pour user de niveau 1
 - Roadmap section dans Settings — timeline des phases produit visible par tous les users
+- trouver un moyen pour les villes et premplie
+- Settings: option migration
+- Settings: toggle notifications
+- Settings: choix rappels (même jour / 1j / 2j / 5j / 1 semaine avant)
+- Modal ont besoin detre redimensionner 
+- Transitions fade in/out plus smooth
