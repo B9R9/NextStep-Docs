@@ -5,6 +5,7 @@ import { useRouter } from 'vue-router'
 import { register } from '../services/auth.service'
 import { useAuthStore } from '../store/useAuthStore'
 import { checkAdminAccess } from '@/modules/admin/services/admin.service'
+import { useRemindersStore } from '@/modules/reminders/store/useRemindersStore'
 
 const { t } = useI18n()
 const router = useRouter()
@@ -34,6 +35,7 @@ const handleCreateAccount = async () => {
     authStore.setSession(accessToken, user)
     try { await checkAdminAccess(); authStore.setAdmin(true) } catch { authStore.setAdmin(false) }
     router.push('/applications')
+    useRemindersStore().checkAndShowPopup()
   } catch {
     errorMessage.value = 'Failed to create account'
   } finally {

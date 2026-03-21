@@ -13,6 +13,8 @@ import { notificationsRoutes } from './routes/notifications'
 import { locationsRoutes } from './routes/locations'
 import { adminRoutes } from './routes/admin'
 import { feedbackRoutes } from './routes/feedback'
+import { settingsRoutes } from './routes/settings'
+import { remindersRoutes } from './routes/reminders'
 import { authMiddleware } from './middleware/auth'
 import { adminMiddleware } from './middleware/admin'
 import { recordRequest } from './utils/apiMetrics'
@@ -95,6 +97,8 @@ app.use('/calendar', authMiddleware, calendarRoutes)
 app.use('/notifications', authMiddleware, notificationsRoutes)
 app.use('/locations', locationsRoutes)
 app.use('/feedback', authMiddleware, feedbackRoutes)
+app.use('/settings', authMiddleware, settingsRoutes)
+app.use('/reminders', authMiddleware, remindersRoutes)
 app.use('/admin', authMiddleware, adminMiddleware, adminRoutes)
 
 const port = Number(process.env.PORT || 3001)

@@ -3,6 +3,7 @@ import { routes } from './routes'
 import { useAuthStore } from '@/modules/auth/store/useAuthStore'
 import { refresh, me } from '@/modules/auth/services/auth.service'
 import { checkAdminAccess } from '@/modules/admin/services/admin.service'
+import { useRemindersStore } from '@/modules/reminders/store/useRemindersStore'
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -32,6 +33,7 @@ router.beforeEach(async (to) => {
         } catch {
           authStore.setAdmin(false)
         }
+        useRemindersStore().checkAndShowPopup()
       } catch {
         // No valid refresh token — user is not authenticated, that's fine
       }

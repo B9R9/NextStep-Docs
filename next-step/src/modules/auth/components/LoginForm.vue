@@ -5,6 +5,7 @@ import { useRouter } from 'vue-router'
 import { login } from '../services/auth.service'
 import { useAuthStore } from '../store/useAuthStore'
 import { checkAdminAccess } from '@/modules/admin/services/admin.service'
+import { useRemindersStore } from '@/modules/reminders/store/useRemindersStore'
 
 const { t } = useI18n()
 const router = useRouter()
@@ -28,6 +29,7 @@ const handleLogin = async () => {
     authStore.setSession(accessToken, user)
     try { await checkAdminAccess(); authStore.setAdmin(true) } catch { authStore.setAdmin(false) }
     router.push('/applications')
+    useRemindersStore().checkAndShowPopup()
   } catch {
     errorMessage.value = 'Invalid credentials'
   } finally {

@@ -367,6 +367,32 @@
     "notifications": {
       "title": "Notification management",
       "subtitle": "Choose how you want to be notified."
+    },
+    "reminders": {
+      "cardTitle": "Reminders",
+      "cardSubtitle": "Get notified about upcoming deadlines and events.",
+      "title": "Reminder settings",
+      "subtitle": "Configure when you want to be reminded about calendar events.",
+      "enableToggle": "Enable reminders",
+      "daysLabel": "Remind me N days before the event",
+      "addDay": "Add",
+      "addDayPlaceholder": "Days before (e.g. 3)",
+      "sameDay": "Same day",
+      "daysBefore": "{n} day before | {n} days before",
+      "removeDay": "Remove",
+      "noDays": "No reminders configured. Add a value below.",
+      "hint": "0 = same day, 1 = day before, 7 = one week before, etc.",
+      "saved": "Saved."
+    }
+  },
+  "reminders": {
+    "popup": {
+      "title": "Upcoming events",
+      "subtitle": "{count} reminder | {count} reminders",
+      "today": "Today",
+      "inNDays": "In {n} day | In {n} days",
+      "dismiss": "Dismiss",
+      "dismissAll": "Dismiss all"
     }
   },
   "home": {

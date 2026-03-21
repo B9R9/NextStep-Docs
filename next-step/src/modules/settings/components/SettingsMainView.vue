@@ -4,6 +4,7 @@ import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { me, updateMe, updatePassword, deleteMe } from '@/modules/auth/services/auth.service'
 import SharedModal from '@/shared/components/SharedModal.vue'
+import SettingsRemindersSection from '@/modules/reminders/components/SettingsRemindersSection.vue'
 
 const { t } = useI18n()
 const router = useRouter()
@@ -282,6 +283,19 @@ const handleDeleteAccount = async () => {
               >
                 {{ t('settings.account.deleteAccount') }}
               </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Reminders -->
+        <section class="ns-card">
+          <div class="ns-card-body space-y-4">
+            <div>
+              <p class="text-sm font-semibold">{{ t('settings.reminders.cardTitle') }}</p>
+              <p class="text-xs text-muted">{{ t('settings.reminders.cardSubtitle') }}</p>
+            </div>
+            <div class="space-y-3">
+              <SettingsRemindersSection />
             </div>
           </div>
         </section>

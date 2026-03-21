@@ -367,6 +367,32 @@
     "notifications": {
       "title": "Ilmoitusten hallinta",
       "subtitle": "Valitse, miten haluat saada ilmoituksia."
+    },
+    "reminders": {
+      "cardTitle": "Muistutukset",
+      "cardSubtitle": "Saa ilmoituksia tulevista määräajoista ja tapahtumista.",
+      "title": "Muistutusasetukset",
+      "subtitle": "Määritä, milloin haluat muistutuksen kalenteritapahtumistasi.",
+      "enableToggle": "Ota muistutukset käyttöön",
+      "daysLabel": "Muistuta N päivää ennen tapahtumaa",
+      "addDay": "Lisää",
+      "addDayPlaceholder": "Päiviä ennen (esim. 3)",
+      "sameDay": "Samana päivänä",
+      "daysBefore": "{n} päivä ennen | {n} päivää ennen",
+      "removeDay": "Poista",
+      "noDays": "Ei muistutuksia. Lisää arvo alla.",
+      "hint": "0 = samana päivänä, 1 = edellisenä päivänä, 7 = viikko ennen jne.",
+      "saved": "Tallennettu."
+    }
+  },
+  "reminders": {
+    "popup": {
+      "title": "Tulevat tapahtumat",
+      "subtitle": "{count} muistutus | {count} muistutusta",
+      "today": "Tänään",
+      "inNDays": "{n} päivän kuluttua",
+      "dismiss": "Hylkää",
+      "dismissAll": "Hylkää kaikki"
     }
   },
   "home": {

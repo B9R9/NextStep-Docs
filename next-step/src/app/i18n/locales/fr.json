@@ -48,6 +48,32 @@
     "notifications": {
       "title": "Gestion des notifications",
       "subtitle": "Choisissez comment vous souhaitez être notifié."
+    },
+    "reminders": {
+      "cardTitle": "Rappels",
+      "cardSubtitle": "Soyez notifié des échéances et événements à venir.",
+      "title": "Paramètres des rappels",
+      "subtitle": "Configurez quand vous souhaitez être rappelé pour vos événements calendrier.",
+      "enableToggle": "Activer les rappels",
+      "daysLabel": "Me rappeler N jours avant l'événement",
+      "addDay": "Ajouter",
+      "addDayPlaceholder": "Jours avant (ex : 3)",
+      "sameDay": "Le jour même",
+      "daysBefore": "{n} jour avant | {n} jours avant",
+      "removeDay": "Supprimer",
+      "noDays": "Aucun rappel configuré. Ajoutez une valeur ci-dessous.",
+      "hint": "0 = le jour même, 1 = la veille, 7 = une semaine avant, etc.",
+      "saved": "Enregistré."
+    }
+  },
+  "reminders": {
+    "popup": {
+      "title": "Événements à venir",
+      "subtitle": "{count} rappel | {count} rappels",
+      "today": "Aujourd'hui",
+      "inNDays": "Dans {n} jour | Dans {n} jours",
+      "dismiss": "Ignorer",
+      "dismissAll": "Tout ignorer"
     }
   },
   "home": {

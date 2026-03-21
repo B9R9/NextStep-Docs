@@ -367,6 +367,32 @@
     "notifications": {
       "title": "Notifieringshantering",
       "subtitle": "Välj hur du vill bli notifierad."
+    },
+    "reminders": {
+      "cardTitle": "Påminnelser",
+      "cardSubtitle": "Bli notifierad om kommande deadlines och händelser.",
+      "title": "Påminnelseinställningar",
+      "subtitle": "Konfigurera när du vill bli påmind om kalenderhändelser.",
+      "enableToggle": "Aktivera påminnelser",
+      "daysLabel": "Påminn mig N dagar innan händelsen",
+      "addDay": "Lägg till",
+      "addDayPlaceholder": "Dagar innan (t.ex. 3)",
+      "sameDay": "Samma dag",
+      "daysBefore": "{n} dag innan | {n} dagar innan",
+      "removeDay": "Ta bort",
+      "noDays": "Inga påminnelser konfigurerade. Lägg till ett värde nedan.",
+      "hint": "0 = samma dag, 1 = dagen innan, 7 = en vecka innan osv.",
+      "saved": "Sparat."
+    }
+  },
+  "reminders": {
+    "popup": {
+      "title": "Kommande händelser",
+      "subtitle": "{count} påminnelse | {count} påminnelser",
+      "today": "Idag",
+      "inNDays": "Om {n} dag | Om {n} dagar",
+      "dismiss": "Avfärda",
+      "dismissAll": "Avfärda alla"
     }
   },
   "home": {
