@@ -6,6 +6,7 @@
 
 ## March 2026
 
+- ✅ Roadmap section in Settings — product timeline (5 phases, done/in progress/planned) — completed 2026-03-21
 - ✅ Feedback status system (new/in_progress/archived, ticket number, tabs de filtrage, actions inline) — completed 2026-03-21
 - ✅ User feedback feature (FeedbackModal NavBar, anonymous toggle, admin panel) — completed 2026-03-21
 - ✅ Admin analytics dashboard (KPI cards, funnel, feature adoption, API health, churn, feedback) — completed 2026-03-21

@@ -12,7 +12,6 @@
 - Settings: toggle notifications
 - Settings: choix rappels (même jour / 1j / 2j / 5j / 1 semaine avant)
 - Page mobile non supporté
-- Creer un onglert road map dans settigs pour montrer les futures fonctionnalités
 
 
 ## Done
@@ -49,3 +48,4 @@
 - Admin analytics dashboard (KPI cards, funnel, feature adoption, API health, churn, feedback)
 - Ajouter dans la nav bar un icon pour ouvrir un form et envoyer un message à l'équipe (feedback, bug report, demande de fonctionnalité)
 - Ajouter statistiques global de l app à la page d'accueil pour user de niveau 1
+- Roadmap section dans Settings — timeline des phases produit visible par tous les users
