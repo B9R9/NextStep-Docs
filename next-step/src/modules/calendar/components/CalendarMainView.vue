@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue'
 import CalendarPanel from './CalendarPanel.vue'
+import CalendarPanelSkeleton from './CalendarPanelSkeleton.vue'
 import CalendarEventForm from './CalendarEventForm.vue'
 import SharedModal from '@/shared/components/SharedModal.vue'
 import IconButton from '@/shared/components/IconButton.vue'
@@ -207,7 +208,14 @@ onMounted(() => {
         </header>
 
         <div class="grid gap-4">
-          <CalendarPanel :base-date="baseDate" :events="calendarStore.rows" @select="openFromEvent" />
+          <CalendarPanelSkeleton v-if="calendarStore.isLoading && !calendarStore.hasLoaded" />
+          <CalendarPanel
+            v-else
+            class="ns-fade-in"
+            :base-date="baseDate"
+            :events="calendarStore.rows"
+            @select="openFromEvent"
+          />
         </div>
       </div>
     </section>

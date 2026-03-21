@@ -39,7 +39,7 @@ onMounted(() => store.loadAll())
         {{ store.error }}
       </div>
 
-      <template v-else-if="store.overview">
+      <div v-else-if="store.overview" class="ns-fade-in space-y-6">
         <!-- KPI cards -->
         <AdminKpiCards :overview="store.overview" />
 
@@ -71,7 +71,7 @@ onMounted(() => store.loadAll())
 
         <!-- Feedback -->
         <AdminFeedbackPanel v-if="store.feedback" :feedback="store.feedback" @reload="store.loadAll()" />
-      </template>
+      </div>
 
     </div>
   </div>

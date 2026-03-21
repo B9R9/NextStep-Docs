@@ -398,6 +398,38 @@
 }
 
 /* -----------------------------
+   5) ANIMATIONS & TRANSITIONS
+   ----------------------------- */
+
+/* Skeleton pulse (shared keyframe) */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}
+
+/* Skeleton block */
+.ns-skeleton {
+  background: color-mix(in oklab, var(--color-border) 80%, var(--color-bg) 20%);
+  animation: skeleton-pulse 1.6s ease-in-out infinite;
+}
+
+/* Content fade-in: applied to elements that appear after a loading state */
+@keyframes ns-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.ns-fade-in {
+  animation: ns-fade-in 240ms var(--ease-organic) both;
+}
+
+/* Page-level route transition */
+.page-fade-enter-active { transition: opacity 200ms var(--ease-organic); }
+.page-fade-leave-active { transition: opacity 130ms ease; }
+.page-fade-enter-from,
+.page-fade-leave-to     { opacity: 0; }
+
+/* -----------------------------
    NAVBAR – Human / Maker Energy
    ----------------------------- */
 .ns-nav {

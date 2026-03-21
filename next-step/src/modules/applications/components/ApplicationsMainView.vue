@@ -473,7 +473,7 @@ const rowClass = (rowId: number) => {
           </div>
         </div>
 
-        <div v-else-if="(hasRows || hasActiveFilters) && hasLoaded" class="ns-card">
+        <div v-else-if="(hasRows || hasActiveFilters) && hasLoaded" class="ns-card ns-fade-in">
           <div class="ns-card-body grid gap-4">
             <div class="flex flex-wrap items-center gap-3">
               <input
@@ -631,7 +631,7 @@ const rowClass = (rowId: number) => {
             </div>
           </div>
         </div>
-        <ApplicationsEmptyState v-else-if="hasLoaded && !loadError" @create="createNew" />
+        <ApplicationsEmptyState v-else-if="hasLoaded && !loadError" class="ns-fade-in" @create="createNew" />
       </div>
     </section>
     <ApplicationsPreviewDialog

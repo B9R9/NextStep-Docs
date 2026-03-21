@@ -293,7 +293,7 @@ const resetFilters = () => {
           </div>
         </div>
 
-        <div v-else-if="(hasRows || hasActiveFilters) && hasLoaded" class="ns-card">
+        <div v-else-if="(hasRows || hasActiveFilters) && hasLoaded" class="ns-card ns-fade-in">
           <div class="ns-card-body grid gap-4">
             <div class="flex flex-wrap items-center gap-3">
               <input
