@@ -15,14 +15,16 @@ A generic modal overlay component that renders a titled dialog with a scrollable
 
 ## What it renders
 
-When `open` is `true`, a full-screen fixed overlay (`z-50`) is mounted with two layers:
+When `open` is `true`, a full-screen fixed overlay (`z-50`) is mounted with three layers:
 
-1. **Backdrop** — a semi-transparent black div (`bg-black/40`) that covers the full viewport and emits `close` on click.
-2. **Dialog panel** — a centered card (`ns-card`) constrained to `max-w-md` and `max-height: calc(100vh - 4rem)`, positioned with `items-start pt-12` so the panel appears near the top of the viewport rather than vertically centered. This prevents bottom overflow when inner content (e.g. `ReminderDaysPicker`) expands downward.
+1. **Outer wrapper** — `fixed inset-0 z-50`, contains everything.
+2. **Backdrop** — `absolute inset-0 bg-black/40`, emits `close` on click.
+3. **Scroll container** — `absolute inset-x-0 top-16 bottom-[3.25rem] overflow-y-auto flex items-start justify-center p-4`. Constrains content to sit strictly between the 64 px navbar (`top-16`) and the 52 px footer (`bottom-[3.25rem]`), and scrolls if content overflows.
 
-The panel has two internal sections:
-- **Header** (`shrink-0`): displays the `title` prop in a semibold `<p>` tag (only if provided) and a ghost icon button with a Material Symbols `close` icon that emits `close`.
-- **Body** (`overflow-y-auto`): a scrollable container that renders the default `<slot />`.
+Inside the scroll container:
+- **Card** (`ns-card`, `max-w-md`, `max-height: calc(100vh - 7.25rem - 2rem)`): the dialog surface.
+  - **Header** (`shrink-0`): displays the `title` prop in a semibold `<p>` tag (only if provided) and a ghost icon button with a Material Symbols `close` icon that emits `close`.
+  - **Body** (`overflow-y-auto`): a scrollable container that renders the default `<slot />`.
 
 ## Internal logic
 
