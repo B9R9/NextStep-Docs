@@ -391,6 +391,7 @@
       "subtitle": "{count} muistutus | {count} muistutusta",
       "today": "Tänään",
       "inNDays": "{n} päivän kuluttua",
+      "acknowledge": "Merkitse nähdyksi",
       "dismiss": "Hylkää",
       "dismissAll": "Hylkää kaikki"
     }

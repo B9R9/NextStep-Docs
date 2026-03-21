@@ -391,6 +391,7 @@
       "subtitle": "{count} påminnelse | {count} påminnelser",
       "today": "Idag",
       "inNDays": "Om {n} dag | Om {n} dagar",
+      "acknowledge": "Markera som sedd",
       "dismiss": "Avfärda",
       "dismissAll": "Avfärda alla"
     }

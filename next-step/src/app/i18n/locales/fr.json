@@ -72,6 +72,7 @@
       "subtitle": "{count} rappel | {count} rappels",
       "today": "Aujourd'hui",
       "inNDays": "Dans {n} jour | Dans {n} jours",
+      "acknowledge": "Marquer comme vu",
       "dismiss": "Ignorer",
       "dismissAll": "Tout ignorer"
     }

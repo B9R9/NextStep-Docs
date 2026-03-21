@@ -391,6 +391,7 @@
       "subtitle": "{count} reminder | {count} reminders",
       "today": "Today",
       "inNDays": "In {n} day | In {n} days",
+      "acknowledge": "Mark as seen",
       "dismiss": "Dismiss",
       "dismissAll": "Dismiss all"
     }

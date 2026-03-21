@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRemindersStore } from '../store/useRemindersStore'
 import { formatDateDDMMYYYY } from '@/shared/utils/date'
@@ -6,10 +7,21 @@ import { formatDateDDMMYYYY } from '@/shared/utils/date'
 const { t } = useI18n()
 const store = useRemindersStore()
 
+// Tracks events currently being dismissed (checkbox checked but not yet removed)
+const acknowledging = ref<Set<number>>(new Set())
+
 const eventIcon = (type: string) => {
   if (type === 'deadline') return 'timer'
   if (type === 'published') return 'work'
   return 'event'
+}
+
+const acknowledge = (id: number) => {
+  acknowledging.value = new Set([...acknowledging.value, id])
+  setTimeout(() => {
+    store.dismissOne(id)
+    acknowledging.value.delete(id)
+  }, 320)
 }
 </script>
 
@@ -37,45 +49,68 @@ const eventIcon = (type: string) => {
 
           <!-- List -->
           <div class="max-h-80 overflow-y-auto">
-            <div
-              v-for="event in store.reminders"
-              :key="event.id"
-              class="flex items-start gap-3 border-b border-border px-5 py-3 last:border-0"
-            >
-              <span
-                class="material-symbols-rounded mt-0.5 shrink-0 text-[18px]"
-                :class="event.type === 'deadline' ? 'text-danger' : 'text-primary'"
+            <TransitionGroup name="item-fade" tag="div">
+              <div
+                v-for="event in store.reminders"
+                :key="event.id"
+                class="flex items-center gap-3 border-b border-border px-5 py-3 last:border-0"
+                :class="acknowledging.has(event.id) ? 'opacity-40' : 'opacity-100'"
+                style="transition: opacity 300ms ease"
               >
-                {{ eventIcon(event.type) }}
-              </span>
-              <div class="min-w-0 flex-1">
-                <p class="truncate text-sm font-medium">{{ event.title || event.position }}</p>
-                <p v-if="event.company" class="truncate text-xs text-muted">{{ event.company }}</p>
-                <p class="text-xs text-muted">{{ formatDateDDMMYYYY(event.date) }}</p>
+                <!-- Checkbox -->
+                <button
+                  type="button"
+                  class="shrink-0 flex h-5 w-5 items-center justify-center rounded border-2 transition-colors duration-200"
+                  :class="
+                    acknowledging.has(event.id)
+                      ? 'border-success bg-success text-white'
+                      : 'border-border bg-surface hover:border-primary'
+                  "
+                  :aria-label="t('reminders.popup.acknowledge')"
+                  :disabled="acknowledging.has(event.id)"
+                  @click="acknowledge(event.id)"
+                >
+                  <span
+                    v-if="acknowledging.has(event.id)"
+                    class="material-symbols-rounded text-[14px] text-white"
+                  >check</span>
+                </button>
+
+                <!-- Icon -->
+                <span
+                  class="material-symbols-rounded shrink-0 text-[18px]"
+                  :class="event.type === 'deadline' ? 'text-danger' : 'text-primary'"
+                >
+                  {{ eventIcon(event.type) }}
+                </span>
+
+                <!-- Content -->
+                <div
+                  class="min-w-0 flex-1"
+                  :class="acknowledging.has(event.id) ? 'line-through' : ''"
+                >
+                  <p class="truncate text-sm font-medium">{{ event.title || event.position }}</p>
+                  <p v-if="event.company" class="truncate text-xs text-muted">{{ event.company }}</p>
+                  <p class="text-xs text-muted">{{ formatDateDDMMYYYY(event.date) }}</p>
+                </div>
+
+                <!-- Badge -->
+                <span
+                  class="shrink-0 rounded-full px-2 py-0.5 text-xs font-medium"
+                  :class="
+                    event.days_until === 0
+                      ? 'bg-danger-soft text-danger'
+                      : 'border border-border bg-surface-2 text-muted'
+                  "
+                >
+                  {{
+                    event.days_until === 0
+                      ? t('reminders.popup.today')
+                      : t('reminders.popup.inNDays', { n: event.days_until })
+                  }}
+                </span>
               </div>
-              <span
-                class="shrink-0 rounded-full px-2 py-0.5 text-xs font-medium"
-                :class="
-                  event.days_until === 0
-                    ? 'bg-danger-soft text-danger'
-                    : 'border border-border bg-surface-2 text-muted'
-                "
-              >
-                {{
-                  event.days_until === 0
-                    ? t('reminders.popup.today')
-                    : t('reminders.popup.inNDays', { n: event.days_until })
-                }}
-              </span>
-              <button
-                type="button"
-                class="ml-1 shrink-0 text-muted hover:text-text"
-                :aria-label="t('reminders.popup.dismiss')"
-                @click="store.dismissOne(event.id)"
-              >
-                <span class="material-symbols-rounded text-[16px]">close</span>
-              </button>
-            </div>
+            </TransitionGroup>
           </div>
 
           <!-- Footer -->
@@ -98,5 +133,15 @@ const eventIcon = (type: string) => {
 .popup-fade-enter-from,
 .popup-fade-leave-to {
   opacity: 0;
+}
+
+.item-fade-leave-active {
+  transition: opacity 300ms ease, transform 300ms ease;
+  position: absolute;
+  width: 100%;
+}
+.item-fade-leave-to {
+  opacity: 0;
+  transform: translateX(16px);
 }
 </style>
