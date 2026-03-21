@@ -372,7 +372,7 @@
       "cardTitle": "Reminders",
       "cardSubtitle": "Get notified about upcoming deadlines and events.",
       "title": "Reminder settings",
-      "subtitle": "Configure when you want to be reminded about calendar events.",
+      "subtitle": "Default reminder for job and application events (deadlines, interviews). Manual calendar events have their own reminder configured in the event form.",
       "enableToggle": "Enable reminders",
       "daysLabel": "Remind me N days before the event",
       "addDay": "Add",
@@ -497,6 +497,8 @@
       "edit": "Edit event",
       "create": "Add event",
       "openCalendar": "Open calendar",
+      "reminder": "Reminder",
+      "reminderEnable": "Enable a reminder for this event",
       "types": {
         "deadline": "Deadline",
         "event": "Event",

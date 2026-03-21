@@ -10,4 +10,5 @@ export type CalendarEvent = {
   company: string
   title?: string
   description?: string
+  reminder_days?: number[] | null
 }

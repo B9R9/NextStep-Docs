@@ -15,19 +15,31 @@ const allowedSortKeys = new Set([
   'title',
 ])
 
-const pickCalendarPayload = (payload: Record<string, unknown>) => ({
-  type:
-    payload.type === 'deadline' || payload.type === 'published' || payload.type === 'event'
-      ? payload.type
-      : 'event',
-  date: typeof payload.date === 'string' ? payload.date : (() => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}` })(),
-  jobId: typeof payload.jobId === 'number' ? payload.jobId : null,
-  applicationId: typeof payload.applicationId === 'number' ? payload.applicationId : null,
-  position: typeof payload.position === 'string' ? payload.position : '',
-  company: typeof payload.company === 'string' ? payload.company : '',
-  title: typeof payload.title === 'string' ? payload.title : '',
-  description: typeof payload.description === 'string' ? payload.description : '',
-})
+const pickCalendarPayload = (payload: Record<string, unknown>) => {
+  const rawDays = payload.reminder_days
+  let reminder_days: string | null = null
+  if (Array.isArray(rawDays)) {
+    const cleaned = [...new Set(rawDays as number[])]
+      .filter((d) => Number.isInteger(d) && d >= 0 && d <= 365)
+      .sort((a, b) => a - b)
+    reminder_days = JSON.stringify(cleaned)
+  }
+
+  return {
+    type:
+      payload.type === 'deadline' || payload.type === 'published' || payload.type === 'event'
+        ? payload.type
+        : 'event',
+    date: typeof payload.date === 'string' ? payload.date : (() => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}` })(),
+    jobId: typeof payload.jobId === 'number' ? payload.jobId : null,
+    applicationId: typeof payload.applicationId === 'number' ? payload.applicationId : null,
+    position: typeof payload.position === 'string' ? payload.position : '',
+    company: typeof payload.company === 'string' ? payload.company : '',
+    title: typeof payload.title === 'string' ? payload.title : '',
+    description: typeof payload.description === 'string' ? payload.description : '',
+    reminder_days,
+  }
+}
 
 
 calendarRoutes.get('/events', async (req, res) => {

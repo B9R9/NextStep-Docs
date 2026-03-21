@@ -497,6 +497,8 @@
       "edit": "Redigera händelse",
       "create": "Lägg till händelse",
       "openCalendar": "Öppna kalender",
+      "reminder": "Påminnelse",
+      "reminderEnable": "Aktivera påminnelse för denna händelse",
       "types": {
         "deadline": "Deadline",
         "event": "Händelse",

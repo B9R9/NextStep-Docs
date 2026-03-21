@@ -1,9 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import ReminderDaysPicker from '@/shared/components/ReminderDaysPicker.vue'
 
 const emit = defineEmits<{
-  (e: 'submit', payload: { title: string; type: 'deadline' | 'event' | 'published'; description: string; date: string }): void
+  (e: 'submit', payload: {
+    title: string
+    type: 'deadline' | 'event' | 'published'
+    description: string
+    date: string
+    reminder_days: number[] | null
+  }): void
   (e: 'close'): void
 }>()
 
@@ -13,6 +20,7 @@ const title = ref('')
 const type = ref<'deadline' | 'event' | 'published'>('event')
 const description = ref('')
 const date = ref('')
+const reminderDays = ref<number[] | null>(null)
 
 const onSubmit = () => {
   if (!title.value.trim() || !date.value) return
@@ -21,11 +29,13 @@ const onSubmit = () => {
     type: type.value,
     description: description.value.trim(),
     date: date.value,
+    reminder_days: reminderDays.value,
   })
   title.value = ''
   description.value = ''
   date.value = ''
   type.value = 'event'
+  reminderDays.value = null
 }
 </script>
 
@@ -51,6 +61,13 @@ const onSubmit = () => {
       <span class="text-xs text-muted">{{ t('calendar.form.date') }}</span>
       <input v-model="date" type="date" class="ns-input" />
     </label>
+
+    <!-- Reminder -->
+    <div class="grid gap-1">
+      <span class="text-xs text-muted">{{ t('calendar.form.reminder') }}</span>
+      <ReminderDaysPicker v-model="reminderDays" />
+    </div>
+
     <div class="flex justify-end gap-2 pt-2">
       <button class="ns-btn ns-btn-ghost" type="button" @click="emit('close')">
         {{ t('common.close') }}

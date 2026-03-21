@@ -497,6 +497,8 @@
       "edit": "Muokkaa tapahtumaa",
       "create": "Lisää tapahtuma",
       "openCalendar": "Avaa kalenteri",
+      "reminder": "Muistutus",
+      "reminderEnable": "Ota muistutus käyttöön tälle tapahtumalle",
       "types": {
         "deadline": "Deadline",
         "event": "Tapahtuma",

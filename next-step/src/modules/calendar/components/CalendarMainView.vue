@@ -3,6 +3,7 @@ import { computed, onMounted, ref, watch } from 'vue'
 import CalendarPanel from './CalendarPanel.vue'
 import CalendarPanelSkeleton from './CalendarPanelSkeleton.vue'
 import CalendarEventForm from './CalendarEventForm.vue'
+import ReminderDaysPicker from '@/shared/components/ReminderDaysPicker.vue'
 import SharedModal from '@/shared/components/SharedModal.vue'
 import IconButton from '@/shared/components/IconButton.vue'
 import { useI18n } from 'vue-i18n'
@@ -78,6 +79,7 @@ const submitEvent = async (payload: {
   type: 'deadline' | 'event' | 'published'
   description: string
   date: string
+  reminder_days: number[] | null
 }) => {
   try {
     await calendarStore.createEvent({
@@ -88,6 +90,7 @@ const submitEvent = async (payload: {
       company: '',
       title: payload.title,
       description: payload.description,
+      reminder_days: payload.reminder_days,
     })
     isFormOpen.value = false
     showFeedback('success', t('calendar.feedback.created'))
@@ -275,6 +278,13 @@ onMounted(() => {
         <span class="text-xs text-muted">{{ t('calendar.form.date') }}</span>
         <input v-model="selectedEvent.date" type="date" class="ns-input" />
       </label>
+      <div class="grid gap-1">
+        <span class="text-xs text-muted">{{ t('calendar.form.reminder') }}</span>
+        <ReminderDaysPicker
+          :model-value="selectedEvent.reminder_days ?? null"
+          @update:model-value="selectedEvent!.reminder_days = $event"
+        />
+      </div>
       <div class="flex justify-end gap-2 pt-2">
         <button class="ns-btn ns-btn-ghost" type="button" @click="closePreviews">
           {{ t('common.close') }}

@@ -53,7 +53,7 @@
       "cardTitle": "Rappels",
       "cardSubtitle": "Soyez notifié des échéances et événements à venir.",
       "title": "Paramètres des rappels",
-      "subtitle": "Configurez quand vous souhaitez être rappelé pour vos événements calendrier.",
+      "subtitle": "Rappel par défaut pour les événements liés aux jobs et candidatures (échéances, entretiens). Les événements créés manuellement ont leur propre rappel configuré dans le formulaire.",
       "enableToggle": "Activer les rappels",
       "daysLabel": "Me rappeler N jours avant l'événement",
       "addDay": "Ajouter",
@@ -178,6 +178,8 @@
       "edit": "Modifier l’événement",
       "create": "Ajouter un événement",
       "openCalendar": "Ouvrir le calendrier",
+      "reminder": "Rappel",
+      "reminderEnable": "Activer un rappel pour cet événement",
       "types": {
         "deadline": "Deadline",
         "event": "Événement",
