@@ -36,8 +36,11 @@ function getApiVersion(): string {
 
 const apiVersion = getApiVersion()
 
+const corsOrigin = process.env.CORS_ORIGIN || '*'
+console.log('[CORS] origin:', corsOrigin)
+
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || '*',
+  origin: corsOrigin,
   credentials: true,
 }))
 app.use(cookieParser())
