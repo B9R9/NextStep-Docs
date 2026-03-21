@@ -50,6 +50,7 @@
             :notifications="notificationsStore.rows"
             :loading="notificationsStore.isLoading"
             @dismiss="dismissNotification"
+            @dismiss-all="notificationsStore.dismissAll()"
           />
         </div>
         <IconButton label="Paramètres" icon="settings" @click="openSettings" />

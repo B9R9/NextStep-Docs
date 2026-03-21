@@ -13,6 +13,10 @@ import type { Job } from '@/modules/jobs/types'
 import type { Application } from '@/modules/applications/types'
 import JobsPreviewDialog from '@/modules/jobs/components/JobsPreviewDialog.vue'
 import ApplicationsPreviewDialog from '@/modules/applications/components/ApplicationsPreviewDialog.vue'
+import CalendarEventPreview from './CalendarEventPreview.vue'
+import { useCalendarEventSync } from '../composables/useCalendarEventSync'
+
+const { syncEventToLinkedEntity } = useCalendarEventSync()
 
 const { t, locale } = useI18n()
 const calendarStore = useCalendarStore()
@@ -129,21 +133,6 @@ const openFromEvent = (event: CalendarEvent) => {
   isEventPreviewOpen.value = true
 }
 
-const openLinkedJob = () => {
-  if (!selectedEvent.value?.jobId) return
-  selectedJob.value = jobsStore.rows.find((row) => row.id === selectedEvent.value!.jobId) ?? null
-  if (!selectedJob.value) return
-  isEventPreviewOpen.value = false
-  isJobPreviewOpen.value = true
-}
-
-const openLinkedApplication = () => {
-  if (!selectedEvent.value?.applicationId) return
-  selectedApplication.value = applicationsStore.rows.find((row) => row.id === selectedEvent.value!.applicationId) ?? null
-  if (!selectedApplication.value) return
-  isEventPreviewOpen.value = false
-  isApplicationPreviewOpen.value = true
-}
 
 const openEventEdit = () => {
   isEventPreviewOpen.value = false
@@ -154,6 +143,7 @@ const saveEventEdit = async () => {
   if (!selectedEvent.value) return
   try {
     await calendarStore.updateEvent(selectedEvent.value)
+    await syncEventToLinkedEntity(selectedEvent.value)
     isEventEditOpen.value = false
     isEventPreviewOpen.value = true
     showFeedback('success', t('calendar.feedback.updated'))
@@ -243,48 +233,12 @@ onMounted(() => {
     :title="selectedEvent?.title || selectedEvent?.position || t('calendar.event.generic')"
     @close="closePreviews"
   >
-    <div class="space-y-3 text-sm">
-      <span
-        class="ns-badge"
-        :class="selectedEvent?.type === 'deadline' ? 'ns-badge-danger' : selectedEvent?.type === 'published' ? 'ns-badge-success' : ''"
-      >
-        {{ t(`calendar.form.types.${selectedEvent?.type || 'event'}`) }}
-      </span>
-
-      <div v-if="selectedEvent?.position || selectedEvent?.company">
-        <p v-if="selectedEvent?.position" class="font-semibold">{{ selectedEvent.position }}</p>
-        <p v-if="selectedEvent?.company" class="text-xs text-muted">{{ selectedEvent.company }}</p>
-      </div>
-
-      <div>
-        <p class="text-xs text-muted">{{ t('calendar.form.date') }}</p>
-        <p class="font-semibold">{{ selectedEvent?.date || '—' }}</p>
-      </div>
-
-      <div v-if="selectedEvent?.description">
-        <p class="text-xs text-muted">{{ t('calendar.form.description') }}</p>
-        <p class="whitespace-pre-wrap">{{ selectedEvent.description }}</p>
-      </div>
-
-      <div class="flex flex-wrap items-center justify-between gap-2 pt-2">
-        <div class="flex gap-2">
-          <button v-if="selectedEvent?.jobId" class="ns-btn ns-btn-ghost text-sm" type="button" @click="openLinkedJob">
-            {{ t('calendar.preview.viewJob') }}
-          </button>
-          <button v-if="selectedEvent?.applicationId" class="ns-btn ns-btn-ghost text-sm" type="button" @click="openLinkedApplication">
-            {{ t('calendar.preview.viewApplication') }}
-          </button>
-        </div>
-        <div class="flex gap-2">
-          <button class="ns-btn ns-btn-ghost" type="button" @click="openEventEdit">
-            {{ t('common.edit') }}
-          </button>
-          <button class="ns-btn ns-btn-ghost text-danger" type="button" @click="deleteEvent">
-            {{ t('common.delete') }}
-          </button>
-        </div>
-      </div>
-    </div>
+    <CalendarEventPreview
+      v-if="selectedEvent"
+      :event="selectedEvent"
+      @edit="openEventEdit"
+      @delete="deleteEvent"
+    />
   </SharedModal>
 
   <SharedModal

@@ -12,7 +12,8 @@
     "count": "{count} au total",
     "empty": "Aucune notification pour le moment.",
     "loading": "Chargement des notifications…",
-    "dismiss": "Ignorer"
+    "dismiss": "Ignorer",
+    "dismissAll": "Tout ignorer"
   },
   "settings": {
     "title": "Paramètres",
@@ -158,7 +159,20 @@
     },
     "preview": {
       "viewJob": "Voir l'offre",
-      "viewApplication": "Voir la candidature"
+      "viewApplication": "Voir la candidature",
+      "labelJob": "Offre",
+      "labelApplication": "Candidature"
+    },
+    "context": {
+      "appliedApplication": "Postulé · Candidature",
+      "appliedApplicationDesc": "Vous avez postulé au poste {position} chez {company}.",
+      "deadlineApplication": "Deadline · Candidature",
+      "deadlineApplicationDesc": "Date limite pour soumettre votre candidature pour le poste {position} chez {company}.",
+      "deadlineJob": "Deadline · Offre",
+      "deadlineJobDesc": "Date limite de l'offre {position} chez {company}.",
+      "published": "Offre publiée",
+      "publishedDesc": "L'offre {position} chez {company} a été publiée.",
+      "event": "Événement"
     },
     "feedback": {
       "created": "Événement créé avec succès.",

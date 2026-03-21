@@ -331,7 +331,8 @@
     "count": "{count} totalt",
     "empty": "Inga notifieringar ännu.",
     "loading": "Laddar notifieringar…",
-    "dismiss": "Avfärda"
+    "dismiss": "Avfärda",
+    "dismissAll": "Avfärda alla"
   },
   "settings": {
     "title": "Inställningar",
@@ -477,7 +478,20 @@
     },
     "preview": {
       "viewJob": "Visa jobberbjudande",
-      "viewApplication": "Visa ansökan"
+      "viewApplication": "Visa ansökan",
+      "labelJob": "Jobberbjudande",
+      "labelApplication": "Ansökan"
+    },
+    "context": {
+      "appliedApplication": "Sökt · Ansökan",
+      "appliedApplicationDesc": "Du sökte tjänsten {position} på {company}.",
+      "deadlineApplication": "Deadline · Ansökan",
+      "deadlineApplicationDesc": "Sista dag att skicka in din ansökan för {position} på {company}.",
+      "deadlineJob": "Deadline · Jobberbjudande",
+      "deadlineJobDesc": "Ansökningstiden löper ut för tjänsten {position} på {company}.",
+      "published": "Jobberbjudande publicerat",
+      "publishedDesc": "Tjänsten {position} på {company} har publicerats.",
+      "event": "Händelse"
     },
     "feedback": {
       "created": "Händelse skapad.",

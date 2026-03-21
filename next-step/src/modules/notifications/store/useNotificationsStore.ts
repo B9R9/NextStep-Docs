@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import type { Notification } from '../types'
-import { fetchNotifications, dismissNotification } from '../services/notifications.service'
+import { fetchNotifications, dismissNotification, dismissAllNotifications } from '../services/notifications.service'
 
 export const useNotificationsStore = defineStore('notifications', {
   state: () => ({
@@ -26,6 +26,16 @@ export const useNotificationsStore = defineStore('notifications', {
       try {
         await dismissNotification(id)
         this.rows = this.rows.filter((row) => row.id !== id)
+      } finally {
+        this.isLoading = false
+      }
+    },
+    async dismissAll() {
+      const ids = this.rows.map((row) => row.id)
+      this.isLoading = true
+      try {
+        await dismissAllNotifications(ids)
+        this.rows = []
       } finally {
         this.isLoading = false
       }

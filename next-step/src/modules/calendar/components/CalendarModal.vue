@@ -3,15 +3,13 @@ import { computed, ref, watch } from 'vue'
 import CalendarPanel from './CalendarPanel.vue'
 import IconButton from '@/shared/components/IconButton.vue'
 import { useCalendarStore } from '@/modules/calendar/store/useCalendarStore'
-import { useJobsStore } from '@/modules/jobs/store/useJobsStore'
-import { useApplicationsStore } from '@/modules/applications/store/useApplicationsStore'
 import type { CalendarEvent } from '@/modules/calendar/types'
-import type { Job } from '@/modules/jobs/types'
-import type { Application } from '@/modules/applications/types'
-import JobsPreviewDialog from '@/modules/jobs/components/JobsPreviewDialog.vue'
-import ApplicationsPreviewDialog from '@/modules/applications/components/ApplicationsPreviewDialog.vue'
+import CalendarEventPreview from './CalendarEventPreview.vue'
+import { useCalendarEventSync } from '../composables/useCalendarEventSync'
 import SharedModal from '@/shared/components/SharedModal.vue'
 import { useI18n } from 'vue-i18n'
+
+const { syncEventToLinkedEntity } = useCalendarEventSync()
 
 const props = defineProps<{
   open: boolean
@@ -23,16 +21,10 @@ const emit = defineEmits<{
 }>()
 
 const calendarStore = useCalendarStore()
-const jobsStore = useJobsStore()
-const applicationsStore = useApplicationsStore()
 const { t } = useI18n()
 const baseDate = new Date()
 const events = computed(() => calendarStore.rows)
-const selectedJob = ref<Job | null>(null)
-const selectedApplication = ref<Application | null>(null)
 const selectedEvent = ref<CalendarEvent | null>(null)
-const isJobPreviewOpen = ref(false)
-const isApplicationPreviewOpen = ref(false)
 const isEventPreviewOpen = ref(false)
 const isEventEditOpen = ref(false)
 
@@ -42,22 +34,12 @@ watch(
     if (value && !calendarStore.hasLoaded) {
       calendarStore.loadEvents()
     }
-    if (value && !jobsStore.hasLoaded) {
-      jobsStore.loadJobs()
-    }
-    if (value && !applicationsStore.hasLoaded) {
-      applicationsStore.loadApplications()
-    }
   },
 )
 
 const closePreviews = () => {
-  isJobPreviewOpen.value = false
-  isApplicationPreviewOpen.value = false
   isEventPreviewOpen.value = false
   isEventEditOpen.value = false
-  selectedJob.value = null
-  selectedApplication.value = null
   selectedEvent.value = null
 }
 
@@ -69,6 +51,7 @@ const openEventEdit = () => {
 const saveEventEdit = async () => {
   if (!selectedEvent.value) return
   await calendarStore.updateEvent(selectedEvent.value)
+  await syncEventToLinkedEntity(selectedEvent.value)
   isEventEditOpen.value = false
   isEventPreviewOpen.value = true
 }
@@ -79,42 +62,9 @@ const deleteEvent = async () => {
   closePreviews()
 }
 
-const openFromEvent = async (event: CalendarEvent) => {
-  if (!jobsStore.hasLoaded) {
-    await jobsStore.loadJobs()
-  }
-  if (!applicationsStore.hasLoaded) {
-    await applicationsStore.loadApplications()
-  }
-  if (event.type === 'deadline') {
-    if (event.applicationId) {
-      selectedApplication.value =
-        applicationsStore.rows.find((row) => row.id === event.applicationId) ?? null
-      if (selectedApplication.value) {
-        isApplicationPreviewOpen.value = true
-      }
-      return
-    }
-    if (event.jobId) {
-      selectedJob.value = jobsStore.rows.find((row) => row.id === event.jobId) ?? null
-      if (selectedJob.value) {
-        isJobPreviewOpen.value = true
-      }
-      return
-    }
-  }
-
-  if (event.type === 'published' && event.jobId) {
-    selectedJob.value = jobsStore.rows.find((row) => row.id === event.jobId) ?? null
-    if (selectedJob.value) {
-      isJobPreviewOpen.value = true
-    }
-  }
-
-  if (event.type === 'event') {
-    selectedEvent.value = event
-    isEventPreviewOpen.value = true
-  }
+const openFromEvent = (event: CalendarEvent) => {
+  selectedEvent.value = event
+  isEventPreviewOpen.value = true
 }
 </script>
 
@@ -141,36 +91,17 @@ const openFromEvent = async (event: CalendarEvent) => {
     </div>
   </transition>
 
-  <JobsPreviewDialog
-    :open="isJobPreviewOpen"
-    :row="selectedJob"
-    @close="closePreviews"
-  />
-  <ApplicationsPreviewDialog
-    :open="isApplicationPreviewOpen"
-    :row="selectedApplication"
-    @close="closePreviews"
-  />
-
   <SharedModal
     :open="isEventPreviewOpen"
-    :title="selectedEvent?.title || t('calendar.event.generic')"
+    :title="selectedEvent?.title || selectedEvent?.position || t('calendar.event.generic')"
     @close="closePreviews"
   >
-    <div class="space-y-2 text-sm">
-      <p class="text-xs text-muted">{{ t('calendar.form.date') }}</p>
-      <p class="font-semibold">{{ selectedEvent?.date || '—' }}</p>
-      <p class="text-xs text-muted">{{ t('calendar.form.description') }}</p>
-      <p class="whitespace-pre-wrap">{{ selectedEvent?.description || '—' }}</p>
-      <div class="flex justify-end gap-2 pt-2">
-        <button class="ns-btn ns-btn-ghost" type="button" @click="openEventEdit">
-          {{ t('common.edit') }}
-        </button>
-        <button class="ns-btn ns-btn-ghost text-danger" type="button" @click="deleteEvent">
-          {{ t('common.delete') }}
-        </button>
-      </div>
-    </div>
+    <CalendarEventPreview
+      v-if="selectedEvent"
+      :event="selectedEvent"
+      @edit="openEventEdit"
+      @delete="deleteEvent"
+    />
   </SharedModal>
 
   <SharedModal

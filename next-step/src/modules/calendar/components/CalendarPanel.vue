@@ -160,7 +160,9 @@ const onEventClick = (event: CalendarEvent) => {
                       ? 'calendar-event-deadline'
                       : item.type === 'published'
                         ? 'calendar-event-published'
-                        : 'calendar-event-generic'
+                        : item.applicationId
+                          ? 'calendar-event-applied'
+                          : 'calendar-event-generic'
                   "
                   type="button"
                   @click="onEventClick(item)"
@@ -170,7 +172,9 @@ const onEventClick = (event: CalendarEvent) => {
                       ? t('calendar.event.deadline', { position: item.position, company: item.company })
                       : item.type === 'published'
                         ? t('calendar.event.published', { position: item.position, company: item.company })
-                        : item.title || t('calendar.event.generic')
+                        : item.applicationId
+                          ? t('calendar.event.applied', { position: item.position, company: item.company })
+                          : item.title || t('calendar.event.generic')
                   }}
                 </button>
               </div>
@@ -205,6 +209,12 @@ const onEventClick = (event: CalendarEvent) => {
   background: var(--color-success-soft);
   border-color: color-mix(in oklab, var(--color-success) 28%, var(--color-border) 72%);
   color: color-mix(in oklab, var(--color-success) 70%, var(--color-text) 30%);
+}
+
+.calendar-event-applied {
+  background: var(--color-primary-soft);
+  border-color: color-mix(in oklab, var(--color-primary) 28%, var(--color-border) 72%);
+  color: color-mix(in oklab, var(--color-primary) 70%, var(--color-text) 30%);
 }
 
 .calendar-event-generic {

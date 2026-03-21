@@ -331,7 +331,8 @@
     "count": "{count} yhteensä",
     "empty": "Ei ilmoituksia vielä.",
     "loading": "Ladataan ilmoituksia…",
-    "dismiss": "Hylkää"
+    "dismiss": "Hylkää",
+    "dismissAll": "Hylkää kaikki"
   },
   "settings": {
     "title": "Asetukset",
@@ -477,7 +478,20 @@
     },
     "preview": {
       "viewJob": "Näytä työtarjous",
-      "viewApplication": "Näytä hakemus"
+      "viewApplication": "Näytä hakemus",
+      "labelJob": "Työtarjous",
+      "labelApplication": "Hakemus"
+    },
+    "context": {
+      "appliedApplication": "Hakemus lähetetty · Hakemus",
+      "appliedApplicationDesc": "Lähetit hakemuksen tehtävään {position} yrityksessä {company}.",
+      "deadlineApplication": "Deadline · Hakemus",
+      "deadlineApplicationDesc": "Viimeinen päivä lähettää hakemuksesi tehtävään {position} yrityksessä {company}.",
+      "deadlineJob": "Deadline · Työtarjous",
+      "deadlineJobDesc": "Hakuaika päättyy tehtävässä {position} yrityksessä {company}.",
+      "published": "Työtarjous julkaistu",
+      "publishedDesc": "Tehtävä {position} yrityksessä {company} on julkaistu.",
+      "event": "Tapahtuma"
     },
     "feedback": {
       "created": "Tapahtuma luotu onnistuneesti.",

@@ -331,7 +331,8 @@
     "count": "{count} total",
     "empty": "No notifications yet.",
     "loading": "Loading notifications…",
-    "dismiss": "Dismiss"
+    "dismiss": "Dismiss",
+    "dismissAll": "Dismiss all"
   },
   "settings": {
     "title": "Settings",
@@ -477,7 +478,20 @@
     },
     "preview": {
       "viewJob": "View job",
-      "viewApplication": "View application"
+      "viewApplication": "View application",
+      "labelJob": "Job",
+      "labelApplication": "Application"
+    },
+    "context": {
+      "appliedApplication": "Applied · Application",
+      "appliedApplicationDesc": "You applied for the {position} position at {company}.",
+      "deadlineApplication": "Deadline · Application",
+      "deadlineApplicationDesc": "Deadline to submit your application for {position} at {company}.",
+      "deadlineJob": "Deadline · Job",
+      "deadlineJobDesc": "Application deadline for the {position} position at {company}.",
+      "published": "Job published",
+      "publishedDesc": "The {position} position at {company} has been published.",
+      "event": "Event"
     },
     "feedback": {
       "created": "Event created successfully.",

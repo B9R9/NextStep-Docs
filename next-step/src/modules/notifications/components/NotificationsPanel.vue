@@ -12,6 +12,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   (e: 'dismiss', id: number): void
+  (e: 'dismiss-all'): void
 }>()
 </script>
 
@@ -25,6 +26,14 @@ const emit = defineEmits<{
         <p class="text-sm font-semibold">{{ t('notifications.title') }}</p>
         <p class="text-xs text-muted">{{ t('notifications.count', { count: props.notifications.length }) }}</p>
       </div>
+      <button
+        v-if="props.notifications.length"
+        class="text-[11px] font-semibold text-muted hover:text-text"
+        type="button"
+        @click.stop="emit('dismiss-all')"
+      >
+        {{ t('notifications.dismissAll') }}
+      </button>
     </div>
 
     <div class="max-h-[360px] overflow-y-auto">
