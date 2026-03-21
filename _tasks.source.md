@@ -13,16 +13,8 @@
 - Settings: toggle notifications
 - Settings: choix rappels (même jour / 1j / 2j / 5j / 1 semaine avant)
 - Page mobile non supporté
-- Ajouter statistiques global de l app à la page d'accueil pour user de niveau 1
 - Creer un onglert road map dans settigs pour montrer les futures fonctionnalités
 - Ajouter dans la nav bar un icon pour ouvrir un form et envoyer un message à l'équipe (feedback, bug report, demande de fonctionnalité)
-- calendar: Ajuster les messages et couleurs suivant le contexte
-- calendar: certains events ne peuvent pas etre preview
-- calendar: edit event: le form de changer la date et basculer vers jobs ou applications
-- Token via https et non localstorage
-- calendar: changer une date via edit event chnage aussi la date de l application event ou job event associé
-
-
 ## Done
 - Scroll fixé dans les main views
 - Company view — affiche 0 jobs disponibles
@@ -51,3 +43,11 @@
     - date(format dd.mm.yyyy)
     - description
     - button (voir job/application, edit, delete)
+- calendar: Ajuster les messages et couleurs suivant le contexte
+- calendar: certains events ne peuvent pas etre preview
+- calendar: changer une date via edit event chnage aussi la date de l application event ou job event associé
+- Token via https et non localstorage: access token en mémoire Pinia, refresh token en cookie httpOnly SameSite=None, rotation, révocation en DB, silent refresh Axios
+- Auth: fix login ne redirige pas (store non alimenté après login)
+- Auth: fix refresh page déconnecte (accessToken non set avant appel /auth/me)
+- Auth: cookie secure/sameSite conditionnel dev/prod
+- Ajouter statistiques global de l app à la page d'accueil pour user de niveau 1

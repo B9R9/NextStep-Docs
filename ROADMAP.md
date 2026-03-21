@@ -1,6 +1,6 @@
 # Next Step — Roadmap
 
-> Last updated: 2026-03-18
+> Last updated: 2026-03-21
 
 ---
 
@@ -13,24 +13,28 @@ Progress:
 - ✅ Applications — CRUD complet, 11 statuts, filtres, tri, preview, skeleton loading
 - ✅ Jobs — CRUD complet, recherche plein texte, filtres, preview
 - ✅ Companies — CRUD, compteur d'offres associées
-- ✅ Calendar — création / édition / suppression d'événements, panneau mensuel
+- ✅ Calendar — création / édition / suppression, preview contextuelle (5 contextes), sync date → job/application
 - ✅ Auth — register / login JWT, guards de route, support gestionnaire de mots de passe
 - ✅ Settings — profil, suppression de compte, auto-logout
-- 🔄 Notifications — store/service/UI fonctionnels, rappels selon préférences en cours
+- ✅ Notifications — store/service/UI fonctionnels, dismiss all
+- ✅ Token sécurisé — access token mémoire + refresh token cookie httpOnly, rotation, révocation DB
+- 🔄 Notifications — rappels selon préférences (timing configurable)
 - 📋 Confirmation email à l'inscription
-- 📋 Améliorations UI (transitions, filtres, reset visuel)
 
 ---
 
 ## Phase 1 — Core Functionality (0.2.0)
 **Status:** In progress
 
-Finalisation et polish de la version MVP : solidifier les fonctionnalités existantes, combler les manques côté Settings (toggle notifications, choix des rappels, option migration), améliorer l'expérience mobile (page "non supporté"), et assurer la fiabilité des notifications et rappels.
+Finalisation et polish de la version MVP : solidifier les fonctionnalités existantes, combler les manques côté Settings (toggle notifications, choix des rappels, option migration), améliorer l'expérience mobile (page "non supporté"), et assurer la fiabilité des notifications et rappels. Inclut également les fondations de sécurité (token HTTPS) et les premières statistiques utilisateur.
 
 Progress:
 - 🔄 Notifications et rappels selon les settings
 - 📋 Confirmation email à l'inscription
 - 📋 Settings : toggle notifications, choix des rappels, option migration
+- 📋 Statistiques globales à la page d'accueil
+- 📋 Feedback form dans NavBar
+- 📋 Onglet Roadmap dans Settings
 - 📋 Transitions et polish UI
 - 📋 Page mobile non supporté
 

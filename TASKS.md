@@ -1,6 +1,6 @@
 # Next Step — Tasks
 
-> Last updated: 2026-03-18
+> Last updated: 2026-03-21 (session 2)
 
 ---
 
@@ -40,6 +40,10 @@
   - 📋 Frontend: détecter viewport < 768px
   - 📋 Frontend: afficher une page dédiée "Application non disponible sur mobile"
 
+- **Statistiques globales à la page d'accueil**
+  - 📋 Frontend: calculer et afficher les stats globales (candidatures en cours, entretiens à venir, taux de réponse…)
+  - 📋 Backend: route GET `/api/stats` agrégée par user
+
 - **Settings: option migration**
   - 📋 Backend: export des données utilisateur (JSON ou CSV)
   - 📋 Frontend: bouton "Exporter mes données" dans Settings > Compte
@@ -47,13 +51,17 @@
 - **Sauvegarde locale des changements de statut**
   - 📋 Frontend: persister les changements de statut en localStorage avant sync API (éviter reload visuel)
 
-- **Bouton reset visible seulement si filtre actif**
-  - 📋 Frontend: conditionner l'affichage du bouton reset sur `hasActiveFilters`
-
 - **Filtres adaptés aux colonnes visibles**
   - 📋 Frontend: masquer les options de filtre des colonnes cachées
 
+- **Feedback form dans NavBar**
+  - 📋 Frontend: icône dans la NavBar ouvrant un formulaire (feedback, bug report, demande de fonctionnalité)
+  - 📋 Backend: route POST `/api/feedback` pour stocker ou transférer le message
+
 ### 🟢 Low priority
+
+- **Onglet Roadmap dans Settings**
+  - 📋 Frontend: page ou onglet dans Settings listant les futures fonctionnalités par phase
 
 - **Transitions fade in/out plus smooth**
   - 📋 Frontend: ajouter transitions CSS sur les changements de vue et dialog open/close
@@ -120,18 +128,20 @@
 
 1. **Settings: toggle notifications** — quick win, débloque les rappels (Settings DB déjà en place)
 2. **Settings: choix rappels** — complète le système de notifications en cours
-3. **Bouton reset visible seulement si filtre actif** — atomic, 30 min, améliore l'UX immédiatement
-4. **Filtres adaptés aux colonnes visibles** — atomic, cohérent avec la tâche précédente
-5. **Sauvegarde locale des changements de statut** — améliore la fluidité perçue, pas de dépendances
-6. **Page mobile non supporté** — quick win, évite les bugs d'affichage sur mobile
-7. **Transitions fade in/out** — polish final, aucune dépendance
+3. **Page mobile non supporté** — quick win, évite les bugs d'affichage sur mobile
+4. **Statistiques globales à la page d'accueil** — améliore la valeur perçue dès l'accueil
+5. **Feedback form dans NavBar** — atomic, collecte des retours utilisateurs tôt
+6. **Filtres adaptés aux colonnes visibles** — atomic, cohérent avec les filtres existants
+7. **Sauvegarde locale des changements de statut** — améliore la fluidité perçue, pas de dépendances
 8. **Confirmation email à l'inscription** — fondation Auth manquante, débloque la confiance utilisateur
 9. **Settings: option migration** — RGPD, low risk, pas de dépendances
-10. **Documents: DB schema & migrations** — fondation Phase 2, débloque tout le reste
-11. **Documents: Backend CRUD routes** — dépend du schéma DB
-12. **Documents: AI service integration** — dépend des routes backend, cœur de la Phase 2
-13. **CV creation wizard** — dépend du service IA
-14. **CV edit / preview / PDF export** — complète le workflow CV
-15. **Cover letter generation wizard** — dépend du service IA, parallélisable avec CV
-16. **Cover letter edit / preview / PDF export** — complète le workflow lettres
-17. **AI chatbot** — feature complémentaire, pas de dépendances critiques, risque le plus élevé
+10. **Onglet Roadmap dans Settings** — quick win, aucune dépendance
+11. **Transitions fade in/out** — polish final, aucune dépendance
+12. **Documents: DB schema & migrations** — fondation Phase 2, débloque tout le reste
+13. **Documents: Backend CRUD routes** — dépend du schéma DB
+14. **Documents: AI service integration** — dépend des routes backend, cœur de la Phase 2
+15. **CV creation wizard** — dépend du service IA
+16. **CV edit / preview / PDF export** — complète le workflow CV
+18. **Cover letter generation wizard** — dépend du service IA, parallélisable avec CV
+19. **Cover letter edit / preview / PDF export** — complète le workflow lettres
+20. **AI chatbot** — feature complémentaire, pas de dépendances critiques, risque le plus élevé
