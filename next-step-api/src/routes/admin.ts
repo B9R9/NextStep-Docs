@@ -267,12 +267,20 @@ adminRoutes.get('/stats/users', async (req: Request, res: Response) => {
   }
 })
 
+const VALID_FEEDBACK_STATUSES = ['new', 'in_progress', 'archived'] as const
+
 // ── GET /admin/stats/feedback ─────────────────────────────────────────────────
 adminRoutes.get('/stats/feedback', async (req: Request, res: Response) => {
   try {
     const page = Math.max(1, Number(req.query.page) || 1)
     const limit = Math.min(100, Number(req.query.limit) || 50)
     const offset = (page - 1) * limit
+    const statusFilter = req.query.status as string | undefined
+
+    let baseQuery = db('user_feedback')
+    if (statusFilter && VALID_FEEDBACK_STATUSES.includes(statusFilter as any)) {
+      baseQuery = baseQuery.where('status', statusFilter)
+    }
 
     const [{ count: total }] = await db('user_feedback').count('* as count')
 
@@ -280,10 +288,14 @@ adminRoutes.get('/stats/feedback', async (req: Request, res: Response) => {
     const bySubject: Record<string, number> = {}
     for (const row of bySubjectRaw) bySubject[row.subject as string] = Number(row.count)
 
+    const byStatusRaw = await db('user_feedback').select('status').count('* as count').groupBy('status')
+    const byStatus: Record<string, number> = {}
+    for (const row of byStatusRaw) byStatus[row.status as string] = Number(row.count)
+
     const [{ count: anonymousCount }] = await db('user_feedback').where('is_anonymous', true).count('* as count')
 
-    const rows = await db('user_feedback')
-      .select('id', 'subject', 'message', 'is_anonymous', 'email', 'created_at')
+    const rows = await baseQuery
+      .select('id', 'subject', 'message', 'is_anonymous', 'email', 'status', 'ticket_number', 'created_at', 'updated_at')
       .orderBy('created_at', 'desc')
       .limit(limit)
       .offset(offset)
@@ -294,11 +306,40 @@ adminRoutes.get('/stats/feedback', async (req: Request, res: Response) => {
       limit,
       anonymousCount: Number(anonymousCount),
       bySubject,
+      byStatus,
       rows,
     })
   } catch (err) {
     console.error('[admin.feedback] failed', err)
     return res.status(500).json({ message: 'Failed to fetch feedback' })
+  }
+})
+
+// ── PATCH /admin/feedback/:id ─────────────────────────────────────────────────
+adminRoutes.patch('/feedback/:id', async (req: Request, res: Response) => {
+  try {
+    const id = Number(req.params.id)
+    const { status, ticket_number } = req.body as { status?: string; ticket_number?: string }
+
+    if (status && !VALID_FEEDBACK_STATUSES.includes(status as any)) {
+      return res.status(400).json({ message: 'Invalid status' })
+    }
+
+    const update: Record<string, unknown> = { updated_at: new Date() }
+    if (status) update.status = status
+    if (ticket_number !== undefined) update.ticket_number = ticket_number || null
+
+    const count = await db('user_feedback').where('id', id).update(update)
+    if (count === 0) return res.status(404).json({ message: 'Feedback not found' })
+
+    const [row] = await db('user_feedback')
+      .where('id', id)
+      .select('id', 'subject', 'message', 'is_anonymous', 'email', 'status', 'ticket_number', 'created_at', 'updated_at')
+
+    return res.json(row)
+  } catch (err) {
+    console.error('[admin.feedback.patch] failed', err)
+    return res.status(500).json({ message: 'Failed to update feedback' })
   }
 })
 

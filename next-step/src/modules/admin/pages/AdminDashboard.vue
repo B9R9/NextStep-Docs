@@ -70,7 +70,7 @@ onMounted(() => store.loadAll())
         </div>
 
         <!-- Feedback -->
-        <AdminFeedbackPanel v-if="store.feedback" :feedback="store.feedback" />
+        <AdminFeedbackPanel v-if="store.feedback" :feedback="store.feedback" @reload="store.loadAll()" />
       </template>
 
     </div>

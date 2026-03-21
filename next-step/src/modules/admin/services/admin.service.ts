@@ -67,13 +67,18 @@ export type AdminChurn = {
   avgJobsAtDeletion: number
 }
 
+export type FeedbackStatus = 'new' | 'in_progress' | 'archived'
+
 export type AdminFeedbackRow = {
   id: number
   subject: string
   message: string
   is_anonymous: boolean
   email: string | null
+  status: FeedbackStatus
+  ticket_number: string | null
   created_at: string
+  updated_at: string
 }
 
 export type AdminFeedback = {
@@ -82,6 +87,7 @@ export type AdminFeedback = {
   limit: number
   anonymousCount: number
   bySubject: Record<string, number>
+  byStatus: Record<string, number>
   rows: AdminFeedbackRow[]
 }
 
@@ -114,7 +120,15 @@ export const fetchEvents = async (params?: Record<string, string>) => {
   return data
 }
 
-export const fetchFeedback = async (page = 1, limit = 50): Promise<AdminFeedback> => {
-  const { data } = await http.get('/admin/stats/feedback', { params: { page, limit } })
+export const fetchFeedback = async (page = 1, limit = 50, status?: string): Promise<AdminFeedback> => {
+  const { data } = await http.get('/admin/stats/feedback', { params: { page, limit, status } })
+  return data
+}
+
+export const updateFeedbackStatus = async (
+  id: number,
+  payload: { status?: string; ticket_number?: string }
+): Promise<AdminFeedbackRow> => {
+  const { data } = await http.patch(`/admin/feedback/${id}`, payload)
   return data
 }
