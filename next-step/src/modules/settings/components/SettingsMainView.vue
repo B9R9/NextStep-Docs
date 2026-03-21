@@ -303,35 +303,34 @@ const handleDeleteAccount = async () => {
       </div>
     </section>
 
-  </div>
-
-  <SharedModal :open="isDeleteDialogOpen" :title="t('settings.account.deleteDialog.title')" @close="closeDeleteDialog">
-    <div class="space-y-4 text-sm">
-      <p class="text-danger font-medium">{{ t('settings.account.deleteDialog.warning') }}</p>
-      <label class="block text-xs font-semibold text-muted">
-        {{ t('settings.account.deleteDialog.passwordLabel') }}
-        <input
-          v-model="deletePassword"
-          type="password"
-          class="ns-input mt-1 w-full"
-          autocomplete="current-password"
-          @keydown.enter="handleDeleteAccount"
-        />
-      </label>
-      <p v-if="deleteError" class="text-xs text-danger">{{ deleteError }}</p>
-      <div class="flex justify-end gap-2 pt-1">
-        <button class="ns-btn ns-btn-ghost" type="button" @click="closeDeleteDialog">
-          {{ t('common.cancel') }}
-        </button>
-        <button
-          class="ns-btn ns-btn-primary bg-danger border-danger hover:bg-danger/90"
-          type="button"
-          :disabled="isDeletingAccount || !deletePassword"
-          @click="handleDeleteAccount"
-        >
-          {{ t('settings.account.deleteDialog.confirm') }}
-        </button>
+    <SharedModal :open="isDeleteDialogOpen" :title="t('settings.account.deleteDialog.title')" @close="closeDeleteDialog">
+      <div class="space-y-4 text-sm">
+        <p class="text-danger font-medium">{{ t('settings.account.deleteDialog.warning') }}</p>
+        <label class="block text-xs font-semibold text-muted">
+          {{ t('settings.account.deleteDialog.passwordLabel') }}
+          <input
+            v-model="deletePassword"
+            type="password"
+            class="ns-input mt-1 w-full"
+            autocomplete="current-password"
+            @keydown.enter="handleDeleteAccount"
+          />
+        </label>
+        <p v-if="deleteError" class="text-xs text-danger">{{ deleteError }}</p>
+        <div class="flex justify-end gap-2 pt-1">
+          <button class="ns-btn ns-btn-ghost" type="button" @click="closeDeleteDialog">
+            {{ t('common.cancel') }}
+          </button>
+          <button
+            class="ns-btn ns-btn-primary bg-danger border-danger hover:bg-danger/90"
+            type="button"
+            :disabled="isDeletingAccount || !deletePassword"
+            @click="handleDeleteAccount"
+          >
+            {{ t('settings.account.deleteDialog.confirm') }}
+          </button>
+        </div>
       </div>
-    </div>
-  </SharedModal>
+    </SharedModal>
+  </div>
 </template>

@@ -176,9 +176,10 @@ const saveCompany = async (company: Company) => {
 </script>
 
 <template>
-  <div v-if="open" class="fixed inset-0 z-50 flex items-center justify-center px-4">
+  <div v-if="open" class="fixed inset-0 z-50">
     <div class="absolute inset-0 bg-black/40"></div>
-    <div class="relative w-full max-w-6xl h-[90vh]">
+    <div class="absolute inset-x-0 top-16 bottom-[3.25rem] flex items-center justify-center px-4 py-4">
+    <div class="relative w-full max-w-6xl h-full">
       <div class="ns-card h-full">
         <div class="ns-card-body flex h-full flex-col gap-4">
           <div class="flex items-start justify-between gap-3">

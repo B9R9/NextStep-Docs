@@ -222,91 +222,91 @@ onMounted(() => {
         </div>
       </div>
     </section>
-  </div>
 
-  <SharedModal :open="isFormOpen" :title="t('calendar.form.title')" @close="isFormOpen = false">
-    <CalendarEventForm @submit="submitEvent" @close="isFormOpen = false" />
-  </SharedModal>
+    <SharedModal :open="isFormOpen" :title="t('calendar.form.title')" @close="isFormOpen = false">
+      <CalendarEventForm @submit="submitEvent" @close="isFormOpen = false" />
+    </SharedModal>
 
-  <JobsPreviewDialog
-    :open="isJobPreviewOpen"
-    :row="selectedJob"
-    @close="closePreviews"
-  />
-  <ApplicationsPreviewDialog
-    :open="isApplicationPreviewOpen"
-    :row="selectedApplication"
-    @close="closePreviews"
-  />
-
-  <SharedModal
-    :open="isEventPreviewOpen"
-    :title="selectedEvent?.title || selectedEvent?.position || t('calendar.event.generic')"
-    @close="closePreviews"
-  >
-    <CalendarEventPreview
-      v-if="selectedEvent"
-      :event="selectedEvent"
-      @edit="openEventEdit"
-      @delete="deleteEvent"
+    <JobsPreviewDialog
+      :open="isJobPreviewOpen"
+      :row="selectedJob"
+      @close="closePreviews"
     />
-  </SharedModal>
+    <ApplicationsPreviewDialog
+      :open="isApplicationPreviewOpen"
+      :row="selectedApplication"
+      @close="closePreviews"
+    />
 
-  <SharedModal
-    :open="isEventEditOpen"
-    :title="t('calendar.form.edit')"
-    @close="closePreviews"
-  >
-    <div v-if="selectedEvent" class="space-y-3 text-sm">
-      <label class="grid gap-1">
-        <span class="text-xs text-muted">{{ t('calendar.form.name') }}</span>
-        <input v-model="selectedEvent.title" class="ns-input" />
-      </label>
-      <label class="grid gap-1">
-        <span class="text-xs text-muted">{{ t('calendar.form.type') }}</span>
-        <select v-model="selectedEvent.type" class="ns-input">
-          <option value="deadline">{{ t('calendar.form.types.deadline') }}</option>
-          <option value="event">{{ t('calendar.form.types.event') }}</option>
-          <option value="published">{{ t('calendar.form.types.published') }}</option>
-        </select>
-      </label>
-      <label class="grid gap-1">
-        <span class="text-xs text-muted">{{ t('calendar.form.description') }}</span>
-        <textarea v-model="selectedEvent.description" class="ns-textarea text-xs"></textarea>
-      </label>
-      <label class="grid gap-1">
-        <span class="text-xs text-muted">{{ t('calendar.form.date') }}</span>
-        <input v-model="selectedEvent.date" type="date" class="ns-input" />
-      </label>
-      <div class="grid gap-1">
-        <span class="text-xs text-muted">{{ t('calendar.form.reminder') }}</span>
-        <ReminderDaysPicker
-          :model-value="selectedEvent.reminder_days ?? null"
-          @update:model-value="selectedEvent!.reminder_days = $event"
-        />
-      </div>
-      <div class="flex justify-end gap-2 pt-2">
-        <button class="ns-btn ns-btn-ghost" type="button" @click="closePreviews">
-          {{ t('common.close') }}
-        </button>
-        <button class="ns-btn ns-btn-primary" type="button" @click="saveEventEdit">
-          {{ t('common.save') }}
-        </button>
-      </div>
-    </div>
-  </SharedModal>
-
-  <Transition name="feedback-toast">
-    <div
-      v-if="feedback"
-      class="fixed bottom-5 left-1/2 z-[70] w-[min(92vw,30rem)] -translate-x-1/2 rounded-xl border px-4 py-3 shadow-paper backdrop-blur-sm"
-      :class="feedbackClass"
-      role="status"
-      aria-live="polite"
+    <SharedModal
+      :open="isEventPreviewOpen"
+      :title="selectedEvent?.title || selectedEvent?.position || t('calendar.event.generic')"
+      @close="closePreviews"
     >
-      <p class="text-sm font-medium">{{ feedback.message }}</p>
-    </div>
-  </Transition>
+      <CalendarEventPreview
+        v-if="selectedEvent"
+        :event="selectedEvent"
+        @edit="openEventEdit"
+        @delete="deleteEvent"
+      />
+    </SharedModal>
+
+    <SharedModal
+      :open="isEventEditOpen"
+      :title="t('calendar.form.edit')"
+      @close="closePreviews"
+    >
+      <div v-if="selectedEvent" class="space-y-3 text-sm">
+        <label class="grid gap-1">
+          <span class="text-xs text-muted">{{ t('calendar.form.name') }}</span>
+          <input v-model="selectedEvent.title" class="ns-input" />
+        </label>
+        <label class="grid gap-1">
+          <span class="text-xs text-muted">{{ t('calendar.form.type') }}</span>
+          <select v-model="selectedEvent.type" class="ns-input">
+            <option value="deadline">{{ t('calendar.form.types.deadline') }}</option>
+            <option value="event">{{ t('calendar.form.types.event') }}</option>
+            <option value="published">{{ t('calendar.form.types.published') }}</option>
+          </select>
+        </label>
+        <label class="grid gap-1">
+          <span class="text-xs text-muted">{{ t('calendar.form.description') }}</span>
+          <textarea v-model="selectedEvent.description" class="ns-textarea text-xs"></textarea>
+        </label>
+        <label class="grid gap-1">
+          <span class="text-xs text-muted">{{ t('calendar.form.date') }}</span>
+          <input v-model="selectedEvent.date" type="date" class="ns-input" />
+        </label>
+        <div class="grid gap-1">
+          <span class="text-xs text-muted">{{ t('calendar.form.reminder') }}</span>
+          <ReminderDaysPicker
+            :model-value="selectedEvent.reminder_days ?? null"
+            @update:model-value="selectedEvent!.reminder_days = $event"
+          />
+        </div>
+        <div class="flex justify-end gap-2 pt-2">
+          <button class="ns-btn ns-btn-ghost" type="button" @click="closePreviews">
+            {{ t('common.close') }}
+          </button>
+          <button class="ns-btn ns-btn-primary" type="button" @click="saveEventEdit">
+            {{ t('common.save') }}
+          </button>
+        </div>
+      </div>
+    </SharedModal>
+
+    <Transition name="feedback-toast">
+      <div
+        v-if="feedback"
+        class="fixed bottom-5 left-1/2 z-[70] w-[min(92vw,30rem)] -translate-x-1/2 rounded-xl border px-4 py-3 shadow-paper backdrop-blur-sm"
+        :class="feedbackClass"
+        role="status"
+        aria-live="polite"
+      >
+        <p class="text-sm font-medium">{{ feedback.message }}</p>
+      </div>
+    </Transition>
+  </div>
 </template>
 
 <style scoped>
