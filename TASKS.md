@@ -56,8 +56,6 @@
 
 ### 🟢 Low priority
 
-- **Transitions fade in/out plus smooth**
-  - 📋 Frontend: ajouter transitions CSS sur les changements de vue et dialog open/close
 
 ---
 
