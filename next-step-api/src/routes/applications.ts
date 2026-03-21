@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { db } from '../db/knex'
+import { trackEvent, getSessionId } from '../utils/track'
 
 export const applicationsRoutes = Router()
 
@@ -227,6 +228,8 @@ applicationsRoutes.post('/', async (req, res) => {
       console.error('[applications.post] syncCalendarEvents failed', err)
     }
 
+    trackEvent({ userId, event: 'application.created', category: 'applications', metadata: { status: created.status, hasCV: created.hasCV, hasCL: created.hasCL, company_id: created.company_id }, sessionId: getSessionId(req), ip: req.ip, userAgent: req.headers['user-agent'] })
+
     return res.json(created)
   } catch (error) {
     console.error('[applications.post] failed', error)
@@ -276,6 +279,8 @@ applicationsRoutes.put('/:id', async (req, res) => {
     } catch (err) {
       console.error('[applications.put] syncCalendarEvents failed', err)
     }
+
+    trackEvent({ userId, event: 'application.updated', category: 'applications', metadata: { status: updated.status }, sessionId: getSessionId(req), ip: req.ip, userAgent: req.headers['user-agent'] })
 
     return res.json(updated)
   } catch (error) {
@@ -362,6 +367,8 @@ applicationsRoutes.delete('/:id', async (req, res) => {
 
   await db('calendar_events').where({ user_id: userId, applicationId: Number(id) }).del()
   await db('applications').where({ id, user_id: userId }).del()
+
+  trackEvent({ userId, event: 'application.deleted', category: 'applications', metadata: { status: existing.status }, sessionId: getSessionId(req), ip: req.ip, userAgent: req.headers['user-agent'] })
 
   await createNotification(
     userId,

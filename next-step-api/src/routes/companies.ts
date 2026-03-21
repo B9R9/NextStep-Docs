@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { db } from '../db/knex'
+import { trackEvent, getSessionId } from '../utils/track'
 
 export const companiesRoutes = Router()
 
@@ -124,6 +125,7 @@ companiesRoutes.post('/', async (req, res) => {
     'event'
   )
 
+  trackEvent({ userId, event: 'company.created', category: 'companies', metadata: { industry: created.industry }, sessionId: getSessionId(req), ip: req.ip, userAgent: req.headers['user-agent'] })
   return res.json(created)
 })
 
@@ -147,6 +149,7 @@ companiesRoutes.put('/:id', async (req, res) => {
     'event'
   )
 
+  trackEvent({ userId, event: 'company.updated', category: 'companies', sessionId: getSessionId(req), ip: req.ip, userAgent: req.headers['user-agent'] })
   return res.json(updated)
 })
 
@@ -162,6 +165,7 @@ companiesRoutes.delete('/:id', async (req, res) => {
   }
 
   await db('companies').where({ id, user_id: userId }).del()
+  trackEvent({ userId, event: 'company.deleted', category: 'companies', sessionId: getSessionId(req), ip: req.ip, userAgent: req.headers['user-agent'] })
 
   await createNotification(
     userId,

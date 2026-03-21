@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { db } from '../db/knex'
+import { trackEvent, getSessionId } from '../utils/track'
 
 export const calendarRoutes = Router()
 
@@ -105,7 +106,7 @@ export const createCalendarEvent = async (
 calendarRoutes.post('/events', async (req, res) => {
   const userId = Number((req as any).user.id)
   const created = await createCalendarEvent(userId, req.body as Record<string, unknown>)
-
+  trackEvent({ userId, event: 'calendar_event.created', category: 'calendar', metadata: { type: created.type }, sessionId: getSessionId(req), ip: req.ip, userAgent: req.headers['user-agent'] })
   return res.json(created)
 })
 
@@ -129,6 +130,7 @@ calendarRoutes.put('/events/:id', async (req, res) => {
     'event'
   )
 
+  trackEvent({ userId, event: 'calendar_event.updated', category: 'calendar', sessionId: getSessionId(req), ip: req.ip, userAgent: req.headers['user-agent'] })
   return res.json(updated)
 })
 
@@ -141,6 +143,7 @@ calendarRoutes.delete('/events/:id', async (req, res) => {
   }
 
   await db('calendar_events').where({ id, user_id: userId }).del()
+  trackEvent({ userId, event: 'calendar_event.deleted', category: 'calendar', sessionId: getSessionId(req), ip: req.ip, userAgent: req.headers['user-agent'] })
 
   await createNotification(
     userId,

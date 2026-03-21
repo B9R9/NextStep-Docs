@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { db } from '../db/knex'
 import { createCalendarEvent } from './calendar'
+import { trackEvent, getSessionId } from '../utils/track'
 
 export const jobsRoutes = Router()
 const useFakeJobs = process.env.FAKE_JOBS === 'true'
@@ -339,6 +340,8 @@ jobsRoutes.post('/', async (req, res) => {
     'event'
   )
 
+  trackEvent({ userId, event: 'job.created', category: 'jobs', metadata: { company_id: payload.company_id, contract: payload.contract, industry: payload.industry }, sessionId: getSessionId(req), ip: req.ip, userAgent: req.headers['user-agent'] })
+
   const createdWithCompany = await fetchJobWithCompany(userId, Number(created.id))
   return res.json(createdWithCompany ?? created)
 })
@@ -403,6 +406,8 @@ jobsRoutes.put('/:id', async (req, res) => {
   )
 
   const updatedWithCompany = await fetchJobWithCompany(userId, Number(updated.id))
+  trackEvent({ userId, event: 'job.updated', category: 'jobs', sessionId: getSessionId(req), ip: req.ip, userAgent: req.headers['user-agent'] })
+
   return res.json(updatedWithCompany ?? updated)
 })
 
@@ -427,6 +432,8 @@ jobsRoutes.delete('/:id', async (req, res) => {
 
   await db('jobs').where({ id, user_id: userId }).del()
   await refreshCompaniesAvailableJobs(userId, [existing.company_id])
+
+  trackEvent({ userId, event: 'job.deleted', category: 'jobs', sessionId: getSessionId(req), ip: req.ip, userAgent: req.headers['user-agent'] })
 
   await createNotification(
     userId,
