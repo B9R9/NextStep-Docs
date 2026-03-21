@@ -4,7 +4,6 @@ import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { me, updateMe, updatePassword, deleteMe } from '@/modules/auth/services/auth.service'
 import SharedModal from '@/shared/components/SharedModal.vue'
-import SettingsRoadmap from './SettingsRoadmap.vue'
 
 const { t } = useI18n()
 const router = useRouter()
@@ -287,17 +286,6 @@ const handleDeleteAccount = async () => {
           </div>
         </section>
 
-      </div>
-    </section>
-
-    <!-- Roadmap -->
-    <section class="ns-card mt-6">
-      <div class="ns-card-body space-y-4">
-        <div>
-          <p class="text-sm font-semibold">Product Roadmap</p>
-          <p class="text-xs text-muted">What we've built and what's coming next.</p>
-        </div>
-        <SettingsRoadmap />
       </div>
     </section>
 

@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import { submitFeedback } from '@/modules/feedback/services/feedback.service'
 import type { FeedbackSubject } from '@/modules/feedback/services/feedback.service'
+import RoadmapModal from './RoadmapModal.vue'
 
 defineProps<{ open: boolean }>()
 const emit = defineEmits<{ (e: 'close'): void }>()
@@ -21,6 +22,7 @@ const isAnonymous = ref(true)
 const isSubmitting = ref(false)
 const submitted = ref(false)
 const error = ref('')
+const isRoadmapOpen = ref(false)
 
 const MIN_LENGTH = 20
 const MAX_LENGTH = 2000
@@ -70,9 +72,14 @@ const handleSubmit = async () => {
             <span class="material-symbols-rounded text-[20px] text-primary">feedback</span>
             <p class="text-sm font-semibold">Send feedback</p>
           </div>
-          <button class="text-muted hover:text-text" @click="close">
-            <span class="material-symbols-rounded text-[20px]">close</span>
-          </button>
+          <div class="flex items-center gap-3">
+            <button class="flex items-center gap-1 text-xs text-muted hover:text-primary" @click="isRoadmapOpen = true">
+              <span class="material-symbols-rounded text-[15px]">rocket_launch</span>
+              Roadmap
+            </button>
+              <span class="material-symbols-rounded text-[20px]">close</span>
+            </button>
+          </div>
         </div>
 
         <!-- Success state -->
@@ -148,4 +155,6 @@ const handleSubmit = async () => {
       </div>
     </div>
   </Teleport>
+
+  <RoadmapModal :open="isRoadmapOpen" @close="isRoadmapOpen = false" />
 </template>
