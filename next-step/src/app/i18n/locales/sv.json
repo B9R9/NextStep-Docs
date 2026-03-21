@@ -232,6 +232,7 @@
       "contract": "Avtal",
       "level": "Nivå",
       "location": "Plats",
+      "locationPlaceholder": "Stad, land",
       "dates": "Datum",
       "publishedAt": "Publicerad",
       "deadlineAt": "Deadline",
@@ -432,6 +433,7 @@
       "title": "Skapa ditt konto",
       "subtitle": "Börja följa jobb och ansökningar idag.",
       "submit": "Skapa konto",
+      "terms": "Genom att skapa ett konto godkänner du vår {privacyLink}.",
       "back": "Tillbaka till inloggning"
     },
     "forgot": {
@@ -673,6 +675,46 @@
       "mad": "Madrid, ES",
       "mil": "Milano, IT",
       "remote": "Distans"
+    }
+  },
+  "legal": {
+    "footer": {
+      "privacy": "Integritetspolicy"
+    },
+    "privacy": {
+      "title": "Integritetspolicy",
+      "updated": "Senast uppdaterad: mars 2026",
+      "back": "Tillbaka",
+      "sections": {
+        "who": {
+          "title": "Vem vi är",
+          "body": "NextStep är en karriärplattform för jobsökare, driven av en ensam grundare. Den hjälper användare att spåra ansökningar, hantera dokument och förbereda sig inför intervjuer. För integritetsrelaterade förfrågningar: baptiste@nextstep.app"
+        },
+        "data": {
+          "title": "Data vi samlar in",
+          "body": "Vid skapande av konto samlar vi in ditt namn, din e-postadress och en hashad version av ditt lösenord. När du använder plattformen lagras data du anger: ansökningar, företag, kalenderhändelser och anteckningar. Vi samlar inte in betalningsuppgifter och säljer aldrig dina data till tredje part."
+        },
+        "use": {
+          "title": "Hur vi använder dina data",
+          "body": "Dina data används uteslutande för att tillhandahålla NextStep-tjänsten: visa dina ansökningar, generera påminnelser och anpassa din upplevelse. Vi samlar också in anonymiserade användningshändelser (sidbesök, funktionsinteraktioner) för att förbättra produkten. Denna interna analys baseras på berättigat intresse och delas aldrig externt."
+        },
+        "storage": {
+          "title": "Cookies & lokal lagring",
+          "body": "Vi använder en HTTP-only-cookie för att upprätthålla din session säkert (refresh-token, 7 dagars giltighet). Din åtkomsttoken lagras enbart i webbläsarens minne och skrivs aldrig till disk. En tillfällig sessionsidentifierare lagras i sessionStorage för intern analys och rensas när du stänger webbläsarfliken. Inga spårningscookies från tredje part används."
+        },
+        "retention": {
+          "title": "Datalagring",
+          "body": "Dina kontouppgifter lagras så länge ditt konto är aktivt. Användningshändelser lagras i 12 månader. Du kan när som helst begära radering av ditt konto och alla tillhörande data."
+        },
+        "rights": {
+          "title": "Dina rättigheter (GDPR)",
+          "body": "Enligt GDPR har du rätt att få tillgång till, korrigera, exportera eller radera dina personuppgifter. Du har också rätt att invända mot behandling som grundar sig på berättigat intresse. För att utöva dessa rättigheter: baptiste@nextstep.app. Vi svarar inom 30 dagar."
+        },
+        "contact": {
+          "title": "Kontakt",
+          "body": "För integritetsrelaterade frågor och förfrågningar: baptiste@nextstep.app"
+        }
+      }
     }
   }
 }

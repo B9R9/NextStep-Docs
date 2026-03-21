@@ -232,6 +232,7 @@
       "contract": "Contract",
       "level": "Level",
       "location": "Location",
+      "locationPlaceholder": "City, country",
       "dates": "Dates",
       "publishedAt": "Published",
       "deadlineAt": "Deadline",
@@ -432,6 +433,7 @@
       "title": "Create your account",
       "subtitle": "Start tracking jobs and applications today.",
       "submit": "Create account",
+      "terms": "By creating an account, you agree to our {privacyLink}.",
       "back": "Back to login"
     },
     "forgot": {
@@ -673,6 +675,46 @@
       "mad": "Madrid, ES",
       "mil": "Milan, IT",
       "remote": "Remote"
+    }
+  },
+  "legal": {
+    "footer": {
+      "privacy": "Privacy Policy"
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "updated": "Last updated: March 2026",
+      "back": "Back",
+      "sections": {
+        "who": {
+          "title": "Who we are",
+          "body": "NextStep is a career platform for job seekers, operated as a solo project. It helps users track applications, manage documents, and prepare for interviews. For any privacy-related request, contact: baptiste@nextstep.app"
+        },
+        "data": {
+          "title": "Data we collect",
+          "body": "When you create an account, we collect your name, email address, and a hashed version of your password. When you use the platform, we store the data you enter: job applications, companies, calendar events, and notes. We do not collect payment data or sell your data to third parties."
+        },
+        "use": {
+          "title": "How we use your data",
+          "body": "Your data is used exclusively to provide the NextStep service: displaying your applications, generating calendar reminders, and personalising your experience. We also collect anonymised usage events (page visits, feature interactions) to improve the product. This internal analytics is based on legitimate interest and is never shared externally."
+        },
+        "storage": {
+          "title": "Cookies & local storage",
+          "body": "We use an HTTP-only cookie to maintain your session securely (refresh token, 7-day validity). Your access token is held in browser memory only and is never written to disk. A temporary session identifier is stored in sessionStorage for internal analytics; it is cleared when you close your browser tab. No third-party tracking cookies are used."
+        },
+        "retention": {
+          "title": "Data retention",
+          "body": "Your account data is retained for as long as your account is active. Usage events are retained for 12 months. You may request deletion of your account and all associated data at any time."
+        },
+        "rights": {
+          "title": "Your rights (GDPR)",
+          "body": "Under the GDPR, you have the right to access, correct, export, or delete your personal data. You also have the right to object to processing based on legitimate interest. To exercise any of these rights, contact us at baptiste@nextstep.app. We will respond within 30 days."
+        },
+        "contact": {
+          "title": "Contact",
+          "body": "For any privacy-related question or request: baptiste@nextstep.app"
+        }
+      }
     }
   }
 }

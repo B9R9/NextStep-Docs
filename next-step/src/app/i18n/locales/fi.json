@@ -232,6 +232,7 @@
       "contract": "Sopimus",
       "level": "Taso",
       "location": "Sijainti",
+      "locationPlaceholder": "Kaupunki, maa",
       "dates": "Päivät",
       "publishedAt": "Julkaistu",
       "deadlineAt": "Deadline",
@@ -432,6 +433,7 @@
       "title": "Luo tilisi",
       "subtitle": "Aloita työpaikkojen ja hakemusten seuranta.",
       "submit": "Luo tili",
+      "terms": "Luomalla tilin hyväksyt {privacyLink}.",
       "back": "Takaisin kirjautumiseen"
     },
     "forgot": {
@@ -673,6 +675,46 @@
       "mad": "Madrid, ES",
       "mil": "Milano, IT",
       "remote": "Etätyö"
+    }
+  },
+  "legal": {
+    "footer": {
+      "privacy": "Tietosuojakäytäntö"
+    },
+    "privacy": {
+      "title": "Tietosuojakäytäntö",
+      "updated": "Viimeksi päivitetty: maaliskuu 2026",
+      "back": "Takaisin",
+      "sections": {
+        "who": {
+          "title": "Keitä olemme",
+          "body": "NextStep on työnhakijoille suunnattu uraplatform, jota ylläpidetään yksityishenkilön toimesta. Se auttaa käyttäjiä seuraamaan hakemuksia, hallinnoimaan asiakirjoja ja valmistautumaan haastatteluihin. Tietosuojaan liittyvät pyynnöt: baptiste@nextstep.app"
+        },
+        "data": {
+          "title": "Keräämämme tiedot",
+          "body": "Tilin luomisen yhteydessä keräämme nimesi, sähköpostiosoitteesi ja salasanasi tiivisteen. Palvelua käyttäessäsi tallennämme syöttämäsi tiedot: hakemukset, yritykset, kalenteritapahtumat ja muistiinpanot. Emme kerää maksutietoja emmekä myy tietojasi kolmansille osapuolille."
+        },
+        "use": {
+          "title": "Tietojesi käyttö",
+          "body": "Tietojasi käytetään yksinomaan NextStep-palvelun tarjoamiseen: hakemustesi näyttämiseen, muistutusten luomiseen ja kokemuksesi personointiin. Keräämme myös anonymisoituja käyttötapahtumia (sivuvierailut, toimintojen käyttö) palvelun kehittämiseksi. Tämä sisäinen analytiikka perustuu oikeutettuun etuun eikä sitä koskaan jaeta ulkopuolisille."
+        },
+        "storage": {
+          "title": "Evästeet ja paikallinen tallennus",
+          "body": "Käytämme HTTP-only-evästettä istuntosi ylläpitämiseen (refresh-token, 7 päivän voimassaolo). Pääsytokenisi säilytetään vain selaimen muistissa eikä sitä kirjoiteta levylle. Väliaikainen istuntotunniste tallennetaan sessionStorageen sisäistä analytiikkaa varten; se poistetaan välilehden sulkemisen yhteydessä. Kolmannen osapuolen seurantaevästeitä ei käytetä."
+        },
+        "retention": {
+          "title": "Tietojen säilytys",
+          "body": "Tilin tietoja säilytetään niin kauan kuin tili on aktiivinen. Käyttötapahtumat säilytetään 12 kuukauden ajan. Voit pyytää tilisi ja kaikkien siihen liittyvien tietojen poistamista milloin tahansa."
+        },
+        "rights": {
+          "title": "Oikeutesi (GDPR)",
+          "body": "GDPR:n nojalla sinulla on oikeus käyttää, korjata, viedä tai poistaa henkilötietojasi. Voit myös vastustaa oikeutettuun etuun perustuvaa käsittelyä. Oikeuksiesi käyttämiseksi: baptiste@nextstep.app. Vastaamme 30 päivän kuluessa."
+        },
+        "contact": {
+          "title": "Yhteystiedot",
+          "body": "Tietosuojaan liittyvät kysymykset ja pyynnöt: baptiste@nextstep.app"
+        }
+      }
     }
   }
 }

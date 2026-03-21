@@ -113,6 +113,7 @@
       "title": "Créer votre compte",
       "subtitle": "Commencez à suivre vos candidatures.",
       "submit": "Créer un compte",
+      "terms": "En créant un compte, vous acceptez notre {privacyLink}.",
       "back": "Retour à la connexion"
     },
     "forgot": {
@@ -443,6 +444,7 @@
       "contract": "Contrat",
       "level": "Niveau",
       "location": "Localisation",
+      "locationPlaceholder": "Ville, pays",
       "dates": "Dates",
       "publishedAt": "Publié",
       "deadlineAt": "Échéance",
@@ -673,6 +675,46 @@
       "mad": "Madrid, ES",
       "mil": "Milan, IT",
       "remote": "Télétravail"
+    }
+  },
+  "legal": {
+    "footer": {
+      "privacy": "Politique de confidentialité"
+    },
+    "privacy": {
+      "title": "Politique de confidentialité",
+      "updated": "Dernière mise à jour : mars 2026",
+      "back": "Retour",
+      "sections": {
+        "who": {
+          "title": "Qui sommes-nous",
+          "body": "NextStep est une plateforme de carrière pour les chercheurs d'emploi, opérée en tant que projet solo. Elle aide les utilisateurs à suivre leurs candidatures, gérer leurs documents et se préparer aux entretiens. Pour toute demande relative à la confidentialité : baptiste@nextstep.app"
+        },
+        "data": {
+          "title": "Données collectées",
+          "body": "Lors de la création d'un compte, nous collectons votre nom, adresse e-mail et un hash de votre mot de passe. En utilisant la plateforme, nous stockons les données que vous saisissez : candidatures, entreprises, événements calendrier et notes. Nous ne collectons pas de données de paiement et ne revendons jamais vos données à des tiers."
+        },
+        "use": {
+          "title": "Utilisation de vos données",
+          "body": "Vos données sont utilisées exclusivement pour fournir le service NextStep : afficher vos candidatures, générer des rappels et personnaliser votre expérience. Nous collectons également des événements d'usage anonymisés (visites de pages, interactions) pour améliorer le produit. Ces analyses internes reposent sur l'intérêt légitime et ne sont jamais partagées."
+        },
+        "storage": {
+          "title": "Cookies & stockage local",
+          "body": "Nous utilisons un cookie HTTP-only pour maintenir votre session de façon sécurisée (refresh token, validité 7 jours). Votre token d'accès est conservé en mémoire navigateur uniquement et n'est jamais écrit sur le disque. Un identifiant de session temporaire est stocké en sessionStorage à des fins d'analyses internes ; il est effacé à la fermeture de l'onglet. Aucun cookie de tracking tiers n'est utilisé."
+        },
+        "retention": {
+          "title": "Conservation des données",
+          "body": "Vos données de compte sont conservées tant que votre compte est actif. Les événements d'usage sont conservés 12 mois. Vous pouvez demander la suppression de votre compte et de toutes les données associées à tout moment."
+        },
+        "rights": {
+          "title": "Vos droits (RGPD)",
+          "body": "Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'export et de suppression de vos données personnelles. Vous pouvez également vous opposer au traitement fondé sur l'intérêt légitime. Pour exercer ces droits : baptiste@nextstep.app. Nous répondrons dans un délai de 30 jours."
+        },
+        "contact": {
+          "title": "Contact",
+          "body": "Pour toute question ou demande relative à la confidentialité : baptiste@nextstep.app"
+        }
+      }
     }
   }
 }
