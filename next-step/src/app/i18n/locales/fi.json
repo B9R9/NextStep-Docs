@@ -325,6 +325,15 @@
   "nav": {
     "calendar": {
       "title": "Kalenteri"
+    },
+    "icons": {
+      "admin": "Ylläpito",
+      "feedback": "Palaute",
+      "calendar": "Kalenteri",
+      "notifications": "Ilmoitukset",
+      "settings": "Asetukset",
+      "logout": "Kirjaudu ulos",
+      "login": "Kirjaudu sisään"
     }
   },
   "notifications": {
