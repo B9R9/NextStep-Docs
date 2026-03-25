@@ -325,6 +325,15 @@
   "nav": {
     "calendar": {
       "title": "Calendar"
+    },
+    "icons": {
+      "admin": "Admin",
+      "feedback": "Feedback",
+      "calendar": "Calendar",
+      "notifications": "Notifications",
+      "settings": "Settings",
+      "logout": "Log out",
+      "login": "Log in"
     }
   },
   "notifications": {

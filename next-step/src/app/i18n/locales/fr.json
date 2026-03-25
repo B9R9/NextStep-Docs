@@ -5,6 +5,15 @@
   "nav": {
     "calendar": {
       "title": "Calendrier"
+    },
+    "icons": {
+      "admin": "Admin",
+      "feedback": "Feedback",
+      "calendar": "Calendrier",
+      "notifications": "Notifications",
+      "settings": "Paramètres",
+      "logout": "Se déconnecter",
+      "login": "Se connecter"
     }
   },
   "notifications": {

@@ -36,11 +36,11 @@
       <!-- Actions -->
       <div class="flex items-center gap-2">
         <LanguageSelector />
-        <IconButton v-if="authStore.isAdmin" label="Admin" icon="admin_panel_settings" @click="router.push('/admin')" />
-        <IconButton label="Feedback" icon="feedback" @click="isFeedbackOpen = true" />
-        <IconButton label="Agenda" icon="calendar_today" @click="toggleCalendar" />
+        <IconButton v-if="authStore.isAdmin" :label="t('nav.icons.admin')" icon="admin_panel_settings" @click="router.push('/admin')" />
+        <IconButton :label="t('nav.icons.feedback')" icon="feedback" @click="isFeedbackOpen = true" />
+        <IconButton :label="t('nav.icons.calendar')" icon="calendar_today" @click="toggleCalendar" />
         <div class="relative" data-notifications-trigger>
-          <IconButton label="Notifications" icon="notifications" @click.stop="toggleNotifications" />
+          <IconButton :label="t('nav.icons.notifications')" icon="notifications" @click.stop="toggleNotifications" />
           <span
             v-if="notificationsStore.unreadCount > 0"
             class="absolute right-1 top-1 h-2.5 w-2.5 rounded-full"
@@ -55,9 +55,9 @@
             @dismiss-all="notificationsStore.dismissAll()"
           />
         </div>
-        <IconButton label="Paramètres" icon="settings" @click="openSettings" />
-        <IconButton v-if="isLoggedIn" label="Se déconnecter" icon="logout" @click="logout" />
-        <IconButton v-else label="Se connecter" icon="login" variant="primary" @click="router.push('/login')" />
+        <IconButton :label="t('nav.icons.settings')" icon="settings" @click="openSettings" />
+        <IconButton v-if="isLoggedIn" :label="t('nav.icons.logout')" icon="logout" @click="logout" />
+        <IconButton v-else :label="t('nav.icons.login')" icon="login" variant="primary" @click="router.push('/login')" />
       </div>
     </div>
   </nav>
@@ -75,6 +75,7 @@ import IconButton from './IconButton.vue'
 import LanguageSelector from './LanguageSelector.vue'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import CalendarModal from '@/modules/calendar/components/CalendarModal.vue'
 import FeedbackModal from './FeedbackModal.vue'
 import NotificationsPanel from '@/modules/notifications/components/NotificationsPanel.vue'
@@ -82,6 +83,7 @@ import { logout as authLogout } from '@/modules/auth/services/auth.service'
 import { useAuthStore } from '@/modules/auth/store/useAuthStore'
 import { useNotificationsStore } from '@/modules/notifications/store/useNotificationsStore'
 
+const { t } = useI18n()
 const router = useRouter()
 const route = useRoute()
 const isCalendarOpen = ref(false)
