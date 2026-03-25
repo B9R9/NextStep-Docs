@@ -24,7 +24,9 @@ modules/auth/
 | `login(email, password)` | POST `/auth/login` → retourne `{ user, accessToken }` |
 | `register(data)` | POST `/auth/register` → retourne `{ user, accessToken }` |
 | `refresh()` | POST `/auth/refresh` → retourne un nouvel `accessToken` depuis le cookie |
-| `me()` | GET `/auth/me` → retourne l'utilisateur courant |
+| `me()` | GET `/auth/me` → retourne `{ id, email, name, preferred_language }` |
+| `updateMe({ name?, email?, preferred_language? })` | PATCH `/auth/me` → met à jour le profil, retourne l'utilisateur mis à jour |
+| `updatePassword({ currentPassword, newPassword })` | PATCH `/auth/password` → change le mot de passe avec vérification bcrypt |
 | `logout()` | POST `/auth/logout` → révoque le refresh token, supprime le cookie |
 | `deleteMe(password)` | DELETE `/auth/me` → supprime le compte |
 
@@ -33,7 +35,7 @@ modules/auth/
 | État | Type | Description |
 |---|---|---|
 | `accessToken` | `string \| null` | Token JWT 15 min, en mémoire uniquement |
-| `user` | `AuthUser \| null` | Données de l'utilisateur connecté |
+| `user` | `AuthUser \| null` | `{ id, email, name, preferred_language }` |
 | `isAdmin` | `boolean` | Accès au dashboard admin |
 
 | Getter | Description |
