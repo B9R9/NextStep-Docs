@@ -355,6 +355,7 @@
       "name": "Full name",
       "email": "Email",
       "timezone": "Timezone",
+      "preferredLanguage": "Preferred language",
       "changePassword": "Change password",
       "currentPassword": "Current password",
       "newPassword": "New password",

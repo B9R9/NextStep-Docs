@@ -355,6 +355,7 @@
       "name": "Koko nimi",
       "email": "Sähköposti",
       "timezone": "Aikavyöhyke",
+      "preferredLanguage": "Ensisijainen kieli",
       "changePassword": "Vaihda salasana",
       "currentPassword": "Nykyinen salasana",
       "newPassword": "Uusi salasana",

@@ -6,6 +6,7 @@ import { login } from '../services/auth.service'
 import { useAuthStore } from '../store/useAuthStore'
 import { checkAdminAccess } from '@/modules/admin/services/admin.service'
 import { useRemindersStore } from '@/modules/reminders/store/useRemindersStore'
+import { i18n, SESSION_LOCALE_KEY } from '@/app/i18n'
 
 const { t } = useI18n()
 const router = useRouter()
@@ -27,6 +28,10 @@ const handleLogin = async () => {
   try {
     const { user, accessToken } = await login({ email: email.value, password: password.value })
     authStore.setSession(accessToken, user)
+    if (user.preferred_language) {
+      i18n.global.locale.value = user.preferred_language as any
+      localStorage.setItem(SESSION_LOCALE_KEY, user.preferred_language)
+    }
     try { await checkAdminAccess(); authStore.setAdmin(true) } catch { authStore.setAdmin(false) }
     router.push('/applications')
     useRemindersStore().checkAndShowPopup()

@@ -6,6 +6,7 @@
 
 ## March 2026
 
+- ✅ Production deployment (Render + Vercel) — TypeScript types in dependencies, migrate at start, CORS_ORIGIN env var, VITE_API_BASE_URL, SameSite=None cookie fix — completed 2026-03-23
 - ✅ Filtres adaptés aux colonnes visibles — location filter (multiselect Jobs, text input Companies, server-side backend) — completed 2026-03-21
 - ✅ Modal redimensionnement — tous les modals contraints entre navbar (top-16) et footer (bottom-[3.25rem]), correction fragment Vue — completed 2026-03-21
 - ✅ Locations autocomplete — remplacement des villes hardcodées par Photon OSM API (backend + MSW handler + Jobs/Companies forms) — completed 2026-03-21

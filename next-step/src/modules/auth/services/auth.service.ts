@@ -4,6 +4,7 @@ export type AuthUser = {
   id: number
   email: string
   name: string
+  preferred_language: string | null
 }
 
 type AuthResponse = {
@@ -35,7 +36,7 @@ export const me = async () => {
   return data
 }
 
-export const updateMe = async (payload: { name?: string; email?: string }) => {
+export const updateMe = async (payload: { name?: string; email?: string; preferred_language?: string }) => {
   const { data } = await http.patch<AuthUser>('/auth/me', payload)
   return data
 }

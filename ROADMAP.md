@@ -1,6 +1,6 @@
 # Next Step — Roadmap
 
-> Last updated: 2026-03-21
+> Last updated: 2026-03-23
 
 ---
 
@@ -61,17 +61,7 @@ Progress:
 
 ---
 
-## Phase 3 — Monetization (0.4.0)
-**Status:** Planned
-
-Mise en place d'un modèle d'abonnement offrant plus d'espace de stockage (documents, CV, lettres) et fonctionnalités premium. Détails à affiner.
-
-Progress:
-- 📋 À définir
-
----
-
-## Phase 4 — Profilage & Matching
+## Phase 3 — Profilage & Matching (0.4.0)
 **Status:** Planned
 
 L'IA analyse le profil de compétences de l'utilisateur (soft & hard skills) et le compare aux offres d'emploi pour donner un taux de compatibilité. L'utilisateur peut adapter son CV et ses candidatures en conséquence.
@@ -82,7 +72,7 @@ Progress:
 
 ---
 
-## Phase 5 — Community & Ecosystem
+## Phase 4 — Community & Ecosystem (0.5.0)
 **Status:** Planned
 
 Création d'un écosystème autour de la plateforme : ressources et articles de blog générés par IA, forum d'entraide entre chercheurs d'emploi, et partenariats avec entreprises et recruteurs pour du contenu exclusif.
@@ -94,7 +84,7 @@ Progress:
 
 ---
 
-## Phase 6 — Recruiter Interface
+## Phase 5 — Recruiter Interface (0.6.0)
 **Status:** Planned
 
 Interface dédiée aux recruteurs pour accéder au pipeline de candidats, gérer les offres et interagir avec les candidats directement depuis la plateforme. Détails à affiner.
@@ -104,7 +94,7 @@ Progress:
 
 ---
 
-## Phase 7 — Suivi Période d'Essai
+## Phase 6 — Suivi Période d'Essai (0.7.0)
 **Status:** Planned
 
 Module de suivi post-embauche : objectifs à 30/60/90 jours, journal de bord, feedbacks périodiques. Accompagne l'utilisateur au-delà de la signature du contrat. Détails à affiner.
@@ -114,7 +104,7 @@ Progress:
 
 ---
 
-## Phase 8 — Développement Personnel
+## Phase 7 — Développement Personnel (0.8.0)
 **Status:** Planned
 
 Outils de développement de compétences : recommandations de formations, suivi des progrès, ressources personnalisées selon le profil et les objectifs de l'utilisateur. Détails à affiner.
@@ -124,7 +114,7 @@ Progress:
 
 ---
 
-## Phase 9 — Mobile App
+## Phase 8 — Mobile App (0.9.0)
 **Status:** Planned
 
 Application mobile native (iOS / Android) ou PWA offrant l'essentiel des fonctionnalités : suivi des candidatures, notifications push, accès rapide au calendrier. Détails à affiner.

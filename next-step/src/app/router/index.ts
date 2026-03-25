@@ -5,6 +5,7 @@ import { refresh, me } from '@/modules/auth/services/auth.service'
 import { checkAdminAccess } from '@/modules/admin/services/admin.service'
 import { useRemindersStore } from '@/modules/reminders/store/useRemindersStore'
 
+
 export const router = createRouter({
   history: createWebHistory(),
   routes,
