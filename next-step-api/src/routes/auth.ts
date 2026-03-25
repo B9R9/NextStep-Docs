@@ -51,14 +51,21 @@ const loginSchema = z.object({
   password: z.string().min(6),
 })
 
+const VALID_LOCALES = ['en', 'fr', 'fi', 'sv'] as const
+
 const updateMeSchema = z
   .object({
     name: z.string().min(1).optional(),
     email: z.string().email().optional(),
+    preferred_language: z.enum(VALID_LOCALES).optional(),
   })
-  .refine((payload) => payload.name !== undefined || payload.email !== undefined, {
-    message: 'At least one field is required',
-  })
+  .refine(
+    (payload) =>
+      payload.name !== undefined ||
+      payload.email !== undefined ||
+      payload.preferred_language !== undefined,
+    { message: 'At least one field is required' },
+  )
 
 const updatePasswordSchema = z.object({
   currentPassword: z.string().min(1),
@@ -185,7 +192,7 @@ authRoutes.get('/me', authMiddleware, async (req: Request, res: Response) => {
   const userId = (req as any).user?.id
   if (!userId) return res.status(401).json({ message: 'Unauthorized' })
   const user = await db('users').where({ id: userId }).first()
-  return res.json({ id: user.id, email: user.email, name: user.name })
+  return res.json({ id: user.id, email: user.email, name: user.name, preferred_language: user.preferred_language ?? null })
 })
 
 authRoutes.patch('/me', authMiddleware, async (req: Request, res: Response) => {
@@ -197,13 +204,15 @@ authRoutes.patch('/me', authMiddleware, async (req: Request, res: Response) => {
 
   const parsed = updateMeSchema.safeParse(req.body)
   if (!parsed.success) {
-    console.warn(`[auth.patchMe] invalid payload user=${userId}`)
+    console.warn(`[auth.patchMe] invalid payload user=${userId}`, parsed.error.issues)
     return res.status(400).json({ message: 'Invalid payload' })
   }
 
-  const payload: { name?: string; email?: string } = {}
+  const payload: { name?: string; email?: string; preferred_language?: string } = {}
   if (parsed.data.name !== undefined) payload.name = parsed.data.name.trim()
   if (parsed.data.email !== undefined) payload.email = parsed.data.email.trim().toLowerCase()
+  if (parsed.data.preferred_language !== undefined) payload.preferred_language = parsed.data.preferred_language
+  console.info(`[auth.patchMe] payload user=${userId}`, payload)
 
   if (payload.email) {
     const existing = await db('users')
@@ -219,7 +228,7 @@ authRoutes.patch('/me', authMiddleware, async (req: Request, res: Response) => {
   const [updated] = await db('users')
     .where({ id: userId })
     .update(payload)
-    .returning(['id', 'email', 'name'])
+    .returning(['id', 'email', 'name', 'preferred_language'])
 
   if (!updated) {
     console.warn(`[auth.patchMe] user not found user=${userId}`)

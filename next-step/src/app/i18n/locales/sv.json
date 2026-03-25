@@ -346,6 +346,7 @@
       "name": "Fullständigt namn",
       "email": "E-post",
       "timezone": "Tidszon",
+      "preferredLanguage": "Föredraget språk",
       "changePassword": "Ändra lösenord",
       "currentPassword": "Nuvarande lösenord",
       "newPassword": "Nytt lösenord",

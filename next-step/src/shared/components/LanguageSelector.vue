@@ -62,6 +62,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { SESSION_LOCALE_KEY } from '@/app/i18n'
 
 const { locale, t } = useI18n()
 
@@ -80,6 +81,7 @@ const currentLabel = computed(() => labels[locale.value as (typeof localeOptions
 
 const setLocale = (value: (typeof localeOptions)[number]) => {
   locale.value = value
+  localStorage.setItem(SESSION_LOCALE_KEY, value)
   isExpanded.value = false
   isMobileOpen.value = false
 }

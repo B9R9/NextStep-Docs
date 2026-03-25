@@ -26,6 +26,7 @@
       "name": "Nom complet",
       "email": "Email",
       "timezone": "Fuseau horaire",
+      "preferredLanguage": "Langue préférée",
       "changePassword": "Modifier le mot de passe",
       "currentPassword": "Mot de passe actuel",
       "newPassword": "Nouveau mot de passe",

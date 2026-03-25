@@ -5,8 +5,16 @@ import { useRouter } from 'vue-router'
 import { me, updateMe, updatePassword, deleteMe } from '@/modules/auth/services/auth.service'
 import SharedModal from '@/shared/components/SharedModal.vue'
 import SettingsRemindersSection from '@/modules/reminders/components/SettingsRemindersSection.vue'
+import { i18n } from '@/app/i18n'
 
 const { t } = useI18n()
+
+const LOCALES = [
+  { value: 'en', label: 'English' },
+  { value: 'fr', label: 'Français' },
+  { value: 'fi', label: 'Suomi' },
+  { value: 'sv', label: 'Svenska' },
+]
 const router = useRouter()
 
 const openAccountSection = ref<'profile' | 'password' | null>('profile')
@@ -18,6 +26,7 @@ const toggleAccountSection = (section: 'profile' | 'password') => {
 const profile = ref({
   name: '',
   email: '',
+  preferred_language: null as string | null,
 })
 
 const isSavingProfile = ref(false)
@@ -43,6 +52,7 @@ const loadProfile = async () => {
     const user = await me()
     profile.value.name = user.name
     profile.value.email = user.email
+    profile.value.preferred_language = user.preferred_language ?? 'en'
   } catch {
     saveMessage.value = 'Unable to load profile'
   }
@@ -55,9 +65,12 @@ const saveProfile = async () => {
     const updated = await updateMe({
       name: profile.value.name,
       email: profile.value.email,
+      preferred_language: profile.value.preferred_language ?? undefined,
     })
     profile.value.name = updated.name
     profile.value.email = updated.email
+    profile.value.preferred_language = updated.preferred_language || 'en'
+    i18n.global.locale.value = (updated.preferred_language || 'en') as any
 saveMessage.value = 'Profile saved'
   } catch {
     saveMessage.value = 'Failed to save profile'
@@ -166,7 +179,15 @@ const handleDeleteAccount = async () => {
                     {{ t('settings.account.email') }}
                     <input v-model="profile.email" class="ns-input mt-1 w-full" type="email" />
                   </label>
-<button
+                  <label class="block text-xs font-semibold text-muted">
+                    {{ t('settings.account.preferredLanguage') }}
+                    <select v-model="profile.preferred_language" class="ns-input mt-1 w-full">
+                      <option v-for="locale in LOCALES" :key="locale.value" :value="locale.value">
+                        {{ locale.label }}
+                      </option>
+                    </select>
+                  </label>
+                  <button
                     class="ns-btn ns-btn-primary"
                     type="button"
                     :disabled="isSavingProfile"
@@ -175,6 +196,7 @@ const handleDeleteAccount = async () => {
                     {{ t('settings.save') }}
                   </button>
                   <p v-if="saveMessage" class="text-xs text-muted">{{ saveMessage }}</p>
+
                 </div>
               </div>
 
